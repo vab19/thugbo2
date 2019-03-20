@@ -19,6 +19,8 @@ import javafx.scene.layout.AnchorPane;
  * Birtir dialog fyrir dagskrárlið 
  * @author Ebba Þóra Hvannberg ebba@hi.is
  */
+
+//hallo
 public class SkodaDagskraController implements Initializable {
 
     @FXML

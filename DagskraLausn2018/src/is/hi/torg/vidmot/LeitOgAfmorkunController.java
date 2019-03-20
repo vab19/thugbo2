@@ -141,4 +141,6 @@ public class LeitOgAfmorkunController implements Initializable {
     public static String Klukkustund(String startTime) {
         return startTime.substring(11,13);
     }
+    // prufa 
+    // sja hvort push virki
 }
