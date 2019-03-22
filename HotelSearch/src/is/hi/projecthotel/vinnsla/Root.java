@@ -6,60 +6,11 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.Date;
 
 
-/**
- * <p>Java class for anonymous complex type.
- * 
- * <p>The following schema fragment specifies the expected content contained within this class.
- * 
- * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="results" maxOccurs="unbounded" minOccurs="0">
- *           &lt;complexType>
- *             &lt;complexContent>
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *                 &lt;sequence>
- *                   &lt;element name="title" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                   &lt;element name="originalTitle" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                   &lt;element name="duration" type="{http://www.w3.org/2001/XMLSchema}time"/>
- *                   &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                   &lt;element name="shortDescription" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                   &lt;element name="live" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                   &lt;element name="premier" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                   &lt;element name="startTime" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                   &lt;element name="aspectRatio" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *                   &lt;element name="series">
- *                     &lt;complexType>
- *                       &lt;complexContent>
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *                           &lt;sequence>
- *                             &lt;element name="episode" type="{http://www.w3.org/2001/XMLSchema}byte"/>
- *                             &lt;element name="series" type="{http://www.w3.org/2001/XMLSchema}short"/>
- *                           &lt;/sequence>
- *                         &lt;/restriction>
- *                       &lt;/complexContent>
- *                     &lt;/complexType>
- *                   &lt;/element>
- *                 &lt;/sequence>
- *               &lt;/restriction>
- *             &lt;/complexContent>
- *           &lt;/complexType>
- *         &lt;/element>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
- * </pre>
- * 
- * 
- */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "results"
@@ -69,28 +20,6 @@ public class Root {
 
     protected List<Root.Results> results;
 
-    /**
-     * Gets the value of the results property.
-     * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the results property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getResults().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Root.Results }
-     * 
-     * 
-     */
     public List<Root.Results> getResults() {
         if (results == null) {
             results = new ArrayList<Root.Results>();
@@ -98,46 +27,6 @@ public class Root {
         return this.results;
     }
 
-
-    /**
-     * <p>Java class for anonymous complex type.
-     * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
-     * <pre>
-     * &lt;complexType>
-     *   &lt;complexContent>
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
-     *       &lt;sequence>
-     *         &lt;element name="title" type="{http://www.w3.org/2001/XMLSchema}string"/>
-     *         &lt;element name="originalTitle" type="{http://www.w3.org/2001/XMLSchema}string"/>
-     *         &lt;element name="duration" type="{http://www.w3.org/2001/XMLSchema}time"/>
-     *         &lt;element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/>
-     *         &lt;element name="shortDescription" type="{http://www.w3.org/2001/XMLSchema}string"/>
-     *         &lt;element name="live" type="{http://www.w3.org/2001/XMLSchema}string"/>
-     *         &lt;element name="premier" type="{http://www.w3.org/2001/XMLSchema}string"/>
-     *         &lt;element name="startTime" type="{http://www.w3.org/2001/XMLSchema}string"/>
-     *         &lt;element name="aspectRatio" type="{http://www.w3.org/2001/XMLSchema}string"/>
-     *         &lt;element name="series">
-     *           &lt;complexType>
-     *             &lt;complexContent>
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
-     *                 &lt;sequence>
-     *                   &lt;element name="episode" type="{http://www.w3.org/2001/XMLSchema}byte"/>
-     *                   &lt;element name="series" type="{http://www.w3.org/2001/XMLSchema}short"/>
-     *                 &lt;/sequence>
-     *               &lt;/restriction>
-     *             &lt;/complexContent>
-     *           &lt;/complexType>
-     *         &lt;/element>
-     *       &lt;/sequence>
-     *     &lt;/restriction>
-     *   &lt;/complexContent>
-     * &lt;/complexType>
-     * </pre>
-     * 
-     * 
-     */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
         "hotelId",
@@ -151,42 +40,85 @@ public class Root {
         "review",
         "roomsAvailable"
     })
-    
     public static class Results {
 
         @XmlElement(required = true)
-        protected String title;
-        @XmlElement(required = true)
-        protected String originalTitle;
-        @XmlElement(required = true)
-        @XmlSchemaType(name = "time")
-        protected XMLGregorianCalendar duration;
-        @XmlElement(required = true)
-        protected String description;
-        @XmlElement(required = true)
-        protected String shortDescription;
-        @XmlElement(required = true)
-        protected String live;
-        @XmlElement(required = true)
-        protected String premier;
-        @XmlElement(required = true)
-        protected String startTime;
-        @XmlElement(required = true)
-        protected String aspectRatio;
-        
         private int hotelId;
+        @XmlElement(required = true)
         private String hotelName;
+        @XmlElement(required = true)
         private String address;
+        @XmlElement(required = true)
         private String region;
+        @XmlElement(required = true)
         private int pricePerNight;
-        private int Stars;
+        @XmlElement(required = true)
+        private int stars;
+        @XmlElement(required = true)
         private int rating;
+        @XmlElement(required = true)
         private Review review;
-        
+        @XmlElement(required = true)
+        private roomsAvailable roomsAvailable;
 
+        public int getHotelId() {
+            return hotelId;
+        }
+        
+        public void setHotelId(int val) {
+            this.hotelId = val;
+        }
+        
+        public String getHotelName() {
+            return hotelName;
+        }
+        
+        public void setHotelName(String str) {
+            this.hotelName = str;
+        }
+        
+        public String getAddress() {
+            return address;
+        }
+        
+        public void setAddress(String str) {
+            this.address = str;
+        }
+        
+        public String getRegion() {
+            return region;
+        }
+        
+        public void setRegion(String str) {
+            this.region = str;
+        }
+        
+        public int getPricePerNight() {
+            return pricePerNight;
+        }
+        
+        public void setPricePernight(int val) {
+            this.pricePerNight = val;
+        }
+        
+        public int getStars() {
+            return stars;
+        }
+        
+        public void setStars(int val) {
+            this.stars = val;
+        }
+        
+        public int getRating() {
+            return rating;
+        }
+        
+        public setRating(int val) {
+            this.rating = val;
+        }
+        
         /**
          * Gets the value of the series property.
-         * 
          * @return
          *     possible object is
          *     {@link Root.Results.Series }
@@ -262,9 +194,24 @@ public class Root {
                 this.hotelId = val;
             }
         }
+        
+        
+        @XmlAccessorType(XmlAccessType.FIELD)
+        @XmlType(name = "", propOrder = {
+            "date",
+            "rooms"
+        })
         public static class roomsAvailable {
             private Date date;
             private int rooms;
+            
+            public Date getDate() {
+                return date;
+            }
+            
+            public void setDate(Date val) {
+                this.date = val;
+            }
             
             public int getRooms() {
                 return rooms;
