@@ -51,13 +51,4 @@ public class ObjectFactory {
     public Root.Results createRootResults() {
         return new Root.Results();
     }
-
-    /**
-     * Create an instance of {@link Root.Results.Series }
-     * 
-     */
-    public Root.Results.Series createRootResultsSeries() {
-        return new Root.Results.Series();
-    }
-
 }

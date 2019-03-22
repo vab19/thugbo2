@@ -113,7 +113,7 @@ public class Root {
             return rating;
         }
         
-        public setRating(int val) {
+        public void setRating(int val) {
             this.rating = val;
         }
         
