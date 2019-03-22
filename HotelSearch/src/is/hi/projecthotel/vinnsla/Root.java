@@ -140,17 +140,18 @@ public class Root {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "title",
-        "originalTitle",
-        "duration",
-        "description",
-        "shortDescription",
-        "live",
-        "premier",
-        "startTime",
-        "aspectRatio",
-        "series"
+        "hotelId",
+        "hotelName",
+        "address",
+        "region",
+        "pricePerNight",
+        "distanceDowntown",
+        "stars",
+        "rating",
+        "review",
+        "roomsAvailable"
     })
+    
     public static class Results {
 
         @XmlElement(required = true)
@@ -182,15 +183,6 @@ public class Root {
         private int rating;
         private Review review;
         
-              <xs:element type="xs:int" name="hotelId"/>
-              <xs:element type="xs:string" name="hotelName"/>
-              <xs:element type="xs:string" name="address"/>
-              <xs:element type="xs:string" name="region"/>
-              <xs:element type="xs:int" name="pricePerNight"/>
-              <xs:element type="xs:int" name="distanceDowntown"/>
-              <xs:element type="xs:int" name="stars"/>
-              <xs:element type="xs:int" name="rating"/>
-              <xs:element name="review">
 
         /**
          * Gets the value of the series property.
@@ -203,19 +195,6 @@ public class Root {
         public Root.Results.Review getReview() {
             return review;
         }
-
-        /**
-         * Sets the value of the series property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Root.Results.Series }
-         *     
-         */
-        public void setSeries(Root.Results.review value) {
-            this.series = value;
-        }
-
 
         /**
          * <p>Java class for anonymous complex type.
@@ -246,13 +225,13 @@ public class Root {
         })
         public static class Review {
 
-            private static String reivew;
+            private static String review;
             private static int rating;
             private static int customerId;
             private static int hotelId;
             
             public String getReview() {
-                return reivew;
+                return review;
             }
             
             public void setReview(String str) {
@@ -281,6 +260,18 @@ public class Root {
             
             public void setHotelId(int val) {
                 this.hotelId = val;
+            }
+        }
+        public static class roomsAvailable {
+            private Date date;
+            private int rooms;
+            
+            public int getRooms() {
+                return rooms;
+            }
+            
+            public void setRooms(int val) {
+                this.rooms = val;
             }
         }
     }
