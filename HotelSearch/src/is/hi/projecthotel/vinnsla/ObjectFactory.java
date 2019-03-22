@@ -6,7 +6,7 @@
 //
 
 
-package is.hi.torg.vinnsla;
+package is.hi.projecthotel.vinnsla;
 
 import javax.xml.bind.annotation.XmlRegistry;
 

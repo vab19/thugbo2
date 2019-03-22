@@ -1,5 +1,4 @@
-
-package is.hi.torg.vinnsla;
+package is.hi.projecthotel.vinnsla;
 
 import java.util.LinkedHashSet;
 import javafx.collections.FXCollections;

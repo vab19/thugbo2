@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package is.hi.torg.vidmot;
+package is.hi.projecthotel.vidmot;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,11 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Ebba Þóra Hvannberg ebba@hi.is
- */
-public class TorgMain extends Application {
+public class SearchMain extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -32,6 +23,5 @@ public class TorgMain extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-    }
-    
+    }   
 }

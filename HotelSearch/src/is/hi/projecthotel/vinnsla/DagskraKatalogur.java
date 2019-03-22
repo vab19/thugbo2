@@ -1,7 +1,7 @@
 /*
  * Ebba Þóra Hvannberg, Háskóli Íslands
  */
-package is.hi.torg.vinnsla;
+package is.hi.projecthotel.vinnsla;
 
 import java.io.InputStream;
 import java.util.ArrayList;

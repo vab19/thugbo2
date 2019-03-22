@@ -1,8 +1,8 @@
 
-package is.hi.torg.vidmot;
+package is.hi.projecthotel.vidmot;
 
-import is.hi.torg.vinnsla.DagskraKatalogur;
-import is.hi.torg.vinnsla.Root;
+import is.hi.projecthotel.vinnsla.DagskraKatalogur;
+import is.hi.projecthotel.vinnsla.Root;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
@@ -131,7 +131,5 @@ public class DagskraController implements Initializable {
     ObservableList<Root.Results> heildarListi() {
             ObservableList<Root.Results> obl = FXCollections.observableArrayList(minnKatalogur.getDagskrarLidir());
             return obl;
-    }
-  
-   
+    } 
 }

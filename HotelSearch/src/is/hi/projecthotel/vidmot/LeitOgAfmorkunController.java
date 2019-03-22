@@ -1,8 +1,8 @@
 
-package is.hi.torg.vidmot;
+package is.hi.projecthotel.vidmot;
 
-import is.hi.torg.vinnsla.KlukkustundirModel;
-import is.hi.torg.vinnsla.Root;
+import is.hi.projecthotel.vinnsla.KlukkustundirModel;
+import is.hi.projecthotel.vinnsla.Root;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
@@ -16,11 +16,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.TextField;
 
-/**
- * FXML Controller class
- *
- * @author Ebba Þóra Hvannberg ebba@hi.is
- */
 public class LeitOgAfmorkunController implements Initializable {
      private static final String ALLAN_DAGINN = "allan daginn";
     
@@ -116,8 +111,6 @@ public class LeitOgAfmorkunController implements Initializable {
         return nyrVektor;
     }
 
-      
-   
    /**
      * Velur dagskrárliði sem byrja á ákveðinni klukkustund kl
      * Valið úr heildarlista
@@ -141,6 +134,4 @@ public class LeitOgAfmorkunController implements Initializable {
     public static String Klukkustund(String startTime) {
         return startTime.substring(11,13);
     }
-    // prufa 
-    // sja hvort push virki
 }
