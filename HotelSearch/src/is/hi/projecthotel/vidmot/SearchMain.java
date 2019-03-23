@@ -10,7 +10,7 @@ public class SearchMain extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Dagskra.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("HotelSearch.fxml"));
         
         Scene scene = new Scene(root);
         
