@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import java.util.Date;
+import java.util.Calendar;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
@@ -63,32 +64,17 @@ public class Root {
             return hotelId;
         }
         
-        public void setHotelId(int val) {
-            this.hotelId = val;
-        }
-        
         public String getHotelName() {
             return hotelName;
-        }
-        
-        public void setHotelName(String str) {
-            this.hotelName = str;
         }
         
         public String getAddress() {
             return address;
         }
         
-        public void setAddress(String str) {
-            this.address = str;
-        }
         
         public String getRegion() {
             return region;
-        }
-        
-        public void setRegion(String str) {
-            this.region = str;
         }
         
         public int getPricePerNight() {
@@ -180,23 +166,28 @@ public class Root {
             "rooms"
         })
         public static class roomsAvailable {
-            private Date date;
+            //private Date date;
             private int rooms;
-            
-            public Date getDate() {
-                return date;
+            private int yearLength = 366;
+            int[] available = new int[yearLength];
+            private void roomsAvailable(int rooms) {
+                for(int i=0;i<yearLength;i++) {
+                    available[i] = (int) Math.random()*(rooms+1);
+                }
             }
             
-            public void setDate(Date val) {
-                this.date = val;
+            public boolean isAvailable(Calendar val) {
+              
+                
+                return available[val.get(Calendar.MONTH)*12+val.get(Calendar.DATE)] != 0;
             }
             
-            public int getRooms() {
-                return rooms;
+            public void bookRoom(Calendar val) {
+                available[val.get(Calendar.MONTH)*12+val.get(Calendar.DATE)]--;
             }
             
-            public void setRooms(int val) {
-                this.rooms = val;
+            public void unBookRoom(Calendar val) {
+                available[val.get(Calendar.MONTH)*12+val.get(Calendar.DATE)]++;
             }
         }
     }
