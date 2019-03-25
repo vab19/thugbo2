@@ -26,7 +26,7 @@ public class Root {
     }
 
     @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
+    @XmlType(name = "results", propOrder = {
         "hotelId",
         "hotelName",
         "address",
