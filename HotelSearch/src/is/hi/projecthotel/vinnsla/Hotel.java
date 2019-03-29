@@ -3,8 +3,10 @@ package is.hi.projecthotel.vinnsla;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+/**
+ * 
+ */
 public class Hotel {
-
     private int hotelId;
     private String hotelName;
     private String address;
@@ -98,6 +100,11 @@ public class Hotel {
         calculateRating((double)(r));
     }
     
+    /**
+     * Adds new rating to current average rating and calculates
+     * new average
+     * @param r     Rating from new review
+     */
     public void calculateRating(double r) {
         double temp = rating*(reviewsLength-1);
         rating = (temp+r)/reviewsLength;

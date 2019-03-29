@@ -10,6 +10,9 @@ public class Review {
     private int customerId;    // Identification fyrir notendan
     private int hotelId;       // Identification fyrir hotelið
     
+    /**
+     * Initializes Review
+     */
     public Review() {}
     
     public String getComment() { return comment; }
