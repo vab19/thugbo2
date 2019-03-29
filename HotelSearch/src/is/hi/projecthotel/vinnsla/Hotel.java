@@ -11,8 +11,9 @@ public class Hotel {
     private String region;
     private int pricePerNight;
     private int stars;
-    private int rating;
+    private double rating;
     private ArrayList<Review> reviews;
+    private int reviewsLength;
     private RoomsAvailable roomsAvailable;
     private int initRooms;
     
@@ -25,6 +26,7 @@ public class Hotel {
         initRooms = r;
         initRooms();
         initReviews();
+        reviewsLength = 0;
     }
     
     public int getHotelId() { return hotelId; }
@@ -51,14 +53,33 @@ public class Hotel {
     
     public void setStars(int val) { this.stars = val; }
     
-    public int getRating() { return rating; }
+    public double getRating() { return rating; }
     
-    public void setRating(int val) { this.rating = val; }
+    public void setRating(double val) { this.rating = val; }
 
     public ArrayList getReviews() {
         return reviews;
     }
+
+    /**
+     * Initializes reviews with an empty ArrayList
+     */
+    private void initReviews() {
+        reviews = new ArrayList<Review>();
+    }
     
+     /**
+     * Initializes roomsAvailable for the next 400 days
+     * with value initRooms
+     */
+    private void initRooms() {      
+        LocalDate l = LocalDate.now();
+        roomsAvailable = new RoomsAvailable();
+        for (int i = 0; i < 400; i++) {
+            roomsAvailable.put(l.plusDays(i), initRooms);
+        }
+    }
+       
     /**
      * Creates Review object and adds it to reviews ArrayList
      * @param str     review
@@ -73,25 +94,13 @@ public class Hotel {
         temp.setCustomerId(c);
         temp.setHotelId(h);
         reviews.add(temp);
+        reviewsLength++;
+        calculateRating((double)(r));
     }
     
-    /**
-     * Initializes reviews with an empty ArrayList
-     */
-    private void initReviews() {
-        reviews = new ArrayList<Review>();
-    }
-    
-    /**
-     * Initializes roomsAvailable for the next 400 days
-     * with value initRooms
-     */
-    private void initRooms() {      
-        LocalDate l = LocalDate.now();
-        roomsAvailable = new RoomsAvailable();
-        for (int i = 0; i < 400; i++) {
-            roomsAvailable.put(l.plusDays(i), initRooms);
-        }
+    public void calculateRating(double r) {
+        double temp = rating*(reviewsLength-1);
+        rating = (temp+r)/reviewsLength;
     }
     
     public void printHotel() {
