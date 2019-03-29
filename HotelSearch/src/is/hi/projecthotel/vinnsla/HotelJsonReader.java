@@ -14,7 +14,7 @@ import javax.json.JsonValue;
 public class HotelJsonReader{
     public static final String JSON_FILE="HotelList.json";
     
-    public static init() {
+    public init() {
         InputStream fis = new FileInputStream(FILE_NAME);
 
         JsonReader jsonReader = Json.createReader(fis);
