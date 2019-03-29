@@ -11,10 +11,5 @@
 
 <AnchorPane id="AnchorPane" prefHeight="379.0" prefWidth="587.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.hi.projecthotel.vidmot.HotelSearchController">
    <children>
-      <ScrollPane layoutY="40.0" prefHeight="367.0" prefWidth="407.0">
-         <content>
-            <ListView fx:id="listiHotel" prefHeight="349.0" prefWidth="412.0" />
-         </content>
-      </ScrollPane>
    </children>
 </AnchorPane>
