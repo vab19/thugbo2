@@ -1,6 +1,6 @@
 package is.hi.projecthotel.vidmot;
 
-import is.hi.projecthotel.vinnsla.Root;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
@@ -18,7 +18,7 @@ public class HotelSearchController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Hotel.RoomsAvailable ho = new Hotel.roomsAvailable();
+        //Hotel.RoomsAvailable ho = new Hotel.roomsAvailable();
     }
     
 }
