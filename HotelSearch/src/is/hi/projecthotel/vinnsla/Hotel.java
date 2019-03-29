@@ -12,8 +12,8 @@ public class Hotel {
     private int rating;
     private Review review;
     private RoomsAvailable roomsAvailable;
-    
     private int initRooms;
+    
     
     public int getHotelId() {
         return hotelId;
@@ -71,11 +71,8 @@ public class Hotel {
         }
     }
 
-    
-
-
     public static void main(String[] args) {
-
+        
 
     }
 }
