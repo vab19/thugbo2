@@ -38,9 +38,6 @@ public class HotelTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of getHotelId method, of class Hotel.
-     */
     @Test
     public void testGetHotelId() {
         System.out.println("getHotelId");
@@ -52,9 +49,6 @@ public class HotelTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of setHotelId method, of class Hotel.
-     */
     @Test
     public void testSetHotelId() {
         System.out.println("setHotelId");
@@ -65,9 +59,6 @@ public class HotelTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getHotelName method, of class Hotel.
-     */
     @Test
     public void testGetHotelName() {
         System.out.println("getHotelName");
@@ -79,9 +70,6 @@ public class HotelTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of setHotelName method, of class Hotel.
-     */
     @Test
     public void testSetHotelName() {
         System.out.println("setHotelName");
@@ -92,9 +80,6 @@ public class HotelTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getAddress method, of class Hotel.
-     */
     @Test
     public void testGetAddress() {
         System.out.println("getAddress");
@@ -106,9 +91,6 @@ public class HotelTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of setAddress method, of class Hotel.
-     */
     @Test
     public void testSetAddress() {
         System.out.println("setAddress");
@@ -119,9 +101,6 @@ public class HotelTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getRegion method, of class Hotel.
-     */
     @Test
     public void testGetRegion() {
         System.out.println("getRegion");
@@ -133,9 +112,6 @@ public class HotelTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of setRegion method, of class Hotel.
-     */
     @Test
     public void testSetRegion() {
         System.out.println("setRegion");
@@ -146,9 +122,6 @@ public class HotelTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getPricePerNight method, of class Hotel.
-     */
     @Test
     public void testGetPricePerNight() {
         System.out.println("getPricePerNight");
@@ -160,9 +133,6 @@ public class HotelTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of setPricePernight method, of class Hotel.
-     */
     @Test
     public void testSetPricePernight() {
         System.out.println("setPricePernight");
@@ -173,9 +143,6 @@ public class HotelTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getStars method, of class Hotel.
-     */
     @Test
     public void testGetStars() {
         System.out.println("getStars");
@@ -187,9 +154,6 @@ public class HotelTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of setStars method, of class Hotel.
-     */
     @Test
     public void testSetStars() {
         System.out.println("setStars");
@@ -200,9 +164,6 @@ public class HotelTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getRating method, of class Hotel.
-     */
     @Test
     public void testGetRating() {
         System.out.println("getRating");
@@ -214,9 +175,6 @@ public class HotelTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of setRating method, of class Hotel.
-     */
     @Test
     public void testSetRating() {
         System.out.println("setRating");
@@ -227,9 +185,6 @@ public class HotelTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getReviews method, of class Hotel.
-     */
     @Test
     public void testGetReviews() {
         System.out.println("getReviews");
@@ -241,9 +196,6 @@ public class HotelTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of addReview method, of class Hotel.
-     */
     @Test
     public void testAddReview() {
         System.out.println("addReview");
@@ -257,9 +209,6 @@ public class HotelTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of calculateRating method, of class Hotel.
-     */
     @Test
     public void testCalculateRating() {
         System.out.println("calculateRating");
@@ -270,9 +219,6 @@ public class HotelTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of printHotel method, of class Hotel.
-     */
     @Test
     public void testPrintHotel() {
         System.out.println("printHotel");
@@ -282,9 +228,6 @@ public class HotelTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of main method, of class Hotel.
-     */
     @Test
     public void testMain() {
         System.out.println("main");
