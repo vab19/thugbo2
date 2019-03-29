@@ -10,7 +10,7 @@ public class Hotel {
     private int pricePerNight;
     private int stars;
     private int rating;
-    private Review review;
+    //private Review review;
     private RoomsAvailable roomsAvailable;
     private int initRooms;
     
@@ -19,17 +19,29 @@ public class Hotel {
         return hotelId;
     }
     
+    public void setHotelId(int hotelId){
+        this.hotelId = hotelId;
+    }
+    
     public String getHotelName() {
         return hotelName;
     }
-    
+     public void setHotelName(String hotelName){
+        this.hotelName = hotelName;
+    }
     public String getAddress() {
         return address;
+    }
+      public void setAddress(String address){
+        this.address = address;
     }
     
     
     public String getRegion() {
         return region;
+    }
+     public void setRegion(String region){
+        this.region = region;
     }
     
     public int getPricePerNight() {
