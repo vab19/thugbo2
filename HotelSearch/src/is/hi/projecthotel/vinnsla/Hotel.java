@@ -1,3 +1,5 @@
+
+package is.hi.projecthotel.vinnsla;
 import java.time.LocalDate;
 import java.util.TreeMap;
 

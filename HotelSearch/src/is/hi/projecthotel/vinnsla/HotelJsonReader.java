@@ -1,4 +1,4 @@
-
+package is.hi.projecthotel.vinnsla;
 
 import java.io.FileInputStream;
 import java.io.IOException;
