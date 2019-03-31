@@ -83,6 +83,7 @@ public class RoomsAvailableTest {
      */
     @Test
     public void testIsAvailable() {
+        setUp();
         System.out.println("isAvailable");
         String key = "2019-04-08";
         boolean expResult = true;
