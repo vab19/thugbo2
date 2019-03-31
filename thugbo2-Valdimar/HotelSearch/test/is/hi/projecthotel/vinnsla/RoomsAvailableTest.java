@@ -55,9 +55,9 @@ public class RoomsAvailableTest {
         System.out.println("book");
         String key = "2019-04-04";
         LocalDate k = LocalDate.parse(key);
-        assertEquals(3, r.get(k));
+        assertEquals(3, (int)(r.get(k)));
         r.book(key);
-        assertEquals(2, r.get(k));
+        assertEquals(2, (int)(r.get(k)));
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
