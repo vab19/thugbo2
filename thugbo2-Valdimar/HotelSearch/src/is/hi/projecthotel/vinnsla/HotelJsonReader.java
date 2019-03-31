@@ -1,4 +1,4 @@
-package is.hi.projecthotel.vinnsla;
+/**package is.hi.projecthotel.vinnsla;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -28,10 +28,10 @@ public class HotelJsonReader {
 		*/
 		
 		//get JsonObject from JsonReader
-		JsonObject jsonObject = jsonReader.readObject();
+//		JsonObject jsonObject = jsonReader.readObject();
 		
 		//we can close IO resource and JsonReader now
-		jsonReader.close();
+/*		jsonReader.close();
 		fis.close();
 		
 		
@@ -52,4 +52,4 @@ public class HotelJsonReader {
 		
 	}
 
-}
+}*/

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package is.hi.projecthotel.vinnsla;
 
 import java.time.LocalDate;
@@ -19,7 +15,7 @@ import static org.junit.Assert.*;
  */
 public class RoomsAvailableTest {
     
-    private int initRooms = 3;
+    private final int initRooms = 3;
     private RoomsAvailable r;
     
     public RoomsAvailableTest() {
@@ -44,6 +40,7 @@ public class RoomsAvailableTest {
     
     @After
     public void tearDown() {
+        r = null;
     }
 
     /**
@@ -58,8 +55,7 @@ public class RoomsAvailableTest {
         assertEquals(3, (int)(r.get(k)));
         r.book(key);
         assertEquals(2, (int)(r.get(k)));
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        tearDown();
     }
 
     /**
@@ -74,8 +70,7 @@ public class RoomsAvailableTest {
         assertEquals(3, (int)(r.get(k)));
         r.unBook(key);
         assertEquals(4, (int)(r.get(k)));
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        tearDown();
     }
 
     /**
@@ -93,8 +88,6 @@ public class RoomsAvailableTest {
             r.book(key);
         }
         assertEquals(false, r.isAvailable(key));
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        tearDown();
     }
-
 }
