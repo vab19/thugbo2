@@ -35,7 +35,7 @@ public class HotelJsonReader {
 		jsonReader.close();
 		fis.close();
 		
-		//rrrrrrrrrr
+		
 		Hotel hot = new Hotel(5);
 		
 		hot.setHotelId(jsonObject.getInt("hotelId"));
