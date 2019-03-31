@@ -40,7 +40,8 @@ public class RoomsAvailable extends TreeMap<LocalDate,Integer> {
      * @param l
      * @return True if value on LocalDate l > 0
      */
-    public boolean isAvailable(LocalDate l) {
+    public boolean isAvailable(String key) {
+        LocalDate l = LocalDate.parse(key);
         return get(l)>0;
     }
     

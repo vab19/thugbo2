@@ -15,9 +15,12 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Valdimar Björnsson vab19@hi.is
+ * @author nokkv
  */
 public class RoomsAvailableTest {
+    
+    private int initRooms = 3;
+    private RoomsAvailable r;
     
     public RoomsAvailableTest() {
     }
@@ -32,6 +35,11 @@ public class RoomsAvailableTest {
     
     @Before
     public void setUp() {
+        LocalDate l = LocalDate.now();
+        roomsr = new RoomsAvailable();
+        for (int i = 0; i < 400; i++) {
+            r.put(l.plusDays(i), initRooms);
+        }
     }
     
     @After
@@ -43,10 +51,13 @@ public class RoomsAvailableTest {
      */
     @Test
     public void testBook() {
+        setUp();
         System.out.println("book");
-        String key = "10-10-10";
-        RoomsAvailable instance = new RoomsAvailable();
-        instance.book(key);
+        String key = "2019-04-04";
+        LocalDate k = LocalDate.parse(key);
+        assertEquals(3, r.get(k));
+        r.book(k);
+        assertEquals(2, r.get(k));
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
