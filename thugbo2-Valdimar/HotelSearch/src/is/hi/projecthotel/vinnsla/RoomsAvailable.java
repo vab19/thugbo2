@@ -20,7 +20,7 @@ public class RoomsAvailable extends TreeMap<LocalDate,Integer> {
      */
     public void book(String key) {
         LocalDate l = LocalDate.parse(key);
-        if (isAvailable(l))
+        if (isAvailable(key))
             this.put(l,this.get(l)-1);
     }
 
