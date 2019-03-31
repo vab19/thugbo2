@@ -36,8 +36,8 @@ public class RoomsAvailable extends TreeMap<LocalDate,Integer> {
     }
 
     /**
-     * Checks if room is available on LocalDate l
-     * @param l
+     * Checks if room is available on key parses to LocalDate
+     * @param key
      * @return True if value on LocalDate l > 0
      */
     public boolean isAvailable(String key) {

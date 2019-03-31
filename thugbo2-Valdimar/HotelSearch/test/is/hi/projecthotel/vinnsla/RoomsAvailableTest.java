@@ -36,7 +36,7 @@ public class RoomsAvailableTest {
     @Before
     public void setUp() {
         LocalDate l = LocalDate.now();
-        roomsr = new RoomsAvailable();
+        r = new RoomsAvailable();
         for (int i = 0; i < 400; i++) {
             r.put(l.plusDays(i), initRooms);
         }
@@ -70,7 +70,10 @@ public class RoomsAvailableTest {
         setUp();
         System.out.println("unBook");
         String key = "2019-04-08";
-        instance.unBook(key);
+        LocalDate k = LocalDate.parse(key);
+        assertEquals(3, (int)(r.get(k)));
+        r.unBook(key);
+        assertEquals(4, (int)(r.get(k)));
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
@@ -81,11 +84,14 @@ public class RoomsAvailableTest {
     @Test
     public void testIsAvailable() {
         System.out.println("isAvailable");
-        LocalDate l = null;
-        RoomsAvailable instance = new RoomsAvailable();
-        boolean expResult = false;
-        boolean result = instance.isAvailable(l);
+        String key = "2019-04-08";
+        boolean expResult = true;
+        boolean result = r.isAvailable(key);
         assertEquals(expResult, result);
+        for (int i = 0; i < 3; i++) {
+            r.book(key);
+        }
+        assertEquals(false, r.isAvailable(key));
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
