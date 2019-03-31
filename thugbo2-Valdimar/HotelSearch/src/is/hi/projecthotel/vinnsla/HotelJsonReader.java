@@ -11,7 +11,6 @@ import javax.json.JsonReader;
 import javax.json.JsonValue;
 
 
-
 public class HotelJsonReader {
 
 	public static final String JSON_FILE="HotelList.json";

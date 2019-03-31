@@ -44,11 +44,4 @@ public class RoomsAvailable extends TreeMap<LocalDate,Integer> {
         LocalDate l = LocalDate.parse(key);
         return get(l)>0;
     }
-    
-    public static void main (String[] args) {
-        RoomsAvailable r = new RoomsAvailable();
-        LocalDate l = LocalDate.now();
-        r.put(l, 10);
-
-    }
 }
