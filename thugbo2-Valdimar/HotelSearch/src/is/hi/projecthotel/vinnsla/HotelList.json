@@ -1,0 +1,28 @@
+{
+    "Hotels": [
+      {
+        "hotelId": 1212,
+        "hotelName": "true",
+        "address": "36",
+        "region": "Dunlap Hubbard",
+        "pricePerNight": 11,
+        "stars": 12,
+        "rating": 12,
+        "review": [
+            {
+                "customerId": 1234,
+                "hotelId": 1212,
+                "rating": 11,
+                "comment" "EHEHEHEH",
+
+            }
+        ],
+        "roomsAvailable": [
+            {
+                "rooms": 12,
+                "localdate" : "2019-12-12"
+        }
+        ],
+      },
+    ]
+}
