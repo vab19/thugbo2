@@ -56,7 +56,7 @@ public class RoomsAvailableTest {
         String key = "2019-04-04";
         LocalDate k = LocalDate.parse(key);
         assertEquals(3, r.get(k));
-        r.book(k);
+        r.book(key);
         assertEquals(2, r.get(k));
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -67,9 +67,9 @@ public class RoomsAvailableTest {
      */
     @Test
     public void testUnBook() {
+        setUp();
         System.out.println("unBook");
-        String key = "";
-        RoomsAvailable instance = new RoomsAvailable();
+        String key = "2019-04-08";
         instance.unBook(key);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
