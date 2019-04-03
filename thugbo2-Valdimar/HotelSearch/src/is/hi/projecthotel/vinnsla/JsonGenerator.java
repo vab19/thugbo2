@@ -19,10 +19,21 @@ import java.util.stream.Stream;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class HotelJsonGenerator {
+public class JsonGenerator {
 
-    public void generate() {
+    private static final String PATH = "src/is/hi/projecthotel/gagnagrunnur/HotelList.json";
+    
+    public static void setHotelListJson(ArrayList<Hotel> a) {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {   
+            objectMapper.writeValue(new File(PATH), a);
+        } catch (IOException ex) {
+            Logger.getLogger(JsonGenerator.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public static void main(String[] args) throws IOException {
@@ -38,9 +49,9 @@ public class HotelJsonGenerator {
         int rat = 10;
         int cust = 55;
         h.addReview(rev, rat, cust, 12);
+        h.printHotel();
         ArrayList<Hotel> hotelList = new ArrayList<>();
         hotelList.add(h);
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.writeValue(new File("HotelList.json"), hotelList);
+        setHotelListJson(hotelList);
     }
 }
