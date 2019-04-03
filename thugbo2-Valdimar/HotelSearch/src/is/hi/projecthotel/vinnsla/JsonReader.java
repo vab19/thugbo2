@@ -26,24 +26,24 @@ import java.util.logging.Logger;
 public class JsonReader {
     
     private static final String PATH = "src/is/hi/projecthotel/gagnagrunnur/HotelList.json";
-    private static ArrayList<Hotel> hotelList;
-    
-    public static ArrayList<Hotel> getHotelListJson() {
+
+    public static List<Hotel> getHotelListJson() {
         ObjectMapper objectMapper = new ObjectMapper();
     
         try {
-            hotelList = objectMapper.readValue(new File(PATH), ArrayList.class);
+            List<Hotel> hotelList = objectMapper.readValue(new File(PATH), new TypeReference<List<Hotel>>(){});
+            return hotelList;
         } catch (IOException ex) {
             Logger.getLogger(JsonReader.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        return hotelList;
+        List<Hotel> h = new ArrayList<>();
+        return h;
     }
 
     public static void main(String[] args) throws IOException {
-        ArrayList<Hotel> h = getHotelListJson();
-        Hotel hotel1 = h.get(0);
-        hotel1.printHotel();
+        List<Hotel> h = getHotelListJson();
+        System.out.println(h.get(0));
+        //hotel1.printHotel();
     }
     
 }

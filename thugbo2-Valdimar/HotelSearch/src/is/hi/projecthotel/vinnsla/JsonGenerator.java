@@ -26,7 +26,7 @@ public class JsonGenerator {
 
     private static final String PATH = "src/is/hi/projecthotel/gagnagrunnur/HotelList.json";
     
-    public static void setHotelListJson(ArrayList<Hotel> a) {
+    public static void setHotelListJson(List<Hotel> a) {
         ObjectMapper objectMapper = new ObjectMapper();
 
         try {   
@@ -50,8 +50,9 @@ public class JsonGenerator {
         int cust = 55;
         h.addReview(rev, rat, cust, 12);
         h.printHotel();
-        ArrayList<Hotel> hotelList = new ArrayList<>();
+        List<Hotel> hotelList = new ArrayList<>();
         hotelList.add(h);
+        hotelList.get(0).printHotel();
         setHotelListJson(hotelList);
     }
 }
