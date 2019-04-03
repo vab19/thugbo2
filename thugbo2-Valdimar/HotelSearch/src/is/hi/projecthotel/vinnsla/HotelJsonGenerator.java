@@ -9,7 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.Arrays;
-import java.util.List;
+import java.util.ArrayList;
 
 import java.io.IOException;
 import java.util.List;
@@ -38,8 +38,9 @@ public class HotelJsonGenerator {
         int rat = 10;
         int cust = 55;
         h.addReview(rev, rat, cust, 12);
-     
+        ArrayList<Hotel> hotelList = new ArrayList<>();
+        hotelList.add(h);
         ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.writeValue(new File("Hotel.json"), h);
+        objectMapper.writeValue(new File("HotelList.json"), hotelList);
     }
 }
