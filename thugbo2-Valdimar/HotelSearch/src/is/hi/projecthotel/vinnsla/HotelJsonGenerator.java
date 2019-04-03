@@ -25,7 +25,7 @@ public class HotelJsonGenerator {
     public void generate() {
     }
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         int herb = 10;
         Hotel h = new Hotel(herb);
         h.setHotelId(12);
