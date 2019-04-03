@@ -1,4 +1,3 @@
-
 package is.hi.projecthotel.vinnsla;
 
 import java.time.LocalDate;
@@ -9,10 +8,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author nokkv
- */
 public class RoomsAvailableTest {
     
     private final int initRooms = 3;

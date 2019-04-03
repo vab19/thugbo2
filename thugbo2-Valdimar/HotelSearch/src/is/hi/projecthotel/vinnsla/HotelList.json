@@ -13,7 +13,7 @@
                 "customerId": 1234,
                 "hotelId": 1212,
                 "rating": 11,
-                "comment" "EHEHEHEH",
+                "comment": "EHEHEHEH"
 
             }
         ],
@@ -22,7 +22,7 @@
                 "rooms": 12,
                 "localdate" : "2019-12-12"
         }
-        ],
-      },
+        ]
+      }
     ]
 }

@@ -1,4 +1,4 @@
-/**package is.hi.projecthotel.vinnsla;
+package is.hi.projecthotel.vinnsla;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -13,7 +13,7 @@ import javax.json.JsonValue;
 
 public class HotelJsonReader {
 
-	public static final String JSON_FILE="HotelList.json";
+	public static final String JSON_FILE ="HotelList.json";
 	
 	public static void main(String[] args) throws IOException {
 		InputStream fis = new FileInputStream(JSON_FILE);
@@ -23,15 +23,16 @@ public class HotelJsonReader {
 		
 		/**
 		 * We can create JsonReader from Factory also
-		JsonReaderFactory factory = Json.createReaderFactory(null);
+		 */
+                JsonReaderFactory factory = Json.createReaderFactory(null);
 		jsonReader = factory.createReader(fis);
-		*/
+		
 		
 		//get JsonObject from JsonReader
-//		JsonObject jsonObject = jsonReader.readObject();
+		JsonObject jsonObject = jsonReader.readObject();
 		
 		//we can close IO resource and JsonReader now
-/*		jsonReader.close();
+		jsonReader.close();
 		fis.close();
 		
 		
@@ -52,4 +53,4 @@ public class HotelJsonReader {
 		
 	}
 
-}*/
+}
