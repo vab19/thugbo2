@@ -22,10 +22,19 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * @author nokkv
+ */
 public class JsonGenerator {
-
+    
+    // database of hotels in package
     private static final String PATH = "src/is/hi/projecthotel/gagnagrunnur/HotelList.json";
     
+    /**
+     * Saves a List of Hotel objects as json
+     * 
+     * @param a     Listi af hotelum  
+     */
     public static void setHotelListJson(List<Hotel> a) {
         ObjectMapper objectMapper = new ObjectMapper();
 

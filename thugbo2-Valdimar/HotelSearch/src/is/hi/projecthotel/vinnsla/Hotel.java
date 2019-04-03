@@ -62,6 +62,10 @@ public class Hotel {
     public ArrayList getReviews() {
         return reviews;
     }
+    
+    public RoomsAvailable getroomsAvailable() {
+        return roomsAvailable;
+    }
 
     /**
      * Initializes reviews with an empty ArrayList
