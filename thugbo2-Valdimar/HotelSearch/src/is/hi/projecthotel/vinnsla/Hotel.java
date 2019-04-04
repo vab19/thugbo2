@@ -7,6 +7,7 @@ import java.util.ArrayList;
  * 
  */
 public class Hotel {
+    
     private int hotelId;
     private String hotelName;
     private String address;
