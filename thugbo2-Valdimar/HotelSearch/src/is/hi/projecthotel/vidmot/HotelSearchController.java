@@ -15,9 +15,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -26,11 +28,9 @@ import javafx.scene.text.Text;
 public class HotelSearchController implements Initializable {
     List<Hotel> hotelList;
     @FXML
-    private ScrollPane hotelListId;
-    @FXML
-    private AnchorPane scrollPaneContent;
-    @FXML
     private VBox vboxdude;
+    @FXML
+    private Button HOTELPAGEBUTTON;
     
     
     
@@ -53,5 +53,10 @@ public class HotelSearchController implements Initializable {
     ObservableList<Hotel> heildarListi() {
             ObservableList<Hotel> obl = FXCollections.observableArrayList(JsonReader.getHotelListJson());
             return obl;
+    }
+
+    @FXML
+    private void OPENHOTELINFO(MouseEvent event) {
+        
     }
 }
