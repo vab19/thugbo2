@@ -24,6 +24,7 @@ public class Hotel {
     @JsonDeserialize(keyUsing=LocalDateKD.class)
     private RoomsAvailable roomsAvailable;
     private int initRooms;
+    private ArrayList<Booking> bookingList;
      @JsonCreator // constructor can be public, private, whatever
     private Hotel(@JsonProperty("hotelId") int hotelId,
                 @JsonProperty("hotelName") String hotelName, @JsonProperty("address") String address,
@@ -84,17 +85,17 @@ public class Hotel {
     public double getRating() { return rating; }
     
     public void setRating(double val) { this.rating = val; }
-/*
-    public ArrayList getReviews() {
-        return reviews;
-    }
-  */  
+    
     public RoomsAvailable getroomsAvailable() {
         return roomsAvailable;
     }
     
     public ArrayList<Review> getReviews() {
         return reviews;
+    }
+    
+    public ArrayList<Booking> getBookingList() {
+        return bookingList;
     }
 
     /**
@@ -116,6 +117,9 @@ public class Hotel {
         }
     }
     
+    private void initBookingList() {
+        bookingList = new ArrayList<>();
+    }
        
     /**
      * Creates Review object and adds it to reviews ArrayList
@@ -133,6 +137,17 @@ public class Hotel {
         reviews.add(temp);
         reviewsLength++;
         calculateRating((double)(r));
+    }
+    
+    public void book(String dateIn, String dateOut, int customerId) {
+        LocalDate i = LocalDate.parse(dateIn);
+        LocalDate i = LocalDate.parse(dateIn);
+        Booking temp = new Booking();
+        temp.setHotelId(getHotelId());
+        temp.setCustomerId(customerId);
+        temp.setDateIn(dateIn);
+        temp.setDateOut(dateOut);
+        temp
     }
     
     /**

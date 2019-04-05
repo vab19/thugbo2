@@ -16,6 +16,7 @@ public class Booking {
     private int customerId;
     private String dateIn;
     private String dateOut;
+    private int priveOverall;
     
     public Booking(){
     }
@@ -24,62 +25,31 @@ public class Booking {
         return hotelId;
     }
 
-    public void setHotelId(int hotelId) {
-        this.hotelId = hotelId;
+    public void setHotelId(int val) {
+        hotelId = val;
     }
     
-    publci int getCustomerId() {
-        
+    public int getCustomerId() {
+        return customerId;
+    }
+    
+    public void setCustomerId(int val) {
+        customerId = val;
     }
 
     public String getDateIn() {
         return dateIn;
     }
 
-    public void setDateIn(String dateIn) {
-        this.dateIn = dateIn;
+    public void setDateIn(String str) {
+        dateIn = str;
     }
 
     public String getDateOut() {
         return dateOut;
     }
 
-    public void setDateOut(String dateOut) {
-        this.dateOut = dateOut;
-    }
-
-    public RoomsAvailable getRoomsAvailable() {
-        return roomsAvailable;
-    }
-
-    public void setRoomsAvailable(RoomsAvailable roomsAvailable) {
-        this.roomsAvailable = roomsAvailable;
-    }
-    
-   
-    public void book(String dateIn, String dateOut){
-        this.dateIn = dateIn;
-        this.dateOut = dateOut;
-    
-        LocalDate in = LocalDate.parse(dateIn);
-        LocalDate out = LocalDate.parse(dateOut);
-        if(dateIn == dateOut){
-            if(!roomsAvailable.isAvailable(dateOut))System.out.println("not available");
-            else{
-                 roomsAvailable.book(dateOut);
-            }
-            
-        }
-        else{
-            roomsAvailable.book(dateOut);
-            int count = 0;
-            while(!in.plusDays(count).equals(dateOut)) {
-                if(!roomsAvailable.isAvailable(in.plusDays(count).toString()))System.out.println("not available");
-                else{
-                    roomsAvailable.book(in.plusDays(count).toString());
-                    count++;
-                }
-            }
-        }
+    public void setDateOut(String str) {
+        dateOut = str;
     }
 }
