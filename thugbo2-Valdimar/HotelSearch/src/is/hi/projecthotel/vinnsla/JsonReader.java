@@ -29,7 +29,6 @@ public class JsonReader {
                 
         ObjectMapper objectMapper = new ObjectMapper();
         
-        
         try {
             List<Hotel> hotelList = objectMapper.readValue(new File(PATH), new TypeReference<List<Hotel>>(){});
             return hotelList;

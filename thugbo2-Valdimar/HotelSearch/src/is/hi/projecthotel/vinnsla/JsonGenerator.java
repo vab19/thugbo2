@@ -8,6 +8,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import static is.hi.projecthotel.vinnsla.CreateMockHotels.randomHotel;
+import java.util.ArrayList;
 
 /**
  * @author Nökkvi
@@ -33,5 +35,15 @@ public class JsonGenerator {
 
     void writeFieldName(String writeValueAsString) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public static void main(String[] args) {
+        List<Hotel> hotelList = new ArrayList<>();
+        
+        for (int i = 0; i < 10; i++) {
+            hotelList.add(randomHotel(i));
+        }
+        
+        JsonGenerator.setHotelListJson(hotelList);
     }
 }

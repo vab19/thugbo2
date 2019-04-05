@@ -62,11 +62,11 @@ public class Hotel {
     public double getRating() { return rating; }
     
     public void setRating(double val) { this.rating = val; }
-
+/*
     public ArrayList getReviews() {
         return reviews;
     }
-    
+  */  
     public RoomsAvailable getroomsAvailable() {
         return roomsAvailable;
     }

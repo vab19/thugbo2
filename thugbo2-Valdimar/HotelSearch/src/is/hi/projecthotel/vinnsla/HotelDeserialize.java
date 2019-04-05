@@ -13,7 +13,8 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
  *
  * @author nokkv
  */
-/*public class LocalDateKS extends StdSerializer<LocalDate> {
+/*
+public class HotelDeserialize extends StdSerializer<LocalDate> {
     
     LocalDateKS() {
         super(LocalDate.class);
@@ -26,5 +27,4 @@ import com.fasterxml.jackson.databind.ser.std.StdSerializer;
         ObjectMapper mapper = new ObjectMapper();
         jgen.writeFieldName(mapper.writeValueAsString(value));
     }
-}
-*/
+}*/
