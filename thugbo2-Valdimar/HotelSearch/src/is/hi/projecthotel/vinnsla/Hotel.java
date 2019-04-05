@@ -29,9 +29,22 @@ public class Hotel {
      @JsonCreator // constructor can be public, private, whatever
     private Hotel(@JsonProperty("hotelId") int hotelId,
                 @JsonProperty("hotelName") String hotelName, @JsonProperty("address") String address,
-                @JsonProperty("region") String region, ) {
-        this.name = name;
-        this.age = age;
+                @JsonProperty("region") String region, @JsonProperty("pricePerNight") int pricePerNight,
+                @JsonProperty("stars") int stars, @JsonProperty("rating") double rating,
+                @JsonProperty("reviews") ArrayList<Review> reviews, @JsonProperty("reviewsLength") int reviewsLength,
+                @JsonProperty("roomsAvailable") RoomsAvailable roomsAvailable, 
+                @JsonProperty("initRooms") int initRooms) {
+        this.hotelId = hotelId;
+        this.hotelName = hotelName;
+        this.address = address;
+        this.stars = stars;
+        this.region = region;
+        this.pricePerNight = pricePerNight;
+        this.rating = rating;
+        this.reviews = reviews;
+        this.reviewsLength = reviewsLength;
+        this.roomsAvailable = roomsAvailable;
+        this.initRooms = initRooms;
     }
     
     
@@ -81,6 +94,10 @@ public class Hotel {
   */  
     public RoomsAvailable getroomsAvailable() {
         return roomsAvailable;
+    }
+    
+    public ArrayList<Review> getReviews() {
+        return reviews;
     }
 
     /**
