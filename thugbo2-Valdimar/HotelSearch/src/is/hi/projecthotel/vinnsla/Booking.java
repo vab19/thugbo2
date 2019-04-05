@@ -19,8 +19,8 @@ public class Booking {
     private String dateOut;
     private RoomsAvailable roomsAvailable;
     
-    private int priceOverall;
-    private int customerId;
+    //private int priceOverall;
+    //private int customerId;
     
     public Booking(int id, RoomsAvailable rooms){
         hotelId = id;
@@ -34,12 +34,23 @@ public class Booking {
     
         LocalDate in = LocalDate.parse(dateIn);
         LocalDate out = LocalDate.parse(dateOut);
-        roomsAvailable.book(dateOut);
-        
-        int count = 0;
-        while(!in.plusDays(count).equals(dateOut)) {
-            roomsAvailable.book(in.plusDays(count).toString());
-            count++;
+        if(dateIn == dateOut){
+            if(!roomsAvailable.isAvailable(dateOut))System.out.println("not available");
+            else{
+                 roomsAvailable.book(dateOut);
+            }
+            
+        }
+        else{
+            roomsAvailable.book(dateOut);
+            int count = 0;
+            while(!in.plusDays(count).equals(dateOut)) {
+                if(!roomsAvailable.isAvailable(in.plusDays(count).toString()))System.out.println("not available");
+                else{
+                    roomsAvailable.book(in.plusDays(count).toString());
+                    count++;
+                }
+            }
         }
     }
 }
