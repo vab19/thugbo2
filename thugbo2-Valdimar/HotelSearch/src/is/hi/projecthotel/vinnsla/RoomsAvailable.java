@@ -16,7 +16,7 @@ public class RoomsAvailable extends TreeMap<LocalDate,Integer> {
      * 
      * Books 1 room on LocalDate parsed from Key
      * if there is a room Available on that date
-     * @param key     String on form "27-12-03"
+     * @param key     String on form "yyyy-mm-dd"
      */
     public void book(String key) {
         LocalDate l = LocalDate.parse(key);

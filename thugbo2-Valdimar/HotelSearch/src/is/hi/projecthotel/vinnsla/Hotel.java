@@ -3,6 +3,8 @@ package is.hi.projecthotel.vinnsla;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 /**
  * 
  */
@@ -17,6 +19,7 @@ public class Hotel {
     private double rating;
     private ArrayList<Review> reviews;
     private int reviewsLength;
+    @JsonDeserialize(keyUsing=LocalDateKD.class)
     private RoomsAvailable roomsAvailable;
     private int initRooms;
     

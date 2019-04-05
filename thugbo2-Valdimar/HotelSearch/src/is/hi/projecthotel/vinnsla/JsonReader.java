@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 
 /**
  * 
@@ -24,9 +25,11 @@ public class JsonReader {
      * 
      * @return      List<Hotel> from the json database of hotels 
      */
-    public static List<Hotel> getHotelListJson() {
+    public static List<Hotel> getHotelListJson() {  
+                
         ObjectMapper objectMapper = new ObjectMapper();
-    
+        
+        
         try {
             List<Hotel> hotelList = objectMapper.readValue(new File(PATH), new TypeReference<List<Hotel>>(){});
             return hotelList;
@@ -35,5 +38,9 @@ public class JsonReader {
         }
         List<Hotel> h = new ArrayList<>();
         return h;
+    }
+    
+    public static void main(String[] args) {
+        List<Hotel> l = getHotelListJson();
     }
 }
