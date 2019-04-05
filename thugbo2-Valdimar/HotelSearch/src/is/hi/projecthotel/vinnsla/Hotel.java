@@ -25,14 +25,30 @@ public class Hotel {
     private RoomsAvailable roomsAvailable;
     private int initRooms;
     private ArrayList<Booking> bookingList;
-     @JsonCreator // constructor can be public, private, whatever
+    /**
+     * Initializer for Hotel class from Json.
+     * @param hotelId
+     * @param hotelName
+     * @param address
+     * @param region
+     * @param pricePerNight
+     * @param stars
+     * @param rating
+     * @param reviews
+     * @param reviewsLength
+     * @param roomsAvailable
+     * @param initRooms
+     * @param bookingList 
+     */
+    @JsonCreator
     private Hotel(@JsonProperty("hotelId") int hotelId,
                 @JsonProperty("hotelName") String hotelName, @JsonProperty("address") String address,
                 @JsonProperty("region") String region, @JsonProperty("pricePerNight") int pricePerNight,
                 @JsonProperty("stars") int stars, @JsonProperty("rating") double rating,
                 @JsonProperty("reviews") ArrayList<Review> reviews, @JsonProperty("reviewsLength") int reviewsLength,
                 @JsonProperty("roomsAvailable") RoomsAvailable roomsAvailable, 
-                @JsonProperty("initRooms") int initRooms) {
+                @JsonProperty("initRooms") int initRooms,
+                @JsonProperty("bookingList") ArrayList<Booking> bookingList) {
         this.hotelId = hotelId;
         this.hotelName = hotelName;
         this.address = address;
@@ -44,6 +60,7 @@ public class Hotel {
         this.reviewsLength = reviewsLength;
         this.roomsAvailable = roomsAvailable;
         this.initRooms = initRooms;
+        this.bookingList = bookingList;
     }
     
     /**
@@ -55,6 +72,7 @@ public class Hotel {
         initRooms = r;
         initRooms();
         initReviews();
+        initBookingList();
         reviewsLength = 0;
     }
     
@@ -139,15 +157,96 @@ public class Hotel {
         calculateRating((double)(r));
     }
     
+    /**
+     * 
+     * @param dateIn
+     * @param dateOut
+     * @param customerId 
+     */
     public void book(String dateIn, String dateOut, int customerId) {
         LocalDate i = LocalDate.parse(dateIn);
-        LocalDate i = LocalDate.parse(dateIn);
+        LocalDate o = LocalDate.parse(dateIn);
+        if (!isAvailable(i,o)) {
+            System.out.println("EKKI LAUST!");
+            return;
+        }
         Booking temp = new Booking();
         temp.setHotelId(getHotelId());
         temp.setCustomerId(customerId);
         temp.setDateIn(dateIn);
         temp.setDateOut(dateOut);
-        temp
+        temp.setPriceOverall(totalDays(i,o)*getPricePerNight());
+        bookingList.add(temp);
+        setRooms(i, o, true);
+    }
+    
+    /**
+     * removes Booking from bookingList if there is a booking 
+     * that matches the parameters. If the booking exists adds one day
+     * to roomsAvailable for every day between dateIn and dateOut.
+     * @param dateIn    
+     * @param dateOut
+     * @param customerId 
+     */
+    public void unBook(String dateIn, String dateOut, int customerId) {
+        LocalDate i = LocalDate.parse(dateIn);
+        LocalDate o = LocalDate.parse(dateIn);
+        
+        Booking temp = new Booking();
+        temp.setHotelId(getHotelId());
+        temp.setCustomerId(customerId);
+        temp.setDateIn(dateIn);
+        temp.setDateOut(dateOut);
+        temp.setPriceOverall(totalDays(i,o)*getPricePerNight());
+        if (bookingList.contains(temp)) {
+            bookingList.remove(bookingList.indexOf(temp));
+            setRooms(i, o, false);
+        }
+    }
+    /**
+     * 
+     * @param i     Date in 
+     * @param o     Date out
+     * @return      nr of days between Date i and Date o
+     */
+    private int totalDays(LocalDate i, LocalDate o) {
+        int days = 0;
+        while (i.compareTo(o) < 1) {
+            days++;
+            i.plusDays(1);
+        }
+        return days;
+    }
+    
+    /**
+     * return wether there is a room available on 
+     * LocalDate i through o.
+     * @param i     Date in
+     * @param o     Date out
+     * @return true if Available
+     */
+    private boolean isAvailable(LocalDate i, LocalDate o) {
+        while (i.compareTo(o) < 1) {
+            if (!roomsAvailable.isAvailable(i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    /**
+     * 
+     * @param i     Date in
+     * @param o     Date out
+     * @param book if true removes 1 room of specified dates
+     *             else adds 1 room on specified dates
+     */
+    private void setRooms(LocalDate i, LocalDate o, boolean book) {
+        while (i.compareTo(o) < 1) {
+            if (book) roomsAvailable.book(i);
+            else roomsAvailable.unBook(i);
+            i.plusDays(1);
+        }
     }
     
     /**
@@ -171,23 +270,5 @@ public class Hotel {
         System.out.println("roomsAvailable: " + roomsAvailable);
         System.out.println("initRooms: " + initRooms);
         System.out.println("Reviews: " + reviews);
-    }
-
-    public static void main(String[] args) {
-        int herb = 10;
-        Hotel h = new Hotel(herb);
-        h.setHotelId(12);
-        h.setHotelName("Hótel Hafnafjörðut");
-        h.setAddress("Eyravegur 22");
-        h.setRegion("Suðurland");
-        h.setPricePernight(10000);
-        h.setStars(4);
-        String rev = "Geggjað gott";
-        int rat = 10;
-        int cust = 55;
-        h.addReview(rev, rat, cust, 12);
-        h.printHotel();
-
-    }
-    
+    }   
 }

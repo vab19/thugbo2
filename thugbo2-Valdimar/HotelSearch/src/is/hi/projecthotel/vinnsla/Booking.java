@@ -1,25 +1,17 @@
 package is.hi.projecthotel.vinnsla;
 
-
-import java.time.LocalDate;
-import java.util.ArrayList;
-
 /**
- *
  * @author Valdimar Björnsson vab19@hi.is 
- * @date
- * Háskóli Íslands
  */
-
 public class Booking {
+ 
     private int hotelId;
     private int customerId;
     private String dateIn;
     private String dateOut;
-    private int priveOverall;
+    private int priceOverall;
     
-    public Booking(){
-    }
+    public Booking() { }
 
     public int getHotelId() {
         return hotelId;
@@ -51,5 +43,13 @@ public class Booking {
 
     public void setDateOut(String str) {
         dateOut = str;
+    }
+    
+    public int getPriceOverall() {
+        return priceOverall;
+    }
+    
+    public void setPriceOverall(int val) {
+        priceOverall = val;
     }
 }
