@@ -24,7 +24,8 @@ public class Hotel {
      * roomsAvailable with initRooms
      * @param r     Total number of rooms in hotel
      */
-    public Hotel (int r) {
+    public Hotel (int r, int id) {  
+        hotelId = id;
         initRooms = r;
         initRooms();
         initReviews();
@@ -122,10 +123,15 @@ public class Hotel {
         System.out.println("initRooms: " + initRooms);
         System.out.println("Reviews: " + reviews);
     }
+    
+    public void BookingHandler(){
+        Booking booking = new Booking(hotelId, roomsAvailable);
+    }
 
     public static void main(String[] args) {
         int herb = 10;
-        Hotel h = new Hotel(herb);
+        int id = 0;
+        Hotel h = new Hotel(herb, id);
         h.setHotelId(12);
         h.setHotelName("Hótel Hafnafjörðut");
         h.setAddress("Eyravegur 22");

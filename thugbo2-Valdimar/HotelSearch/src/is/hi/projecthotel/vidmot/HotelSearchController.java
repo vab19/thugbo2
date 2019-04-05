@@ -18,7 +18,7 @@ public class HotelSearchController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Hotel ho = new Hotel(5);
+        //Hotel ho = new Hotel(5, 5);
     }
     
 }

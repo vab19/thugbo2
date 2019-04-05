@@ -38,7 +38,8 @@ public class JsonGenerator {
     
     public static void main(String[] args) throws IOException {
         int herb = 10;
-        Hotel h = new Hotel(herb);
+        int id = 0;
+        Hotel h = new Hotel(herb, id);
         h.setHotelId(12);
         h.setHotelName("Hótel Hafnafjörðut");
         h.setAddress("Eyravegur 22");
