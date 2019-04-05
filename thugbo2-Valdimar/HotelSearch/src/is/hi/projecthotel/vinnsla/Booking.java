@@ -1,41 +1,54 @@
 package is.hi.projecthotel.vinnsla;
 
+
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  *
- * @author nokkv
+ * @author Valdimar Björnsson vab19@hi.is 
+ * @date
+ * Háskóli Íslands
  */
+
 public class Booking {
-
     private int hotelId;
-    private int customerId;
-    private LocalDate dateIn;
-    private LocalDate dateOut;
-    private int totalPrice;
+    private String dateIn;
+    private String dateOut;
+    private RoomsAvailable roomsAvailable;
     
-    public Booking() {}
+    //private int priceOverall;
+    //private int customerId;
     
-    public int getHotelId() { return hotelId; }
-
-    public void setHotelId(int val) { hotelId = val; }
-
-    public int getCustomerId() { return customerId; }
-
-    public void setCustomerId(int val) { customerId = val; }
-
-    public LocalDate getDateIn() { return dateIn; }
-
-    public void setDateIn(LocalDate val) { dateIn = val; }
-
-    public LocalDate getDateOut() { return dateOut; }
-
-    public void setDateOut(LocalDate val) { dateOut = val; }
-
-    public int getTotalPrice() { return totalPrice; }
-
-    public void setTotalPrice(int val) { totalPrice = val; }
+    public Booking(int id, RoomsAvailable rooms){
+        hotelId = id;
+        roomsAvailable = rooms;
+    }
     
+   
+    public void book(String dateIn, String dateOut){
+        this.dateIn = dateIn;
+        this.dateOut = dateOut;
     
-    
+        LocalDate in = LocalDate.parse(dateIn);
+        LocalDate out = LocalDate.parse(dateOut);
+        if(dateIn == dateOut){
+            if(!roomsAvailable.isAvailable(dateOut))System.out.println("not available");
+            else{
+                 roomsAvailable.book(dateOut);
+            }
+            
+        }
+        else{
+            roomsAvailable.book(dateOut);
+            int count = 0;
+            while(!in.plusDays(count).equals(dateOut)) {
+                if(!roomsAvailable.isAvailable(in.plusDays(count).toString()))System.out.println("not available");
+                else{
+                    roomsAvailable.book(in.plusDays(count).toString());
+                    count++;
+                }
+            }
+        }
+    }
 }

@@ -1,5 +1,7 @@
 package is.hi.projecthotel.vinnsla;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -22,6 +24,16 @@ public class Hotel {
     @JsonDeserialize(keyUsing=LocalDateKD.class)
     private RoomsAvailable roomsAvailable;
     private int initRooms;
+    
+    
+     @JsonCreator // constructor can be public, private, whatever
+    private Hotel(@JsonProperty("hotelId") int hotelId,
+                @JsonProperty("hotelName") String hotelName, @JsonProperty("address") String address,
+                @JsonProperty("region") String region, ) {
+        this.name = name;
+        this.age = age;
+    }
+    
     
     /**
      * Initializes Hotel and calls initRooms that initializes 
