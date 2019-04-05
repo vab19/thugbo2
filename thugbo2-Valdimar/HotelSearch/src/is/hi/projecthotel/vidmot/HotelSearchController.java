@@ -45,7 +45,6 @@ public class HotelSearchController implements Initializable {
             element.getChildren().add(new Text(" "+hotel.getRegion()));
             element.getChildren().add(new Text(" "+hotel.getPricePerNight()));
             element.getChildren().add(new Text(" "+hotel.getRating()));
-            
             vboxdude.getChildren().add(element);
             
         }
