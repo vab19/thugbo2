@@ -24,8 +24,6 @@ public class Hotel {
     @JsonDeserialize(keyUsing=LocalDateKD.class)
     private RoomsAvailable roomsAvailable;
     private int initRooms;
-    
-    
      @JsonCreator // constructor can be public, private, whatever
     private Hotel(@JsonProperty("hotelId") int hotelId,
                 @JsonProperty("hotelName") String hotelName, @JsonProperty("address") String address,
@@ -46,7 +44,6 @@ public class Hotel {
         this.roomsAvailable = roomsAvailable;
         this.initRooms = initRooms;
     }
-    
     
     /**
      * Initializes Hotel and calls initRooms that initializes 
@@ -104,7 +101,7 @@ public class Hotel {
      * Initializes reviews with an empty ArrayList
      */
     private void initReviews() {
-        reviews = new ArrayList<Review>();
+        reviews = new ArrayList<>();
     }
     
      /**
@@ -118,6 +115,7 @@ public class Hotel {
             roomsAvailable.put(l.plusDays(i), initRooms);
         }
     }
+    
        
     /**
      * Creates Review object and adds it to reviews ArrayList

@@ -41,5 +41,6 @@ public class JsonReader {
     
     public static void main(String[] args) {
         List<Hotel> l = getHotelListJson();
+        l.get(0).printHotel();
     }
 }

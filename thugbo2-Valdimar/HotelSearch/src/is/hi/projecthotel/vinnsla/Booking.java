@@ -13,16 +13,47 @@ import java.util.ArrayList;
 
 public class Booking {
     private int hotelId;
+    private int customerId;
     private String dateIn;
     private String dateOut;
-    private RoomsAvailable roomsAvailable;
     
-    //private int priceOverall;
-    //private int customerId;
+    public Booking(){
+    }
+
+    public int getHotelId() {
+        return hotelId;
+    }
+
+    public void setHotelId(int hotelId) {
+        this.hotelId = hotelId;
+    }
     
-    public Booking(int id, RoomsAvailable rooms){
-        hotelId = id;
-        roomsAvailable = rooms;
+    publci int getCustomerId() {
+        
+    }
+
+    public String getDateIn() {
+        return dateIn;
+    }
+
+    public void setDateIn(String dateIn) {
+        this.dateIn = dateIn;
+    }
+
+    public String getDateOut() {
+        return dateOut;
+    }
+
+    public void setDateOut(String dateOut) {
+        this.dateOut = dateOut;
+    }
+
+    public RoomsAvailable getRoomsAvailable() {
+        return roomsAvailable;
+    }
+
+    public void setRoomsAvailable(RoomsAvailable roomsAvailable) {
+        this.roomsAvailable = roomsAvailable;
     }
     
    

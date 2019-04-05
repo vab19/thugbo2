@@ -2,6 +2,7 @@ package is.hi.projecthotel.vidmot;
 
 import is.hi.projecthotel.vinnsla.*;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -18,7 +19,7 @@ public class HotelSearchController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Hotel ho = new Hotel(5);
+        List<Hotel> lh = JsonReader.getHotelListJson();
     }
     
 }
