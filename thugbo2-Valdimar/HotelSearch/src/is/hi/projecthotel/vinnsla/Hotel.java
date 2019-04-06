@@ -1,11 +1,12 @@
 package is.hi.projecthotel.vinnsla;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 /**
  * 
@@ -25,6 +26,7 @@ public class Hotel {
     private RoomsAvailable roomsAvailable;
     private int initRooms;
     private ArrayList<Booking> bookingList;
+    
     /**
      * Initializer for Hotel class from Json.
      * @param hotelId
@@ -181,7 +183,7 @@ public class Hotel {
     }
     
     /**
-     * removes Booking from bookingList if there is a booking 
+     * Removes Booking from bookingList if there is a booking 
      * that matches the parameters. If the booking exists adds one day
      * to roomsAvailable for every day between dateIn and dateOut.
      * @param dateIn    
@@ -203,6 +205,7 @@ public class Hotel {
             setRooms(i, o, false);
         }
     }
+    
     /**
      * 
      * @param i     Date in 
@@ -219,7 +222,7 @@ public class Hotel {
     }
     
     /**
-     * return wether there is a room available on 
+     * return whether there is a room available on 
      * LocalDate i through o.
      * @param i     Date in
      * @param o     Date out

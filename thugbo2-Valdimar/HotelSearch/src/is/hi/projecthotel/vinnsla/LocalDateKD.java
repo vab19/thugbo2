@@ -6,12 +6,12 @@ import com.fasterxml.jackson.databind.*;
 import com.fasterxml.jackson.databind.deser.std.StdKeyDeserializer;
 
 /**
- *
+ * Deserializer for LocalDate in RoomsAvailable
  * @author Nökkvi
  */
 public class LocalDateKD extends StdKeyDeserializer {
         
-    public final static int TYPE_BYTE_ARRAY = 18; // since 2.9
+    public final static int TYPE_LOCAL_DATE = 18; // since 2.9
     
     LocalDateKD() {
       super(18, LocalDate.class);

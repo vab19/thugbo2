@@ -22,11 +22,8 @@ public class RoomsAvailable extends TreeMap<LocalDate,Integer> {
         LocalDate l = LocalDate.parse(key);
         book(l);
     }
-
-    /**
-     * 
-     * @param l 
-     */
+    
+    
     public void book(LocalDate l) {
         if (isAvailable(l))
             this.put(l,this.get(l)-1);
