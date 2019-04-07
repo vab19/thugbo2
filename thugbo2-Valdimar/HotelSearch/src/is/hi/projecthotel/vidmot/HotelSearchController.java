@@ -27,7 +27,6 @@ import javafx.scene.text.Text;
 
 public class HotelSearchController implements Initializable {
     List<Hotel> hotelList;
-    @FXML
     private VBox vboxdude;
     @FXML
     private Button HOTELPAGEBUTTON;
@@ -41,34 +40,41 @@ public class HotelSearchController implements Initializable {
     private Button PRICEBUTTON;
     @FXML
     private Button RATINGBUTTON;
-    @FXML
     private ListView<String> list;
     
     
     private MultipleSelectionModel msl;
     
     private int index;
+    @FXML
+    private ListView<?> LISTELEMENT;
+    @FXML
+    private VBox vBoxdude;
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Hotel hotel = CreateMockHotels.randomHotel(100);
-        //ObservableList<String> items = FXCollections.observableArrayList("test1", "test2");
+        Hotel hotels [] = new Hotel [40];
+      
         
-        for(int i=0;i<3;i++) {
+        //ObservableList<String> items = FXCollections.observableArrayList("test1", "test2");
+        list = new ListView<String>();
+        for(int i=0;i<40;i++) {
             
             //HBox element = new HBox();
            /* vboxdude.getChildren().add(new Text(hotel.getHotelName()+" |"+hotel.getStars()
             +" |"+hotel.getRegion()+" |"+hotel.getPricePerNight()+" |"+hotel.getRating()));
             */
            
-            hotel = CreateMockHotels.randomHotel(100+i);
+            hotels[i] = CreateMockHotels.randomHotel(i);
+            list.getItems().addAll(hotels[i].getHotelName()+" |"+hotels[i].getStars()
+            +" |"+hotels[i].getRegion()+" |"+hotels[i].getPricePerNight()+" |"+hotels[i].getRating());
+           
         }
         
-        list = new ListView<String>();
-        list.getItems().addAll(hotel.getHotelName()+" |"+hotel.getStars()
-            +" |"+hotel.getRegion()+" |"+hotel.getPricePerNight()+" |"+hotel.getRating());
-        vboxdude.getChildren().addAll(list);
+       
+        
+        vBoxdude.getChildren().addAll(list);
        
         
         
