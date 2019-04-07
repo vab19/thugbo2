@@ -20,7 +20,12 @@ public class RoomsAvailable extends TreeMap<LocalDate,Integer> {
      */
     public void book(String key) {
         LocalDate l = LocalDate.parse(key);
-        if (isAvailable(key))
+        book(l);
+    }
+    
+    
+    public void book(LocalDate l) {
+        if (isAvailable(l))
             this.put(l,this.get(l)-1);
     }
 
@@ -30,6 +35,10 @@ public class RoomsAvailable extends TreeMap<LocalDate,Integer> {
      */
     public void unBook(String key) {
         LocalDate l = LocalDate.parse(key);
+        unBook(l);
+    }
+    
+    public void unBook(LocalDate l) {
         if (this.containsKey(l)) {
             this.put(l,this.get(l)+1);
         }
@@ -42,6 +51,10 @@ public class RoomsAvailable extends TreeMap<LocalDate,Integer> {
      */
     public boolean isAvailable(String key) {
         LocalDate l = LocalDate.parse(key);
+        return get(l)>0;
+    }
+    
+    public boolean isAvailable(LocalDate l) {
         return get(l)>0;
     }
 }
