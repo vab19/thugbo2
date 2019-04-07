@@ -31,22 +31,33 @@ public class HotelSearchController implements Initializable {
     private VBox vboxdude;
     @FXML
     private Button HOTELPAGEBUTTON;
+    @FXML
+    private Button NAMEbuTTON;
+    @FXML
+    private Button STARSBUTTON;
+    @FXML
+    private Button REGIONBUTTON;
+    @FXML
+    private Button PRICEBUTTON;
+    @FXML
+    private Button RATINGBUTTON;
+    @FXML
+    private ListView<String> LISTELEMENT;
     
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Hotel hotel = CreateMockHotels.randomHotel(100);
-        
+        //ObservableList<String> items = FXCollections.observableArrayList("test1", "test2");
+        //LISTELEMENT = new ListView<>(items);
         for(int i=0;i<3;i++) {
-            HBox element = new HBox();
-            element.getChildren().add(new Text(hotel.getHotelName()));
-            element.getChildren().add(new Text(" "+hotel.getStars()));
-            element.getChildren().add(new Text(" "+hotel.getRegion()));
-            element.getChildren().add(new Text(" "+hotel.getPricePerNight()));
-            element.getChildren().add(new Text(" "+hotel.getRating()));
-            vboxdude.getChildren().add(element);
             
+            //HBox element = new HBox();
+            vboxdude.getChildren().add(new Text(hotel.getHotelName()+" |"+hotel.getStars()
+            +" |"+hotel.getRegion()+" |"+hotel.getPricePerNight()+" |"+hotel.getRating()));
+            
+            hotel = CreateMockHotels.randomHotel(100+i);
         }
     }
     
@@ -58,5 +69,14 @@ public class HotelSearchController implements Initializable {
     @FXML
     private void OPENHOTELINFO(MouseEvent event) {
         
+    }
+
+    @FXML
+    private void FILTEREVENT(ActionEvent event) {
+        int length = vboxdude.getChildren().size();
+        String[] elements = new String[length];
+        for(int i=0;i<length;i++) {
+            
+        }
     }
 }
