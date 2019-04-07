@@ -42,23 +42,37 @@ public class HotelSearchController implements Initializable {
     @FXML
     private Button RATINGBUTTON;
     @FXML
-    private ListView<String> LISTELEMENT;
+    private ListView<String> list;
     
+    
+    private MultipleSelectionModel msl;
+    
+    private int index;
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Hotel hotel = CreateMockHotels.randomHotel(100);
         //ObservableList<String> items = FXCollections.observableArrayList("test1", "test2");
-        //LISTELEMENT = new ListView<>(items);
+        
         for(int i=0;i<3;i++) {
             
             //HBox element = new HBox();
-            vboxdude.getChildren().add(new Text(hotel.getHotelName()+" |"+hotel.getStars()
+           /* vboxdude.getChildren().add(new Text(hotel.getHotelName()+" |"+hotel.getStars()
             +" |"+hotel.getRegion()+" |"+hotel.getPricePerNight()+" |"+hotel.getRating()));
-            
+            */
+           
             hotel = CreateMockHotels.randomHotel(100+i);
         }
+        
+        list = new ListView<String>();
+        list.getItems().addAll(hotel.getHotelName()+" |"+hotel.getStars()
+            +" |"+hotel.getRegion()+" |"+hotel.getPricePerNight()+" |"+hotel.getRating());
+        vboxdude.getChildren().addAll(list);
+       
+        
+        
+    
     }
     
     ObservableList<Hotel> heildarListi() {
@@ -79,4 +93,14 @@ public class HotelSearchController implements Initializable {
             
         }
     }
+     private void frumstillaGognHandlerListi() {
+        msl = list.getSelectionModel();
+        msl.selectedItemProperty().addListener(new ChangeListener<Hotel>() {
+            @Override
+            public void changed(ObservableValue<? extends Hotel> observable, Hotel oldValue, Hotel newValue) {
+                index = msl.getSelectedIndex();
+            }
+        });
+    }
+    
 }
