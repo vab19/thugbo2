@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -22,8 +23,8 @@
          <children>
             <Label prefHeight="34.0" prefWidth="114.0" text="Full Name" />
             <Label prefHeight="34.0" prefWidth="172.0" text="Credit Card Number" GridPane.rowIndex="1" />
-            <Label prefHeight="21.0" prefWidth="204.0" text="Date In (YYYY/DD/MM)" GridPane.rowIndex="2" />
-            <Label text="Date out (YYYY/DD/MM)" GridPane.rowIndex="3" />
+            <Label prefHeight="21.0" prefWidth="204.0" text="Date In (YYYY/MM/DD)" GridPane.rowIndex="2" />
+            <Label text="Date out (YYYY/MM/DD)" GridPane.rowIndex="3" />
             <TextField GridPane.columnIndex="1" />
             <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
@@ -37,8 +38,8 @@
               </rowConstraints>
                <children>
                   <ChoiceBox fx:id="dateInYear" prefWidth="150.0" />
-                  <ChoiceBox fx:id="dateInDay" prefWidth="150.0" GridPane.columnIndex="1" />
-                  <ChoiceBox fx:id="dateInMonth" prefWidth="150.0" GridPane.columnIndex="2" />
+                  <ChoiceBox fx:id="dateInDay" prefWidth="150.0" GridPane.columnIndex="2" />
+                  <ChoiceBox fx:id="dateInMonth" prefWidth="150.0" GridPane.columnIndex="1" />
                </children>
             </GridPane>
             <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -52,12 +53,17 @@
                </rowConstraints>
                <children>
                   <ChoiceBox fx:id="dateOutYear" prefWidth="150.0" />
-                  <ChoiceBox fx:id="dateOutDay" prefWidth="150.0" GridPane.columnIndex="1" />
-                  <ChoiceBox fx:id="dateOutMonth" prefWidth="150.0" GridPane.columnIndex="2" />
+                  <ChoiceBox fx:id="dateOutMonth" prefWidth="150.0" GridPane.columnIndex="1" />
+                  <ChoiceBox fx:id="dateOutDay" prefWidth="150.0" GridPane.columnIndex="2" />
                </children>
             </GridPane>
          </children>
       </GridPane>
       <Button fx:id="book" layoutX="108.0" layoutY="339.0" mnemonicParsing="false" onAction="#BookPressedEvent" prefHeight="31.0" prefWidth="352.0" text="Book" />
+      <Label fx:id="Title" layoutX="98.0" layoutY="14.0" prefHeight="21.0" prefWidth="369.0" text="Label">
+         <font>
+            <Font name="Algerian" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

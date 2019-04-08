@@ -43,7 +43,7 @@
             <Label fx:id="PriceLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
          </children>
       </GridPane>
-      <Button layoutX="404.0" layoutY="341.0" mnemonicParsing="false" onAction="#BookRoomEvent" text="Book Room" />
-      <Button layoutX="498.0" layoutY="341.0" mnemonicParsing="false" onAction="#CancelEvent" text="Cancel" />
+      <Button layoutX="346.0" layoutY="341.0" mnemonicParsing="false" onAction="#BookRoomEvent" text="Book Room" />
+      <Button layoutX="467.0" layoutY="341.0" mnemonicParsing="false" onAction="#CancelEvent" prefHeight="31.0" prefWidth="83.0" text="Cancel" />
    </children>
 </AnchorPane>

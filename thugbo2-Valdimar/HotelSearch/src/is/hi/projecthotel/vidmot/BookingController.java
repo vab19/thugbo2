@@ -46,6 +46,8 @@ public class BookingController implements Initializable {
     private ChoiceBox<String> dateOutDay;
     @FXML
     private ChoiceBox<String> dateOutMonth;
+    @FXML
+    private Label Title;
     
    
     /**
@@ -54,6 +56,7 @@ public class BookingController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
          //book.setDisable(true);
+        
          
         dateInYear.getItems().add("2019");
         dateOutYear.getItems().add("2019");
@@ -96,8 +99,7 @@ public class BookingController implements Initializable {
        //if(hotel.isAvailable(CDI,CDO))book.setDisable(false);
        if(hotel.isAvailable(CDI,CDO)){
             book.setText("Booking is Available");
-            hotel.book(completeDateIn, completeDateOut, 5);
-            
+            hotel.book(completeDateIn, completeDateOut, 5); // þarf að bæta við id
          }
        else book.setText("Booking is not Available");
        
@@ -108,6 +110,7 @@ public class BookingController implements Initializable {
     public  void setHotel(Hotel hotel){
         this.hotel = hotel;
         this.roomsAvailable = hotel.getroomsAvailable();
+        Title.setText(hotel.getHotelName()+"");
         
        
        
