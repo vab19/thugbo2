@@ -50,6 +50,8 @@ public class HotelInfoController implements Initializable {
     @FXML
     private AnchorPane nDialog;
     
+    private Hotel hotel;
+    
     //private OpenScene openScene;
 
     /**
@@ -97,6 +99,22 @@ public class HotelInfoController implements Initializable {
 
     @FXML
     private void BookRoomEvent(ActionEvent event) {
+       
+            
+            try {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource(
+               "Booking.fxml"));
+         Parent root = (Parent) loader.load();
+         BookingController ctrl = loader.getController();
+         ctrl.setHotel(hotel);
+
+         Scene newScene = new Scene(root);
+         Stage newStage = new Stage();
+         newStage.setScene(newScene);
+         newStage.show();
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
     }
 
     @FXML
@@ -111,6 +129,7 @@ public class HotelInfoController implements Initializable {
         AddressLabel.setText(""+h.getAddress());
         RoomsAvailableLabel.setText(""+h.getroomsAvailable().lastEntry().getValue());
         PriceLabel.setText(""+h.getPricePerNight()+" kr.");
+        this.hotel = h;
         
         
         

@@ -228,7 +228,7 @@ public class Hotel {
      * @param o     Date out
      * @return true if Available
      */
-    private boolean isAvailable(LocalDate i, LocalDate o) {
+    public boolean isAvailable(LocalDate i, LocalDate o) {
         while (i.compareTo(o) < 1) {
             if (!roomsAvailable.isAvailable(i)) {
                 return false;

@@ -32,7 +32,7 @@
             <Label text="Stars:" GridPane.rowIndex="2" />
             <Label text="Region:" GridPane.rowIndex="3" />
             <Label text="Address:" GridPane.rowIndex="4" />
-            <Label text="Number of Rooms Available:" GridPane.rowIndex="5" />
+            <Label text="Number of Rooms:" GridPane.rowIndex="5" />
             <Label text="Price Per Night:" GridPane.rowIndex="6" />
             <Label fx:id="NameLabel" text="Label" GridPane.columnIndex="1" />
             <Label fx:id="RatingLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
