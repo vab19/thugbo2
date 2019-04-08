@@ -53,7 +53,7 @@ public class BookingController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         if(date1 == "" || date2 == "")book.setDisable(true);
+         //book.setDisable(true);
          
          dateInYear.getItems().add("2019");
          dateOutYear.getItems().add("2019");
@@ -73,11 +73,16 @@ public class BookingController implements Initializable {
 
     @FXML
     private void BookPressedEvent(ActionEvent event) {
+       String completeDateIn = dateInYear.getValue() +"-"+ dateInDay.getValue() +"-"+ dateInMonth.getValue();
+       String completeDateOut = dateOutYear.getValue() +"-"+ dateOutDay.getValue() +"-"+ dateOutMonth.getValue();
+       LocalDate CDI = LocalDate.parse(completeDateIn);
+       LocalDate CDO = LocalDate.parse(completeDateOut);
+       //if(hotel.isAvailable(CDI,CDO))book.setDisable(false);
+       if(hotel.isAvailable(CDI,CDO))book.setText("Booking is Available");
+       else book.setText("Booking is not Available");
        
        
-       
-       
-       
+  
     }
     
     public  void setHotel(Hotel hotel){
