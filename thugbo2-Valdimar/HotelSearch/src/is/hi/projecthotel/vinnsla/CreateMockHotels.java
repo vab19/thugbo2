@@ -13,8 +13,8 @@ public class CreateMockHotels {
     private static final int MAX_HERB = 10;
     private static final int MAX_STARS = 5;
     private static final int MAX_PRICE = 100000;
-    private static final String[] PRE =  {"Iceland ", "Glacial ", "Cozy ", "Cool ", "Nice and easy ", "Lovers' ", "Amazing ", "Unique "};
-    private static final String[] POST = {"Hotel", "Guesthouse", "Cabin", "Apartments", "Housing", "Flats", "Motel", "House"};
+    private static final String[] PRE =  {"", "Iceland ", "Glacial ", "Cozy ", "Cool ", "Nice and easy ", "Lovers' ", "Amazing ", "Unique "};
+    private static final String[] POST = {"", "Hotel", "Guesthouse", "Cabin", "Apartments", "Housing", "Flats", "Motel", "House"};
     private static final String[] REGIONS = {"North","South","East","West"};
     
     public static int randomNum(int val) {
