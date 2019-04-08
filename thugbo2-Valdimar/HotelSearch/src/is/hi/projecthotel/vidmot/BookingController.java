@@ -99,7 +99,7 @@ public class BookingController implements Initializable {
        //if(hotel.isAvailable(CDI,CDO))book.setDisable(false);
        if(hotel.isAvailable(CDI,CDO)){
             book.setText("Booking is Available");
-            hotel.book(completeDateIn, completeDateOut, 5); // þarf að bæta við id
+            //hotel.book(completeDateIn, completeDateOut, 5); // þarf að bæta við id
          }
        else book.setText("Booking is not Available");
        

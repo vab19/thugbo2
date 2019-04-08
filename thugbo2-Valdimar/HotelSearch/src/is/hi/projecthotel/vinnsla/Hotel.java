@@ -126,11 +126,12 @@ public class Hotel {
     }
     
      /**
-     * Initializes roomsAvailable for the next 400 days
+     * Initializes roomsAvailable for 2019
      * with value initRooms
      */
-    private void initRooms() {      
-        LocalDate l = LocalDate.now();
+    private void initRooms() {     
+        String startDate = "2019-01-01";
+        LocalDate l = LocalDate.parse(startDate);
         roomsAvailable = new RoomsAvailable();
         for (int i = 0; i < 400; i++) {
             roomsAvailable.put(l.plusDays(i), initRooms);
