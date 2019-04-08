@@ -56,7 +56,7 @@ public class HotelSearchController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Hotel hotels [] = new Hotel [40];
-      
+       
         
         //ObservableList<String> items = FXCollections.observableArrayList("test1", "test2");
         list = new ListView<String>();
@@ -68,14 +68,15 @@ public class HotelSearchController implements Initializable {
             */
            
             hotels[i] = CreateMockHotels.randomHotel(i);
-            list.getItems().addAll(""+hotels[i].getHotelName()+"      |    "+hotels[i].getStars()
+            list.getItems().addAll(""+hotels[i].getHotelName()
             +"    |    "+hotels[i].getRegion()+"    |    "+hotels[i].getPricePerNight()+"    |    "+hotels[i].getRating());
            
         }
         
        
-        list.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        //list.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         vBoxdude.getChildren().addAll(list);
+         
        
         
         
@@ -96,7 +97,14 @@ public class HotelSearchController implements Initializable {
         for(String h: hotelz ){
             message += h;
         }
-        System.out.println("message");
+        System.out.println(message);
+        System.out.println(""+index);
+       
+    }
+    
+    private void findHotel(String someHotel){
+        
+        
     }
     
         
@@ -114,15 +122,16 @@ public class HotelSearchController implements Initializable {
     }
      private void frumstillaGognHandlerListi() {
         msl = list.getSelectionModel();
-        msl.selectedItemProperty().addListener(new ChangeListener<Hotel>() {
+        msl.selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
-            public void changed(ObservableValue<? extends Hotel> observable, Hotel oldValue, Hotel newValue) {
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 index = msl.getSelectedIndex();
             }
         });
     }
     
     private void buttonClicked(){
+        
         
 }
 }
