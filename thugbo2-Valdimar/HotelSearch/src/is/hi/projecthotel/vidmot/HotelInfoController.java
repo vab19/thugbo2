@@ -109,8 +109,8 @@ public class HotelInfoController implements Initializable {
         RatingLabel.setText(""+h.getRating());
         RegionLabel.setText(""+h.getRegion());
         AddressLabel.setText(""+h.getAddress());
-        RoomsAvailableLabel.setText(""+h.getroomsAvailable());
-        PriceLabel.setText(""+h.getPricePerNight());
+        RoomsAvailableLabel.setText(""+h.getroomsAvailable().lastEntry().getValue());
+        PriceLabel.setText(""+h.getPricePerNight()+" kr.");
         
         
         
