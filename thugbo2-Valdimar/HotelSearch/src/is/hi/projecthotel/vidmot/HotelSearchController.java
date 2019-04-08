@@ -101,17 +101,20 @@ public class HotelSearchController implements Initializable {
         int indexer = list.getSelectionModel().getSelectedIndex();
         if(indexer != -1) {
             
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("HotelInfo.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            //stage.initModality(Modality.APPLICATION_MODAL);
-            //stage.initStyle(StageStyle.UNDECORATED);
-            //stage.setTitle("ABC");
-            
-            stage.setScene(new Scene(root1));
-            //stage.
-            stage.show();
-            //hotelInfo.displayHotelInfo(hotels[indexer]);
+            try {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource(
+               "HotelInfo.fxml"));
+         Parent root = (Parent) loader.load();
+         HotelInfoController ctrl = loader.getController();
+         ctrl.setInfo(hotels[indexer]);
+
+         Scene newScene = new Scene(root);
+         Stage newStage = new Stage();
+         newStage.setScene(newScene);
+         newStage.show();
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
         }
             
         

@@ -103,7 +103,7 @@ public class HotelInfoController implements Initializable {
     private void CancelEvent(ActionEvent event) {
     }
     
-    private void setInfo(Hotel h){
+    public void setInfo(Hotel h){
         NameLabel.setText(h.getHotelName());
         StarsLabel.setText(""+h.getStars());
         RatingLabel.setText(""+h.getRating());
