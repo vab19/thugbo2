@@ -19,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MultipleSelectionModel;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -45,7 +46,7 @@ public class HotelSearchController implements Initializable {
     
     private MultipleSelectionModel msl;
     
-    private int index;
+    private int index = 0;
     @FXML
     private ListView<?> LISTELEMENT;
     @FXML
@@ -67,13 +68,13 @@ public class HotelSearchController implements Initializable {
             */
            
             hotels[i] = CreateMockHotels.randomHotel(i);
-            list.getItems().addAll(hotels[i].getHotelName()+" |"+hotels[i].getStars()
-            +" |"+hotels[i].getRegion()+" |"+hotels[i].getPricePerNight()+" |"+hotels[i].getRating());
+            list.getItems().addAll(""+hotels[i].getHotelName()+"      |    "+hotels[i].getStars()
+            +"    |    "+hotels[i].getRegion()+"    |    "+hotels[i].getPricePerNight()+"    |    "+hotels[i].getRating());
            
         }
         
        
-        
+        list.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         vBoxdude.getChildren().addAll(list);
        
         
@@ -88,16 +89,28 @@ public class HotelSearchController implements Initializable {
 
     @FXML
     private void OPENHOTELINFO(MouseEvent event) {
+        String message = "";
+        ObservableList<String> hotelz;
+        hotelz = list.getSelectionModel().getSelectedItems();
         
+        for(String h: hotelz ){
+            message += h;
+        }
+        System.out.println("message");
     }
+    
+        
+    
 
     @FXML
     private void FILTEREVENT(ActionEvent event) {
-        int length = vboxdude.getChildren().size();
+        int length = 40;
+        System.out.println("" + length);
         String[] elements = new String[length];
         for(int i=0;i<length;i++) {
             
         }
+        System.out.println("" + index);
     }
      private void frumstillaGognHandlerListi() {
         msl = list.getSelectionModel();
@@ -109,4 +122,7 @@ public class HotelSearchController implements Initializable {
         });
     }
     
+    private void buttonClicked(){
+        
+}
 }
