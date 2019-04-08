@@ -55,17 +55,32 @@ public class BookingController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
          //book.setDisable(true);
          
-         dateInYear.getItems().add("2019");
-         dateOutYear.getItems().add("2019");
+        dateInYear.getItems().add("2019");
+        dateOutYear.getItems().add("2019");
          
-         for(int i = 1; i < 13; i++){
-         dateInMonth.getItems().add(""+i);
-         dateOutMonth.getItems().add(""+i);
+        for(int i = 1; i < 13; i++){
+             if(i>=10){
+                dateInMonth.getItems().add(""+i);
+                dateOutMonth.getItems().add(""+i);
+            }
+            else{
+                dateInMonth.getItems().add("0"+i);
+                dateOutMonth.getItems().add("0"+i);
+                
+            }
          }
          
-         for(int i = 1; i < 32; i++){
-        dateInDay.getItems().add(""+i);
-        dateOutDay.getItems().add(""+i);
+        for(int i = 1; i < 32; i++){
+            if(i>=10){
+                dateInDay.getItems().add(""+i);
+                dateOutDay.getItems().add(""+i);
+            }
+            else{
+                dateInDay.getItems().add("0"+i);
+                dateOutDay.getItems().add("0"+i);
+                
+            }
+                
              
          }
            
@@ -75,10 +90,15 @@ public class BookingController implements Initializable {
     private void BookPressedEvent(ActionEvent event) {
        String completeDateIn = dateInYear.getValue() +"-"+ dateInDay.getValue() +"-"+ dateInMonth.getValue();
        String completeDateOut = dateOutYear.getValue() +"-"+ dateOutDay.getValue() +"-"+ dateOutMonth.getValue();
+       System.out.println(completeDateIn);
        LocalDate CDI = LocalDate.parse(completeDateIn);
        LocalDate CDO = LocalDate.parse(completeDateOut);
        //if(hotel.isAvailable(CDI,CDO))book.setDisable(false);
-       if(hotel.isAvailable(CDI,CDO))book.setText("Booking is Available");
+       if(hotel.isAvailable(CDI,CDO)){
+            book.setText("Booking is Available");
+            hotel.book(completeDateIn, completeDateOut, 5);
+            
+         }
        else book.setText("Booking is not Available");
        
        
