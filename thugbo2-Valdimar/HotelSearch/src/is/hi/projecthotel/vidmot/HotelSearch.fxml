@@ -13,10 +13,9 @@
 
 <AnchorPane id="AnchorPane" prefHeight="507.0" prefWidth="934.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.hi.projecthotel.vidmot.HotelSearchController">
    <children>
-      <HBox layoutX="47.0" layoutY="108.0" prefHeight="31.0" prefWidth="340.0">
+      <HBox layoutX="14.0" layoutY="109.0" prefHeight="31.0" prefWidth="340.0">
          <children>
             <Button fx:id="NAMEbuTTON" mnemonicParsing="false" onAction="#FILTEREVENT" text="NAME" />
-            <Button fx:id="STARSBUTTON" mnemonicParsing="false" onAction="#FILTEREVENT" text="STARS" />
             <Button fx:id="REGIONBUTTON" mnemonicParsing="false" onAction="#FILTEREVENT" text="REGION" />
             <Button fx:id="PRICEBUTTON" mnemonicParsing="false" onAction="#FILTEREVENT" text="PRICE" />
             <Button fx:id="RATINGBUTTON" mnemonicParsing="false" onAction="#FILTEREVENT" prefHeight="31.0" prefWidth="74.0" text="RATING" />
@@ -25,7 +24,6 @@
       <TextField layoutX="432.0" layoutY="140.0" promptText="SEARCH..." />
       <Button fx:id="HOTELPAGEBUTTON" layoutX="410.0" layoutY="442.0" mnemonicParsing="false" onMouseClicked="#OPENHOTELINFO" text="CHECKOUT HOTEL" />
       <Button layoutX="596.0" layoutY="140.0" mnemonicParsing="false" text="SEARCH" />
-      <ListView fx:id="LISTELEMENT" layoutX="602.0" layoutY="217.0" prefHeight="200.0" prefWidth="200.0" />
-      <VBox fx:id="vBoxdude" layoutX="47.0" layoutY="151.0" prefHeight="307.0" prefWidth="340.0" />
+      <VBox fx:id="vBoxdude" layoutX="25.0" layoutY="151.0" prefHeight="307.0" prefWidth="379.0" />
    </children>
 </AnchorPane>

@@ -13,9 +13,8 @@ public class CreateMockHotels {
     private static final int MAX_HERB = 10;
     private static final int MAX_STARS = 5;
     private static final int MAX_PRICE = 100000;
-    private static final String[] ALPHABET = {"A","B","C","D","E","F","G","H","J","K","L",
-                                                "M","N","O","P","Q","R","S","T","U","V",
-                                                "W","Y","X","Z"};
+    private static final String[] PRE =  {"Iceland ", "Glacial ", "Cozy ", "Cool ", "Nice and easy ", "Lovers' ", "Amazing ", "Unique "};
+    private static final String[] POST = {"Hotel", "Guesthouse", "Cabin", "Apartments", "Housing", "Flats", "Motel", "House"};
     private static final String[] REGIONS = {"North","South","East","West"};
     
     public static int randomNum(int val) {
@@ -23,7 +22,7 @@ public class CreateMockHotels {
     }
     
     public static String randomName() {
-        return ALPHABET[ThreadLocalRandom.current().nextInt(0, ALPHABET.length)];
+        return PRE[randomNum(PRE.length-1)] + POST[randomNum(POST.length-1)];
     }
     
     public static String randomRegion() {
