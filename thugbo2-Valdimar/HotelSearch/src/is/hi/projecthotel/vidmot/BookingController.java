@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -33,6 +34,18 @@ public class BookingController implements Initializable {
     
     String date1 = "";
     String date2 = "";
+    @FXML
+    private ChoiceBox<String> dateInYear;
+    @FXML
+    private ChoiceBox<String> dateInDay;
+    @FXML
+    private ChoiceBox<String> dateInMonth;
+    @FXML
+    private ChoiceBox<String> dateOutYear;
+    @FXML
+    private ChoiceBox<String> dateOutDay;
+    @FXML
+    private ChoiceBox<String> dateOutMonth;
     
    
     /**
@@ -41,6 +54,21 @@ public class BookingController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
          if(date1 == "" || date2 == "")book.setDisable(true);
+         
+         dateInYear.getItems().add("2019");
+         dateOutYear.getItems().add("2019");
+         
+         for(int i = 1; i < 13; i++){
+         dateInMonth.getItems().add(""+i);
+         dateOutMonth.getItems().add(""+i);
+         }
+         
+         for(int i = 1; i < 32; i++){
+        dateInDay.getItems().add(""+i);
+        dateOutDay.getItems().add(""+i);
+             
+         }
+           
     }    
 
     @FXML
