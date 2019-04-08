@@ -6,17 +6,22 @@
 package is.hi.projecthotel.vidmot;
 
 import is.hi.projecthotel.vinnsla.Hotel;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 
 
@@ -55,11 +60,12 @@ public class HotelInfoController implements Initializable {
         // TODO
     }
 
-    public void displayHotelInfo(Hotel h) {
-         // Innihald dialogs búið til 
-        DialogPane p = new DialogPane();
-        nDialog.setVisible(true);
+    public void displayHotelInfo(Hotel h){
         
+         // Innihald dialogs búið til 
+        //DialogPane p = new DialogPane();
+        //nDialog.setVisible(true);
+        /*
         // Búa námskeið niður og setja í label hluti 
         setInfo(h);
         
@@ -73,7 +79,6 @@ public class HotelInfoController implements Initializable {
         d.setDialogPane(p);
         // Haus, titill og mynd ef vill 
         d.setTitle("Skoða dagskrárlið");
-  
         // Hnapparnir Í lagi og hætta við búnir til og bætt við 
         ButtonType iLagi = new ButtonType("Í lagi", 
                 ButtonBar.ButtonData.OK_DONE);
@@ -84,7 +89,7 @@ public class HotelInfoController implements Initializable {
         d.getDialogPane().getButtonTypes().add(haettaVid);
         
         // Dialog birtur - svarið ekki notað 
-        d.showAndWait();
+        d.showAndWait();*/
     }
     
         
