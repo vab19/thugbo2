@@ -25,6 +25,6 @@
       <Button fx:id="HOTELPAGEBUTTON" layoutX="410.0" layoutY="442.0" mnemonicParsing="false" onMouseClicked="#OPENHOTELINFO" text="CHECKOUT HOTEL" />
       <Button layoutX="596.0" layoutY="140.0" mnemonicParsing="false" text="SEARCH" />
       <VBox fx:id="vBoxdude" layoutX="25.0" layoutY="151.0" prefHeight="307.0" prefWidth="379.0" />
-       <fx:include fx:id="HotelInfo" source="HotelInfo.fxml" />
+       
    </children>
 </AnchorPane>
