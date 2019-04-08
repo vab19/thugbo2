@@ -27,6 +27,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 public class HotelSearchController implements Initializable {
+    @FXML
+    private HotelInfoController hotelInfo;
+    
+    private Hotel[] hotels;
+    
     List<Hotel> hotelList;
     private VBox vboxdude;
     @FXML
@@ -55,7 +60,7 @@ public class HotelSearchController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Hotel hotels [] = new Hotel [40];
+        hotels = new Hotel [40];
        
         
         //ObservableList<String> items = FXCollections.observableArrayList("test1", "test2");
@@ -90,15 +95,12 @@ public class HotelSearchController implements Initializable {
 
     @FXML
     private void OPENHOTELINFO(MouseEvent event) {
-        String message = "";
-        ObservableList<String> hotelz;
-        hotelz = list.getSelectionModel().getSelectedItems();
-        
-        for(String h: hotelz ){
-            message += h;
+        int indexer = list.getSelectionModel().getSelectedIndex();
+        if(indexer != -1) {
+            hotelInfo.displayHotelInfo(hotels[indexer]);
         }
-        System.out.println(message);
-        System.out.println(""+index);
+        
+        System.out.println(""+indexer);
        
     }
     
