@@ -11,7 +11,15 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+
+
+
 
 /**
  * FXML Controller class
@@ -34,6 +42,8 @@ public class HotelInfoController implements Initializable {
     private Label RoomsAvailableLabel;
     @FXML
     private Label PriceLabel;
+    @FXML
+    private AnchorPane nDialog;
     
     //private OpenScene openScene;
 
@@ -46,8 +56,39 @@ public class HotelInfoController implements Initializable {
     }
 
     public void displayHotelInfo(Hotel h) {
+         // Innihald dialogs búið til 
+        DialogPane p = new DialogPane();
+        nDialog.setVisible(true);
         
+        // Búa námskeið niður og setja í label hluti 
+        setInfo(h);
+        
+        // Innihald sett sem Pane sem fengið er úr Scene builder 
+        p.setContent(nDialog);
+        
+        // Umgjörðin búin til - Dialog sem gefur niðurstöðu í Leikmenn klasann
+        Dialog<ButtonType> d = new Dialog();
+        
+        // og innihaldið sett í umgjörðina 
+        d.setDialogPane(p);
+        // Haus, titill og mynd ef vill 
+        d.setTitle("Skoða dagskrárlið");
+  
+        // Hnapparnir Í lagi og hætta við búnir til og bætt við 
+        ButtonType iLagi = new ButtonType("Í lagi", 
+                ButtonBar.ButtonData.OK_DONE);
+        d.getDialogPane().getButtonTypes().add(iLagi);       
+        
+        ButtonType haettaVid = new ButtonType("Hætta við", 
+                ButtonBar.ButtonData.CANCEL_CLOSE);
+        d.getDialogPane().getButtonTypes().add(haettaVid);
+        
+        // Dialog birtur - svarið ekki notað 
+        d.showAndWait();
     }
+    
+        
+    
 
     @FXML
     private void BookRoomEvent(ActionEvent event) {
@@ -56,5 +97,24 @@ public class HotelInfoController implements Initializable {
     @FXML
     private void CancelEvent(ActionEvent event) {
     }
+    
+    private void setInfo(Hotel h){
+        NameLabel.setText(h.getHotelName());
+        StarsLabel.setText(""+h.getStars());
+        RatingLabel.setText(""+h.getRating());
+        RegionLabel.setText(""+h.getRegion());
+        AddressLabel.setText(""+h.getAddress());
+        RoomsAvailableLabel.setText(""+h.getroomsAvailable());
+        PriceLabel.setText(""+h.getPricePerNight());
+        
+        
+        
+    }
+    
+    
+    
+     
+    
+    
     
 }

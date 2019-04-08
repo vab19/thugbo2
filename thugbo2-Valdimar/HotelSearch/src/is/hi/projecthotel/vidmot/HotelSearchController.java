@@ -27,8 +27,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 public class HotelSearchController implements Initializable {
-    @FXML
-    private HotelInfoController hotelInfo;
     
     private Hotel[] hotels;
     
@@ -38,8 +36,6 @@ public class HotelSearchController implements Initializable {
     private Button HOTELPAGEBUTTON;
     @FXML
     private Button NAMEbuTTON;
-    @FXML
-    private Button STARSBUTTON;
     @FXML
     private Button REGIONBUTTON;
     @FXML
@@ -52,8 +48,7 @@ public class HotelSearchController implements Initializable {
     private MultipleSelectionModel msl;
     
     private int index = 0;
-    @FXML
-    private ListView<?> LISTELEMENT;
+    private int indexer = 0;
     @FXML
     private VBox vBoxdude;
     
@@ -97,7 +92,8 @@ public class HotelSearchController implements Initializable {
     private void OPENHOTELINFO(MouseEvent event) {
         int indexer = list.getSelectionModel().getSelectedIndex();
         if(indexer != -1) {
-            hotelInfo.displayHotelInfo(hotels[indexer]);
+            //hotelInfo.displayHotelInfo(hotels[indexer]);
+            
         }
         
         System.out.println(""+indexer);
