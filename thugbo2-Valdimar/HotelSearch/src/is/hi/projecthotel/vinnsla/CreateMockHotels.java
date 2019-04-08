@@ -36,8 +36,9 @@ public class CreateMockHotels {
         String adr = randomName() + " " + randomNum(MAX_HERB);
         h.setAddress(adr);
         h.setRegion(randomRegion());
-        h.setPricePernight(randomNum(MAX_PRICE));
-        h.setRating(randomNum(10));
+        //þannig að verðið er aldrei undir 10000
+        h.setPricePernight(ThreadLocalRandom.current().nextInt(10000, MAX_PRICE-1));
+        h.setRating(randomNum(9));
         h.setStars(randomNum(MAX_STARS));
           List<Hotel> hotelList = new ArrayList<>();
            JsonGenerator.setHotelListJson(hotelList);
