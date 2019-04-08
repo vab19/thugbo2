@@ -91,8 +91,8 @@ public class BookingController implements Initializable {
 
     @FXML
     private void BookPressedEvent(ActionEvent event) {
-       String completeDateIn = dateInYear.getValue() +"-"+ dateInDay.getValue() +"-"+ dateInMonth.getValue();
-       String completeDateOut = dateOutYear.getValue() +"-"+ dateOutDay.getValue() +"-"+ dateOutMonth.getValue();
+       String completeDateIn = dateInYear.getValue() +"-"+ dateInMonth.getValue() +"-"+ dateInDay.getValue();
+       String completeDateOut = dateOutYear.getValue() +"-"+ dateOutMonth.getValue() +"-"+ dateOutDay.getValue();
        System.out.println(completeDateIn);
        LocalDate CDI = LocalDate.parse(completeDateIn);
        LocalDate CDO = LocalDate.parse(completeDateOut);
