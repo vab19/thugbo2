@@ -15,6 +15,8 @@ public class CreateMockHotels {
     private static final int MAX_PRICE = 100000;
     private static final String[] PRE =  {"", "Iceland ", "Glacial ", "Cozy ", "Cool ", "Nice and easy ", "Lovers' ", "Amazing ", "Unique "};
     private static final String[] POST = {"", "Hotel", "Guesthouse", "Cabin", "Apartments", "Housing", "Flats", "Motel", "House"};
+      private static final String[] PRE1 =  {"", "Báru", "Baldurs", "Ara", "Stiga", "Laxa", "Silunga", "Horna", "Hvassa"};
+    private static final String[] POST1 = {"", "hlíð", "gata", "leiti", "kvísl", "vegur", "horn", "bjarg"};
     private static final String[] REGIONS = {"North","South","East","West"};
     
     public static int randomNum(int val) {
@@ -25,6 +27,10 @@ public class CreateMockHotels {
         return PRE[randomNum(PRE.length-1)] + POST[randomNum(POST.length-1)];
     }
     
+     public static String randomName2() {
+        return PRE1[randomNum(PRE1.length-1)] + POST1[randomNum(POST1.length-1)];
+    }
+    
     public static String randomRegion() {
         return REGIONS[ThreadLocalRandom.current().nextInt(0, REGIONS.length)];
     }
@@ -33,7 +39,7 @@ public class CreateMockHotels {
         Hotel h = new Hotel(randomNum(MAX_HERB));
         h.setHotelId(id);
         h.setHotelName(randomName());
-        String adr = randomName() + " " + randomNum(MAX_HERB);
+        String adr = randomName2() + " " + randomNum(MAX_HERB);
         h.setAddress(adr);
         h.setRegion(randomRegion());
         //þannig að verðið er aldrei undir 10000

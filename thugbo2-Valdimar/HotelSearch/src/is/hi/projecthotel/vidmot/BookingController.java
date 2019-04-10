@@ -94,8 +94,8 @@ public class BookingController implements Initializable {
        String completeDateIn = dateInYear.getValue() +"-"+ dateInMonth.getValue() +"-"+ dateInDay.getValue();
        String completeDateOut = dateOutYear.getValue() +"-"+ dateOutMonth.getValue() +"-"+ dateOutDay.getValue();
        System.out.println(completeDateIn);
-       LocalDate CDI = LocalDate.parse(completeDateIn);
-       LocalDate CDO = LocalDate.parse(completeDateOut);
+       LocalDate CDO = LocalDate.parse(completeDateIn);
+       LocalDate CDI = LocalDate.parse(completeDateOut);
        //if(hotel.isAvailable(CDI,CDO))book.setDisable(false);
        if(hotel.isAvailable(CDI,CDO)){
             book.setText("Booking is Available");
