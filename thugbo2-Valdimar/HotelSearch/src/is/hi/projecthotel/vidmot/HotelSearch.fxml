@@ -9,21 +9,31 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="507.0" prefWidth="934.0" stylesheets="@../../../../../../../../../../Desktop/bla.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.hi.projecthotel.vidmot.HotelSearchController">
+<AnchorPane id="AnchorPane" fx:id="Anchory" prefHeight="507.0" prefWidth="934.0" style="-fx-background-color: GRAY;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.hi.projecthotel.vidmot.HotelSearchController">
    <children>
-      <HBox layoutX="14.0" layoutY="109.0" prefHeight="31.0" prefWidth="340.0">
+      <TextField fx:id="SearchParam" layoutX="644.0" layoutY="254.0" prefHeight="31.0" prefWidth="226.0" promptText="SEARCH..." />
+      <Button fx:id="HOTELPAGEBUTTON" layoutX="664.0" layoutY="300.0" mnemonicParsing="false" onMouseClicked="#OPENHOTELINFO" prefHeight="31.0" prefWidth="226.0" text="Booking and Information" />
+      <Button fx:id="SEARCHBUTTON" layoutX="870.0" layoutY="254.0" mnemonicParsing="false" onAction="#SearchForEvent" prefHeight="31.0" prefWidth="109.0" text="Search" />
+      <VBox fx:id="vBoxdude" layoutX="55.0" layoutY="161.0" prefHeight="340.0" prefWidth="504.0" />
+      <GridPane layoutX="55.0" layoutY="52.0" prefHeight="90.0" prefWidth="504.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-            <Label prefHeight="36.0" prefWidth="72.0" text="Sort by" />
-            <Button fx:id="NAMEbuTTON" mnemonicParsing="false" onAction="#FILTEREVENT" text="Name" />
-            <Button fx:id="REGIONBUTTON" mnemonicParsing="false" onAction="#FILTEREVENT" text="Region" />
-            <Button fx:id="PRICEBUTTON" mnemonicParsing="false" onAction="#FILTEREVENT" text="Price" />
-            <Button fx:id="RATINGBUTTON" mnemonicParsing="false" onAction="#FILTEREVENT" prefHeight="31.0" prefWidth="74.0" text="Rating" />
+            <Button fx:id="NAMEBUTTON" mnemonicParsing="false" onAction="#FILTEREVENT" prefHeight="31.0" prefWidth="142.0" text="Name" GridPane.rowIndex="2" />
+            <Button fx:id="REGIONBUTTON" mnemonicParsing="false" onAction="#FILTEREVENT" prefHeight="31.0" prefWidth="160.0" text="Region" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="PRICEBUTTON" mnemonicParsing="false" onAction="#FILTEREVENT" prefHeight="31.0" prefWidth="188.0" text="Price" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button fx:id="RATINGBUTTON" mnemonicParsing="false" onAction="#FILTEREVENT" prefHeight="31.0" prefWidth="130.0" text="Rating" GridPane.columnIndex="3" GridPane.rowIndex="2" />
          </children>
-      </HBox>
-      <TextField fx:id="SearchParam" layoutX="592.0" layoutY="136.0" promptText="SEARCH..." />
-      <Button fx:id="HOTELPAGEBUTTON" layoutX="619.0" layoutY="190.0" mnemonicParsing="false" onMouseClicked="#OPENHOTELINFO" text="Booking and Information" />
-      <Button layoutX="756.0" layoutY="136.0" mnemonicParsing="false" onAction="#SearchForEvent" text="Search" />
-      <VBox fx:id="vBoxdude" layoutX="25.0" layoutY="151.0" prefHeight="320.0" prefWidth="405.0" />
+      </GridPane>
        
    </children>
 </AnchorPane>

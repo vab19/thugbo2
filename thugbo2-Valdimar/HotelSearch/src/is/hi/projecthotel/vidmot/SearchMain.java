@@ -8,20 +8,17 @@ import javafx.stage.Stage;
 
 public class SearchMain extends Application {
     
-    @Override
-    public void start(Stage stage) throws Exception {
+   @Override
+    public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("HotelSearch.fxml"));
+        Scene scene = new Scene(root, 1000, 600);
+        scene.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
+        primaryStage.setScene(scene);
+        primaryStage.show();
         
-        Scene scene = new Scene(root);
-        
-        stage.setScene(scene);
-        stage.show();
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
-    }   
+    }
 }

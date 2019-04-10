@@ -34,6 +34,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import java.util.Arrays;
+import javafx.scene.control.Label;
 
 public class HotelSearchController implements Initializable {
     private Hotel[] hotels;
@@ -45,7 +46,7 @@ public class HotelSearchController implements Initializable {
     @FXML
     private Button HOTELPAGEBUTTON;
     @FXML
-    private Button NAMEbuTTON;
+    private Button NAMEBUTTON;
     @FXML
     private Button REGIONBUTTON;
     @FXML
@@ -63,6 +64,12 @@ public class HotelSearchController implements Initializable {
     private VBox vBoxdude;
     @FXML
     private TextField SearchParam;
+    @FXML
+    private AnchorPane Anchory;
+    @FXML
+    private Button SEARCHBUTTON;
+    @FXML
+    private Label sorter;
     
     
     @Override
