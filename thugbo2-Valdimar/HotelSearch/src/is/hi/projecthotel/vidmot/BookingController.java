@@ -96,11 +96,18 @@ public class BookingController implements Initializable {
        System.out.println(completeDateIn);
        LocalDate CDO = LocalDate.parse(completeDateIn);
        LocalDate CDI = LocalDate.parse(completeDateOut);
+       
+       
+       if(CDO.isAfter(CDI)){
+           book.setText("Please correct date");
+                   }
        //if(hotel.isAvailable(CDI,CDO))book.setDisable(false);
-       if(hotel.isAvailable(CDI,CDO)){
+        else if(hotel.isAvailable(CDI,CDO)){
             book.setText("Booking is Available");
+           //hotel.book(completeDateIn, completeDateOut, (int)Math.random()*10);
             //hotel.book(completeDateIn, completeDateOut, 5); // þarf að bæta við id
          }
+
        else book.setText("Booking is not Available");
        
        
