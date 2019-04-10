@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
@@ -51,6 +52,10 @@ public class HotelInfoController implements Initializable {
     private AnchorPane nDialog;
     
     private Hotel hotel;
+    @FXML
+    private Button BOOKBUTTON;
+    @FXML
+    private Button CANCELBUTTON;
     
     //private OpenScene openScene;
 
@@ -110,6 +115,7 @@ public class HotelInfoController implements Initializable {
 
          Scene newScene = new Scene(root);
          Stage newStage = new Stage();
+         newScene.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
          newStage.setScene(newScene);
          newStage.show();
       } catch (Exception e) {

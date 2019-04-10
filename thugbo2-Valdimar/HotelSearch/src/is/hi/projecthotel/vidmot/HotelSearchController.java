@@ -123,6 +123,7 @@ public class HotelSearchController implements Initializable {
          ctrl.setInfo(hotels[indexer]);
 
          Scene newScene = new Scene(root);
+         newScene.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
          Stage newStage = new Stage();
          newStage.setScene(newScene);
          newStage.show();
