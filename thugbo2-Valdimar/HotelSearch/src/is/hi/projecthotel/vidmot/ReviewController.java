@@ -13,6 +13,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import is.hi.projecthotel.vinnsla.*;
+import javafx.scene.control.ChoiceBox;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -27,21 +29,21 @@ public class ReviewController implements Initializable {
     private TextField textField;
     
     private Hotel hotel;
-
+    private Booking booking;
+    @FXML
+    private ChoiceBox<String> rating;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        for(int i = 0; i < 10; i++){
+               rating.getItems().add(i+"");
     }    
-
-    @FXML
-    private void ReviewACTION(ActionEvent event) {
-        hotel.addReview(textField.getText(), 0, hotel.getHotelId(), 0);
-        
-        
+    rating.setValue("5");
     }
+
+   
     public  void setHotel(Hotel hotel){
         this.hotel = hotel;
        
@@ -50,5 +52,12 @@ public class ReviewController implements Initializable {
     public void setName(String name){
         custName.setText(name);
         
+    }
+
+    @FXML
+    private void ReviewACTION(ActionEvent event) {
+          hotel.addReview(textField.getText(), Integer.parseInt(rating.getValue()), 5, hotel.getHotelId());
+          Stage stage = (Stage) textField.getScene().getWindow();
+          stage.close();
     }
 }

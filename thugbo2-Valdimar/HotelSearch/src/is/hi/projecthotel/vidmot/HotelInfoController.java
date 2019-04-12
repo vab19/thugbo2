@@ -90,6 +90,8 @@ public class HotelInfoController implements Initializable {
          newScene.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
          newStage.setScene(newScene);
          newStage.show();
+         Stage stage = (Stage) BOOKBUTTON.getScene().getWindow();
+         stage.close();
       } catch (Exception e) {
          e.printStackTrace();
       }
