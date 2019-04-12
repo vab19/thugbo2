@@ -71,6 +71,10 @@ public class HotelSearchController implements Initializable {
     @FXML
     private Label sorter;
     
+    private Boolean trigger = false;
+    
+    private Hotel [] subHotels;
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -147,69 +151,24 @@ public class HotelSearchController implements Initializable {
 
     @FXML
     private void FILTEREVENT(ActionEvent event) {
+        Hotel [] hotelz;
+        if(trigger)hotelz = subHotels;
+        else hotelz = hotels;
         //NAME, REGI, PRIC, RATI, 10-14
-        
-        int length = hotels.length;
         String buttonType = event.getSource().toString().substring(10, 14);
-        String[] listItemsPre = new String[length];
-        String[] listItemsPost = new String[length];
-        int j;
         if("NAME".equals(buttonType)) {
-            for(int i=0;i<length;i++) {
-                listItemsPost[i] = listItems[i];
-            }
-            Arrays.sort(listItemsPost);
-            list = new ListView<String>();
-            for(int i=0;i<40;i++) {
-                    list.getItems().addAll(listItemsPost[i]);
-            }
-            
-            
+            sortByName(hotelz);
         } else if("REGI".equals(buttonType)) {
-            for(int i=0;i<length;i++) {
-                j = listItems[i].indexOf("|");
-                listItemsPre[i] = listItems[i].substring(0, j-1);
-                listItemsPost[i] = listItems[i].substring(j);
-            }
-            Arrays.sort(listItemsPost);
-            list = new ListView<String>();
-            for(int i=0;i<40;i++) {
-                    list.getItems().addAll(listItemsPre[i]+listItemsPost[i]);
-            }
+            sortByRegion(hotelz);
         } else if("PRIC".equals(buttonType)) {
-            for(int i=0;i<length;i++) {
-                j = listItems[i].indexOf("|");
-                j = listItems[i].indexOf("|", j+1);
-                listItemsPre[i] = listItems[i].substring(0, j-1);
-                listItemsPost[i] = listItems[i].substring(j);
-            }
-            Arrays.sort(listItemsPost);
-            list = new ListView<String>();
-            for(int i=0;i<40;i++) {
-                    list.getItems().addAll(listItemsPre[i]+listItemsPost[i]);
-            }
-        
+            sortByPrice(hotelz);
         } else if("RATI".equals(buttonType)) {
-            for(int i=0;i<length;i++) {
-                //finnur þriðja instancið af |
-                j = listItems[i].indexOf("|");
-                j = listItems[i].indexOf("|", j+1);
-                j = listItems[i].indexOf("|", j+1);
-                listItemsPre[i] = listItems[i].substring(0, j-1);
-                listItemsPost[i] = listItems[i].substring(j);
-            }
-            Arrays.sort(listItemsPost);
-            list = new ListView<String>();
-            for(int i=0;i<40;i++) {
-                    list.getItems().addAll(listItemsPre[i]+listItemsPost[i]);
-            }
+            
+            sortByRating(hotelz);
         } else {
             System.out.println("no button found");
         }
         
-        
-        vBoxdude.getChildren().remove(0);
-        vBoxdude.getChildren().addAll(list);
     }
      private void frumstillaGognHandlerListi() {
         msl = list.getSelectionModel();
@@ -225,23 +184,133 @@ public class HotelSearchController implements Initializable {
         
         
 }
-
-    @FXML
-    private void SearchForEvent(ActionEvent event) {
-        String param = SearchParam.getText();
-        System.out.println(param);
-        String item = "";
-        
-        list = new ListView<String>();
-        for(int i=0;i<40;i++) {
-            System.out.println(listItems[i].contains(param));
-            if(listItems[i].contains(param)) {
-                list.getItems().addAll(listItems[i]);
-                System.out.println(listItems[i]);
+    
+    
+    private void sortByPrice(Hotel [] hotelz) {
+        int n = hotelz.length;
+        for(int i=0;i<n-1;i++) {
+            for(int j=0;j<n-i-1;j++) {
+                if(hotelz[j].getPricePerNight() > hotelz[j+1].getPricePerNight()) {
+                    Hotel temp = hotelz[j];
+                    hotelz[j] = hotelz[j+1];
+                    hotelz[j+1] = temp;
+                }
             }
         }
-        //vBoxdude = new VBox();
+        displayHotels(hotelz);
+    }
+    
+    private void sortByName(Hotel [] hotelz) {
+        int n = hotelz.length;
+        for(int i=0;i<n-1;i++) {
+            for(int j=0;j<n-i-1;j++) {
+                if(hotelz[j].getHotelName().compareTo(hotelz[j+1].getHotelName()) > 0) {
+                    Hotel temp = hotelz[j];
+                    hotelz[j] = hotelz[j+1];
+                    hotelz[j+1] = temp;
+                }
+            }
+        }
+        displayHotels(hotelz);
+    }
+    
+    private void sortByRegion(Hotel [] hotelz) {
+        int n = hotelz.length;
+        for(int i=0;i<n-1;i++) {
+            for(int j=0;j<n-i-1;j++) {
+                if(hotelz[j].getRegion().compareTo(hotelz[j+1].getRegion()) > 0) {
+                    Hotel temp = hotelz[j];
+                    hotelz[j] = hotelz[j+1];
+                    hotelz[j+1] = temp;
+                }
+            }
+        }
+        displayHotels(hotelz);
+    }
+    
+    private void displayHotels(Hotel [] hotelz) {
+         int n = hotelz.length;
+         list = new ListView<String>();
+         for(int i=0;i<n;i++) {
+            
+            
+            String item = ""+hotelz[i].getHotelName()
+            +"    |    "+hotelz[i].getRegion()+"    |    "+hotelz[i].getPricePerNight()+"    |    "+hotelz[i].getRating();
+            listItems[i] = item;
+            
+            list.getItems().addAll(item);
+           
+        }
+         vBoxdude.getChildren().remove(0);
+         vBoxdude.getChildren().addAll(list);
+    }
+
+    private void sortByRating(Hotel [] hotelz) {
+        int n = hotelz.length;
+        for(int i=0;i<n-1;i++) {
+            for(int j=0;j<n-i-1;j++) {
+                if(hotelz[j].getRating() < hotelz[j+1].getRating()) {
+                    Hotel temp = hotelz[j];
+                    hotelz[j] = hotelz[j+1];
+                    hotelz[j+1] = temp;
+                }
+            }
+        }
+        displayHotels(hotelz);
+    }
+    
+    
+    @FXML
+    private void SearchForEvent(ActionEvent event) {
+        int count = 0;
+        trigger = true;
+       
+        String param = SearchParam.getText().toLowerCase();
         
+        String price = "";
+        String rating = "";
+        list = new ListView<String>();
+        for(int i=0;i<hotels.length;i++) {
+            price = hotels[i].getPricePerNight()+"";
+            rating = hotels[i].getRating()+"";
+            if(hotels[i].getHotelName().toLowerCase().contains(param)) {
+                count++;
+                
+            } else if(hotels[i].getRegion().toLowerCase().contains(param)) {
+                count++;
+            } else if(price.contains(param)) {
+                count++;
+            } else if(rating.contains(param)) {
+                count++;
+                
+            }
+        }
+        
+        
+        
+         Hotel [] subHotels  = new Hotel[count];
+        
+         int j=0;
+          for(int i=0;i<hotels.length;i++) {
+            price = hotels[i].getPricePerNight()+"";
+            rating = hotels[i].getRating()+"";
+            if(hotels[i].getHotelName().toLowerCase().contains(param)) {
+                subHotels[j] = hotels[i];
+                j++;
+            } else if(hotels[i].getRegion().toLowerCase().contains(param)) {
+                subHotels[j] = hotels[i];
+                j++;
+            } else if(price.contains(param)) {
+                subHotels[j] = hotels[i];
+                j++;
+            } else if(rating.contains(param)) {
+                subHotels[j] = hotels[i];
+                j++;
+                
+            }
+        }
+          
+         displayHotels(subHotels);
         vBoxdude.getChildren().remove(0);
         vBoxdude.getChildren().addAll(list);
     }

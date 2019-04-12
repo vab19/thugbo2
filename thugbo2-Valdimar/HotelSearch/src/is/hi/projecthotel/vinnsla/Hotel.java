@@ -106,6 +106,8 @@ public class Hotel {
     
     public void setRating(double val) { this.rating = val; }
     
+  
+    
     public RoomsAvailable getroomsAvailable() {
         return roomsAvailable;
     }

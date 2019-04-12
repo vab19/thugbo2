@@ -12,11 +12,15 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -48,6 +52,8 @@ public class BookingController implements Initializable {
     private ChoiceBox<String> dateOutMonth;
     @FXML
     private Label Title;
+    @FXML
+    private TextField fName;
     
    
     /**
@@ -101,8 +107,26 @@ public class BookingController implements Initializable {
        //if(hotel.isAvailable(CDI,CDO))book.setDisable(false);
         else if(hotel.isAvailable(CDI,CDO)){
             book.setText("Booking is Available");
-            hotel.book(completeDateOut, completeDateIn, hotel.getHotelId()); // þarf að bæta við id
+            hotel.book(completeDateOut, completeDateIn, hotel.getHotelId()); 
+            book.setDisable(true);
+              try {
+         FXMLLoader loader = new FXMLLoader(getClass().getResource(
+               "Review.fxml"));
+         Parent root = (Parent) loader.load();
+         ReviewController ctrl = loader.getController();
+         ctrl.setName(fName.getText());
+         ctrl.setHotel(hotel);
+
+         Scene newScene = new Scene(root);
+         Stage newStage = new Stage();
+         newScene.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
+         newStage.setScene(newScene);
+         newStage.show();
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
             
+             
          }
        else book.setText("Booking is not Available");
     }
