@@ -171,16 +171,20 @@ public class Hotel {
         LocalDate o = LocalDate.parse(dateIn);
         if (!isAvailable(i,o)) {
             System.out.println("EKKI LAUST!");
-            return;
         }
+        else {
+            /*
         Booking temp = new Booking();
         temp.setHotelId(getHotelId());
         temp.setCustomerId(customerId);
         temp.setDateIn(dateIn);
         temp.setDateOut(dateOut);
         temp.setPriceOverall(totalDays(i,o)*getPricePerNight());
+           
         bookingList.add(temp);
+            */
         setRooms(i, o, true);
+        }
     }
     
     /**

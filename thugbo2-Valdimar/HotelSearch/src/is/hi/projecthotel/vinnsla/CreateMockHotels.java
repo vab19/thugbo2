@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * @author Nökkvi
  */
 public class CreateMockHotels {
-    
+    private static List<Hotel> hotelList = new ArrayList<>();
     private static final int MAX_HERB = 10;
     private static final int MAX_STARS = 5;
     private static final int MAX_PRICE = 100000;
@@ -46,7 +46,7 @@ public class CreateMockHotels {
         h.setPricePernight(ThreadLocalRandom.current().nextInt(10000, MAX_PRICE-1));
         h.setRating(randomNum(9));
         h.setStars(randomNum(MAX_STARS));
-          List<Hotel> hotelList = new ArrayList<>();
+           hotelList.add(id,h);
            JsonGenerator.setHotelListJson(hotelList);
         return h;
     }

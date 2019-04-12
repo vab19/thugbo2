@@ -231,6 +231,7 @@ public class HotelSearchController implements Initializable {
         String param = SearchParam.getText();
         System.out.println(param);
         String item = "";
+        
         list = new ListView<String>();
         for(int i=0;i<40;i++) {
             System.out.println(listItems[i].contains(param));
