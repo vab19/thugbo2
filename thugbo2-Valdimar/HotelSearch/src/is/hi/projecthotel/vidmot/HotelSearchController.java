@@ -68,12 +68,14 @@ public class HotelSearchController implements Initializable {
     private AnchorPane Anchory;
     @FXML
     private Button SEARCHBUTTON;
-    @FXML
-    private Label sorter;
     
     private Boolean trigger = false;
     
     private Hotel [] subHotels;
+    @FXML
+    private TextField reviewField;
+    @FXML
+    private Button latestReviewButton;
     
     
     @Override
@@ -98,22 +100,22 @@ public class HotelSearchController implements Initializable {
             list.getItems().addAll(item);
            
         }
-        
        
-        //list.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         vBoxdude.getChildren().addAll(list);
+      
+        
          
-       
-        
-        
-    
     }
+    
+    
     
     ObservableList<Hotel> heildarListi() {
             ObservableList<Hotel> obl = FXCollections.observableArrayList(JsonReader.getHotelListJson());
             return obl;
     }
 
+    
+    
     @FXML
     private void OPENHOTELINFO(MouseEvent event) throws IOException {
         int indexer = list.getSelectionModel().getSelectedIndex();
@@ -314,5 +316,21 @@ public class HotelSearchController implements Initializable {
         displayHotels(subHotels);
         vBoxdude.getChildren().remove(0);
         vBoxdude.getChildren().addAll(list);
+    }
+
+    @FXML
+    private void latestReview(ActionEvent event) {
+       
+        String comment = "";
+        
+        //hotels[indexer].addReview("hello", 5, 5, hotels[indexer].getHotelId());
+        
+            if(trigger) comment = subHotels[indexer].getReviews().get(0).getComment();
+            else comment = hotels[indexer].getReviews().get(0).getComment();
+            reviewField.setText(comment);
+        
+        
+    
+        
     }
 }

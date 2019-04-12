@@ -11,6 +11,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="Anchory" prefHeight="507.0" prefWidth="934.0" style="-fx-background-color: GRAY;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.hi.projecthotel.vidmot.HotelSearchController">
    <children>
+      
       <TextField fx:id="SearchParam" layoutX="644.0" layoutY="254.0" prefHeight="31.0" prefWidth="226.0" promptText="SEARCH..." />
       <Button fx:id="HOTELPAGEBUTTON" layoutX="664.0" layoutY="300.0" mnemonicParsing="false" onMouseClicked="#OPENHOTELINFO" prefHeight="31.0" prefWidth="226.0" text="Booking and Information" />
       <Button fx:id="SEARCHBUTTON" layoutX="870.0" layoutY="254.0" mnemonicParsing="false" onAction="#SearchForEvent" prefHeight="31.0" prefWidth="109.0" text="Search" />
@@ -34,6 +35,8 @@
             <Button fx:id="RATINGBUTTON" mnemonicParsing="false" onAction="#FILTEREVENT" prefHeight="31.0" prefWidth="130.0" text="Rating" GridPane.columnIndex="3" GridPane.rowIndex="2" />
          </children>
       </GridPane>
+      <TextField fx:id="reviewField" alignment="TOP_LEFT" layoutX="620.0" layoutY="52.0" prefHeight="154.0" prefWidth="346.0" />
+      <Button fx:id="latestReviewButton" layoutX="620.0" layoutY="14.0" mnemonicParsing="false" onAction="#latestReview" prefHeight="31.0" prefWidth="346.0" text="Get latest review" />
        
    </children>
 </AnchorPane>
