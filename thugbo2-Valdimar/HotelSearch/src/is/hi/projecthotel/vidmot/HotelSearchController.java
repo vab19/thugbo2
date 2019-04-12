@@ -187,6 +187,7 @@ public class HotelSearchController implements Initializable {
     
     
     private void sortByPrice(Hotel [] hotelz) {
+        
         int n = hotelz.length;
         for(int i=0;i<n-1;i++) {
             for(int j=0;j<n-i-1;j++) {
@@ -287,8 +288,8 @@ public class HotelSearchController implements Initializable {
         }
         
         
-        
-         Hotel [] subHotels  = new Hotel[count];
+       
+         subHotels  = new Hotel[count];
         
          int j=0;
           for(int i=0;i<hotels.length;i++) {
@@ -310,7 +311,7 @@ public class HotelSearchController implements Initializable {
             }
         }
           
-         displayHotels(subHotels);
+        displayHotels(subHotels);
         vBoxdude.getChildren().remove(0);
         vBoxdude.getChildren().addAll(list);
     }
