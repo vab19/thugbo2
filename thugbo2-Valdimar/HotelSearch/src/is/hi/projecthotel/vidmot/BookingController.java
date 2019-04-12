@@ -55,11 +55,13 @@ public class BookingController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         //book.setDisable(true);
-        
          
+        
+        book.setDisable(false);
         dateInYear.getItems().add("2019");
         dateOutYear.getItems().add("2019");
+        dateInYear.setValue("2019");
+        dateOutYear.setValue("2019");
          
         for(int i = 1; i < 13; i++){
              if(i>=10){
@@ -69,7 +71,6 @@ public class BookingController implements Initializable {
             else{
                 dateInMonth.getItems().add("0"+i);
                 dateOutMonth.getItems().add("0"+i);
-                
             }
          }
          
@@ -81,13 +82,9 @@ public class BookingController implements Initializable {
             else{
                 dateInDay.getItems().add("0"+i);
                 dateOutDay.getItems().add("0"+i);
-                
             }
-                
-             
-         }
-           
-    }    
+        }
+    }   
 
     @FXML
     private void BookPressedEvent(ActionEvent event) {
@@ -104,30 +101,20 @@ public class BookingController implements Initializable {
        //if(hotel.isAvailable(CDI,CDO))book.setDisable(false);
         else if(hotel.isAvailable(CDI,CDO)){
             book.setText("Booking is Available");
-            //roomsAvailable.book(completeDateIn);
-            //hotel.book(completeDateIn, completeDateOut, 5); // þarf að bæta við id
+            hotel.book(completeDateOut, completeDateIn, hotel.getHotelId()); // þarf að bæta við id
+            
          }
-
        else book.setText("Booking is not Available");
-       
-       
-  
     }
     
     public  void setHotel(Hotel hotel){
         this.hotel = hotel;
         this.roomsAvailable = hotel.getroomsAvailable();
         Title.setText(hotel.getHotelName()+"");
-        
-       
-       
-        
     }
 
 
     private void dateOutEvent(ActionEvent event) {
         if(date1 == "" || date2 == "")book.setDisable(true);
-        
     }
-    
 }

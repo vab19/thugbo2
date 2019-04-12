@@ -168,12 +168,12 @@ public class Hotel {
      */
     public void book(String dateIn, String dateOut, int customerId) {
         LocalDate i = LocalDate.parse(dateIn);
-        LocalDate o = LocalDate.parse(dateIn);
+        LocalDate o = LocalDate.parse(dateOut);
         if (!isAvailable(i,o)) {
             System.out.println("EKKI LAUST!");
         }
         else {
-            /*
+            
         Booking temp = new Booking();
         temp.setHotelId(getHotelId());
         temp.setCustomerId(customerId);
@@ -182,7 +182,7 @@ public class Hotel {
         temp.setPriceOverall(totalDays(i,o)*getPricePerNight());
            
         bookingList.add(temp);
-            */
+            
         setRooms(i, o, true);
         }
     }
@@ -197,7 +197,7 @@ public class Hotel {
      */
     public void unBook(String dateIn, String dateOut, int customerId) {
         LocalDate i = LocalDate.parse(dateIn);
-        LocalDate o = LocalDate.parse(dateIn);
+        LocalDate o = LocalDate.parse(dateOut);
         
         Booking temp = new Booking();
         temp.setHotelId(getHotelId());

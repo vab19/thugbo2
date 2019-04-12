@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="nDialog" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: GRAY;" visible="true" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.hi.projecthotel.vidmot.HotelInfoController">
    <children>
-      <Button fx:id="BOOKBUTTON" layoutY="353.0" mnemonicParsing="false" onAction="#BookRoomEvent" prefHeight="31.0" prefWidth="307.0" text="Book Room" />
+      <Button fx:id="BOOKBUTTON" layoutX="147.0" layoutY="349.0" mnemonicParsing="false" onAction="#BookRoomEvent" prefHeight="31.0" prefWidth="307.0" text="Book Room" />
       <VBox layoutX="91.0" layoutY="28.0" prefHeight="303.0" prefWidth="460.0" style="-fx-background-color: white;">
          <children>
             <GridPane prefHeight="254.0" prefWidth="352.0">
@@ -48,6 +48,5 @@
             </GridPane>
          </children>
       </VBox>
-      <Button fx:id="CANCELBUTTON" layoutX="321.0" layoutY="353.0" mnemonicParsing="false" onAction="#CancelEvent" prefHeight="31.0" prefWidth="307.0" text="Cancel" />
    </children>
 </AnchorPane>
