@@ -2,7 +2,7 @@
     -fx-background-color: rgba(255, 255, 255, .80);
     
 }
-#PRICEBUTTON, #REGIONBUTTON, #NAMEBUTTON ,#REGIONBUTTON, #RATINGBUTTON, #SEARCHBUTTON, #HOTELPAGEBUTTON, #BOOKBUTTON, #CANCELBUTTON, #book, #latestReviewButton{
+#PRICEBUTTON, #REGIONBUTTON, #NAMEBUTTON ,#REGIONBUTTON, #RATINGBUTTON, #SEARCHBUTTON, #HOTELPAGEBUTTON, #BOOKBUTTON, #CANCELBUTTON, #book, #latestReviewButton, #unbook{
      -fx-background-color: 
         rgba(0,0,0,0.08),
         linear-gradient(#5a61af, #51536d),

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -35,8 +36,17 @@
             <Button fx:id="RATINGBUTTON" mnemonicParsing="false" onAction="#FILTEREVENT" prefHeight="31.0" prefWidth="130.0" text="Rating" GridPane.columnIndex="3" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <TextField fx:id="reviewField" alignment="TOP_LEFT" layoutX="620.0" layoutY="52.0" prefHeight="154.0" prefWidth="346.0" />
       <Button fx:id="latestReviewButton" layoutX="620.0" layoutY="14.0" mnemonicParsing="false" onAction="#latestReview" prefHeight="31.0" prefWidth="346.0" text="Get latest review" />
+      <VBox fx:id="vBoxdude1" layoutX="620.0" layoutY="50.0" prefHeight="125.0" prefWidth="346.0" style="-fx-background-color: white;">
+         <children>
+            <Label fx:id="reviewField" alignment="TOP_LEFT" prefHeight="127.0" prefWidth="346.0" wrapText="true" />
+         </children>
+      </VBox>
+      <Label fx:id="ratingGiven" layoutX="568.0" layoutY="45.0" prefHeight="55.0" prefWidth="52.0" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="36.0" />
+         </font>
+      </Label>
        
    </children>
 </AnchorPane>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -8,8 +9,16 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: gray;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.hi.projecthotel.vidmot.ReviewController">
    <children>
-      <Label fx:id="custName" layoutX="79.0" layoutY="84.0" prefHeight="21.0" prefWidth="178.0" text="Label" textFill="WHITE" />
+      <Label fx:id="custName" layoutX="186.0" layoutY="52.0" prefHeight="21.0" prefWidth="178.0" text="Label" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
       <TextField fx:id="textField" alignment="TOP_LEFT" layoutX="75.0" layoutY="126.0" onAction="#ReviewACTION" prefHeight="222.0" prefWidth="466.0" promptText="Write your review here" />
       <ChoiceBox fx:id="rating" layoutX="391.0" layoutY="69.0" prefWidth="150.0" />
+      <Label layoutX="79.0" layoutY="52.0" text="Leave a review!" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

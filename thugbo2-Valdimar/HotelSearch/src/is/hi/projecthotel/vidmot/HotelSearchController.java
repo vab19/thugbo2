@@ -35,6 +35,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import java.util.Arrays;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.text.TextFlow;
 
 public class HotelSearchController implements Initializable {
     private Hotel[] hotels;
@@ -53,13 +55,7 @@ public class HotelSearchController implements Initializable {
     private Button PRICEBUTTON;
     @FXML
     private Button RATINGBUTTON;
-    private ListView<String> list;
-    
-    
-    private MultipleSelectionModel msl;
-    
-    private int index = 0;
-    private int indexer = 0;
+  
     @FXML
     private VBox vBoxdude;
     @FXML
@@ -69,13 +65,19 @@ public class HotelSearchController implements Initializable {
     @FXML
     private Button SEARCHBUTTON;
     
-    private Boolean trigger = false;
-    
     private Hotel [] subHotels;
     @FXML
-    private TextField reviewField;
+    private Label reviewField;
     @FXML
     private Button latestReviewButton;
+    @FXML
+    private VBox vBoxdude1;
+    
+    private int indexer;
+    private ListView<String> list;
+    private Boolean trigger = false;
+    @FXML
+    private Label ratingGiven;
     
     
     @Override
@@ -102,6 +104,7 @@ public class HotelSearchController implements Initializable {
         }
        
         vBoxdude.getChildren().addAll(list);
+       
       
         
          
@@ -118,7 +121,8 @@ public class HotelSearchController implements Initializable {
     
     @FXML
     private void OPENHOTELINFO(MouseEvent event) throws IOException {
-        int indexer = list.getSelectionModel().getSelectedIndex();
+        indexer =  list.getSelectionModel().getSelectedIndex();
+       
         if(indexer != -1) {
             
             try {
@@ -172,21 +176,9 @@ public class HotelSearchController implements Initializable {
         }
         
     }
-     private void frumstillaGognHandlerListi() {
-        msl = list.getSelectionModel();
-        msl.selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                index = msl.getSelectedIndex();
-            }
-        });
-    }
     
-    private void buttonClicked(){
-        
-        
-}
     
+   
     
     private void sortByPrice(Hotel [] hotelz) {
         
@@ -321,16 +313,29 @@ public class HotelSearchController implements Initializable {
     @FXML
     private void latestReview(ActionEvent event) {
        
-        String comment = "";
+        String comment;
+        int rate;
+        indexer =  list.getSelectionModel().getSelectedIndex();
+   
         
-        //hotels[indexer].addReview("hello", 5, 5, hotels[indexer].getHotelId());
         
-            if(trigger) comment = subHotels[indexer].getReviews().get(0).getComment();
-            else comment = hotels[indexer].getReviews().get(0).getComment();
-            reviewField.setText(comment);
+            
+        if(trigger){ 
+            comment = subHotels[indexer].getReviews().get(subHotels[indexer].getReviews().size()-1).getComment();
+            rate = subHotels[indexer].getReviews().get(subHotels[indexer].getReviews().size()-1).getRating();
+        }
+        else {
+            comment = hotels[indexer].getReviews().get(hotels[indexer].getReviews().size()-1).getComment();
+            rate = hotels[indexer].getReviews().get(hotels[indexer].getReviews().size()-1).getRating();
+        }
+        reviewField.setText(comment);
+        ratingGiven.setText(rate+"");
+        
         
         
     
         
     }
+    
+ 
 }

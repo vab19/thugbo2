@@ -54,6 +54,8 @@ public class BookingController implements Initializable {
     private Label Title;
     @FXML
     private TextField fName;
+    @FXML
+    private Button unbook;
     
    
     /**
@@ -97,11 +99,17 @@ public class BookingController implements Initializable {
        String completeDateIn = dateInYear.getValue() +"-"+ dateInMonth.getValue() +"-"+ dateInDay.getValue();
        String completeDateOut = dateOutYear.getValue() +"-"+ dateOutMonth.getValue() +"-"+ dateOutDay.getValue();
        System.out.println(completeDateIn);
+          if(dateInMonth.getValue() == "" || dateInDay.getValue() == ""){
+           book.setText("Please insert date");
+       }
+         
        LocalDate CDO = LocalDate.parse(completeDateIn);
        LocalDate CDI = LocalDate.parse(completeDateOut);
        
        
-       if(CDO.isAfter(CDI)){
+       
+      
+        if(CDO.isAfter(CDI)){
            book.setText("Please correct date");
                    }
        //if(hotel.isAvailable(CDI,CDO))book.setDisable(false);
@@ -144,4 +152,44 @@ public class BookingController implements Initializable {
     private void dateOutEvent(ActionEvent event) {
         if(date1 == "" || date2 == "")book.setDisable(true);
     }
+
+    @FXML
+    private void UnbookPressedEvent(ActionEvent event) {
+       String completeDateIn = dateInYear.getValue() +"-"+ dateInMonth.getValue() +"-"+ dateInDay.getValue();
+       String completeDateOut = dateOutYear.getValue() +"-"+ dateOutMonth.getValue() +"-"+ dateOutDay.getValue();
+       System.out.println(completeDateIn);
+          if(dateInMonth.getValue() == "" || dateInDay.getValue() == ""){
+           book.setText("Please insert date");
+       }
+         
+       LocalDate CDO = LocalDate.parse(completeDateIn);
+       LocalDate CDI = LocalDate.parse(completeDateOut);
+       
+       
+       
+      
+        if(CDO.isAfter(CDI)){
+           book.setText("Please correct date");
+                   }
+       //if(hotel.isAvailable(CDI,CDO))book.setDisable(false);
+        else{
+           
+            hotel.unBook(completeDateOut, completeDateIn, hotel.getHotelId()); 
+            book.setDisable(true);
+              try {
+         Stage stage = (Stage) book.getScene().getWindow();
+         stage.close();
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
+            
+             
+         }
+       
+    }
+    
+    
+    
+    
+    
 }

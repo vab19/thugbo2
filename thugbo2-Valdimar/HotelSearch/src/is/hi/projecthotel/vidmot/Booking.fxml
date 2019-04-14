@@ -69,5 +69,6 @@
             </Label>
          </children>
       </VBox>
+      <Button fx:id="unbook" layoutX="108.0" layoutY="379.0" mnemonicParsing="false" onAction="#UnbookPressedEvent" prefHeight="31.0" prefWidth="352.0" text="Unbook" />
    </children>
 </AnchorPane>
