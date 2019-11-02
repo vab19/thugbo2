@@ -1,11 +1,7 @@
 package is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.ArrayList;
-import java.util.Date;
+import javax.persistence.*;
+import java.util.*;
 
 @Entity
 public class Workout {
@@ -16,16 +12,22 @@ public class Workout {
     private String workoutName;
     private String description;
     private Date date;
-    //private ArrayList<WorkoutLineItem>;
-    //add private enum Wtype workoutType
 
+    @ElementCollection(targetClass = WorkoutType.class)
+    @Column(name="workoutType", nullable = false)
+    @CollectionTable(name="workout_types", joinColumns = {@JoinColumn(name = "workout_id")})
+    public Set<WorkoutType> workoutTypes;
+
+    @OneToMany(mappedBy = "workout")
+    private List<WorkoutLineItem> exercises = new ArrayList<>();
     public Workout() {
     }
 
-    public Workout(String workoutName, String description, Date date) {
+    public Workout(String workoutName, String description, Date date, HashSet<WorkoutType> workoutTypes) {
         this.workoutName = workoutName;
         this.description = description;
         this.date = date;
+        this.workoutTypes = workoutTypes;
     }
 
     //alt + insert fyrir getter and setter
@@ -59,5 +61,10 @@ public class Workout {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return this.workoutName;
     }
 }

@@ -1,22 +1,33 @@
 package is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Table(name = "USER")
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String username;
-    private String password;
-    private String email;
-    private ArrayList<Workout> workouts;
+    public String username;
+    public String password;
+    public String email;
+
+    @OneToMany(mappedBy = "user")
+    private List<Workout> workouts = new ArrayList<>();
+
+    public List<Workout> getWorkouts() {
+        return workouts;
+    }
+
+    public void setWorkouts(List<Workout> workouts) {
+        this.workouts = workouts;
+    }
+
+    public User() {
+    }
 
     public User(String username, String password, String email) {
         this.username = username;
@@ -56,11 +67,8 @@ public class User {
         this.email = email;
     }
 
-    public ArrayList<Workout> getWorkouts() {
-        return workouts;
-    }
-
-    public void setWorkouts(ArrayList<Workout> workouts) {
-        this.workouts = workouts;
+    @Override
+    public String toString() {
+        return username;
     }
 }
