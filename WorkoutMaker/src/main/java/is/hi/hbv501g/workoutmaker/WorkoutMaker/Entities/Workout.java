@@ -63,6 +63,14 @@ public class Workout {
         this.id = id;
     }
 
+    public void setExercises(List<WorkoutLineItem> exercises) {
+        this.exercises = exercises;
+    }
+
+    public List<WorkoutLineItem> getExercises() {
+        return this.exercises;
+    }
+
     @Override
     public String toString() {
         return this.workoutName;
