@@ -6,7 +6,8 @@ import is.hi.hbv501g.workoutmaker.WorkoutMaker.Repositories.WorkoutRepository;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Services.WorkoutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+//(högni freyr gunnarson, þorsteinn oskarsson, sunneva þorsteinsdóttir, helga þöll guðjónsdóttir)22 reviewar okkur og við reviewum 30
+//30 = (sigursteinn pálsson, anton h. heimdal, tómas tryggvason, una rúnarsdóttirí )
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
