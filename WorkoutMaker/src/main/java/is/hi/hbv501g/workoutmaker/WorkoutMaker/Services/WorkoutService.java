@@ -12,9 +12,9 @@ public interface WorkoutService {
     void delete(Workout workout);
     void deleteAll();
     void addToWorkout(long workoutId, WorkoutLineItem workoutLineItem);
-    void rmFromWorkout(Workout workout, int lineNumber);
-    void setExerciseReps(Workout workout, WorkoutLineItem workoutLineItem, int reps);
-    void setExerciseSets(Workout workout, WorkoutLineItem workoutLineItem, int sets);
+    void rmFromWorkout(long workoutId, int lineNumber);
+    void setExerciseReps(Workout workout, int lineNumber, int reps);
+    void setExerciseSets(Workout workout, int lineNumber, int sets);
     List<Workout> findAll();
     List<Workout> findByWorkoutName(String workoutName);
     Optional<Workout> findById(long id);
