@@ -15,13 +15,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class WorkoutServiceImplementations implements WorkoutService {
+public class WorkoutServiceImplementation implements WorkoutService {
 
     WorkoutRepository workoutRepository;
     WorkoutLineItemRepository workoutLineItemRepository;
 
     @Autowired
-    public WorkoutServiceImplementations(WorkoutRepository workoutRepository, WorkoutLineItemRepository wliRepository){
+    public WorkoutServiceImplementation(WorkoutRepository workoutRepository, WorkoutLineItemRepository wliRepository){
         this.workoutRepository = workoutRepository;
         this.workoutLineItemRepository = wliRepository;
     }
