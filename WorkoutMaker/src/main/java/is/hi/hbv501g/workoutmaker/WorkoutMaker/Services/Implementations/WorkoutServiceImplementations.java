@@ -2,6 +2,7 @@ package is.hi.hbv501g.workoutmaker.WorkoutMaker.Services.Implementations;
 
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.Workout;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.WorkoutLineItem;
+import is.hi.hbv501g.workoutmaker.WorkoutMaker.Repositories.WorkoutLineItemRepository;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Repositories.WorkoutRepository;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Services.WorkoutService;
 import org.springframework.beans.factory.annotation.Autowired;
