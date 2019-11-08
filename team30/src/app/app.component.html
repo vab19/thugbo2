@@ -1,0 +1,35 @@
+    <div class="hero-image">
+        <div class="hero-text">
+            <div class="fade-in">
+              <h1 style="font-size:90px">Reykjavík</h1>
+              Þar sem draumar koma til að deyja
+            </div>
+        </div>
+  <div class="logo">
+    <button mat-button (click)="goHome()">
+        ReykjavíkLogo
+      </button>
+  </div>
+  <div class = "events">
+    <button mat-button (click)="goRestaurant()">
+      Veitingarstaðir
+    </button>
+    <button mat-button (click)="goBars()">
+        Barir
+    </button>
+    <button mat-button (click)="goSaloon()">
+        Hárgreiðslustofur
+    </button>
+    <button mat-button (click)="goCafe()">
+        Kaffihús
+    </button>
+    <button mat-button (click)="goSwimming()">
+        Sundlaugar
+    </button>
+    
+  </div>
+</div>
+<div class="">
+
+</div>
+<app-main class="main" [chosen] = "chosen"></app-main>

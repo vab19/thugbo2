@@ -8,13 +8,16 @@ import java.util.List;
 import java.util.Optional;
 
 public interface WorkoutService {
-    Workout save(Workout workout);
-    void delete(Workout workout);
-    void deleteAll();
-    void addToWorkout(long workoutId, WorkoutLineItem workoutLineItem);
-    void rmFromWorkout(Workout workout, int lineNumber);
-    void setExerciseReps(Workout workout, WorkoutLineItem workoutLineItem, int reps);
-    void setExerciseSets(Workout workout, WorkoutLineItem workoutLineItem, int sets);
+    Workout saveWorkout(Workout workout);
+    WorkoutLineItem saveWLI(WorkoutLineItem wli);
+    void deleteWorkout(Workout workout);
+    void deleteWLI(WorkoutLineItem wli);
+    void deleteAllWorkouts();
+    void deleteAllWLI();
+    Workout addToWorkout(long workoutId, WorkoutLineItem workoutLineItem);
+    Workout rmFromWorkout(long workoutId, int lineNumber);
+    WorkoutLineItem setExerciseReps(WorkoutLineItem wli, int reps);
+    WorkoutLineItem setExerciseSets(WorkoutLineItem wli, int sets);
     List<Workout> findAll();
     List<Workout> findByWorkoutName(String workoutName);
     Optional<Workout> findById(long id);
