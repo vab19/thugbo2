@@ -4,7 +4,7 @@ import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.WorkoutLineItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface WorkoutLineItemRepository extends JpaRepository<WorkoutLineItem, Long> {
-    WorkoutLineItem save(WorkoutLineItem wli);
-    void delete(WorkoutLineItem wli);
+    WorkoutLineItem saveWLI(WorkoutLineItem wli);
+    void deleteWLI(WorkoutLineItem wli);
     void deleteAll();
 }

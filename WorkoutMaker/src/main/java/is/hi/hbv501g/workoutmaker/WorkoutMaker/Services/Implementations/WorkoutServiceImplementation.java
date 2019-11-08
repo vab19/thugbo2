@@ -27,45 +27,60 @@ public class WorkoutServiceImplementation implements WorkoutService {
     }
 
     @Override
-    public Workout save(Workout workout) {
+    public Workout saveWorkout(Workout workout) {
         return workoutRepository.save(workout);
     }
 
     @Override
-    public void delete(Workout workout) {
+    public WorkoutLineItem saveWLI(WorkoutLineItem wli) {
+        return workoutLineItemRepository.save(wli);
+    }
+
+    @Override
+    public void deleteWorkout(Workout workout) {
         workoutRepository.delete(workout);
     }
 
     @Override
-    public void deleteAll() {workoutRepository.deleteAll();}
+    public void deleteWLI(WorkoutLineItem wli) {workoutLineItemRepository.deleteWLI(wli);}
 
     @Override
-    public void addToWorkout(long workoutId, WorkoutLineItem wli) {
+    public void deleteAllWorkouts() {workoutRepository.deleteAll();}
+
+    @Override
+    public void deleteAllWLI() {workoutLineItemRepository.deleteAll();}
+
+    @Override
+    public Workout addToWorkout(long workoutId, WorkoutLineItem wli) {
         Workout workout = workoutRepository.findById(workoutId).get();
         List<WorkoutLineItem> exerciseList = workout.getExercises();
         exerciseList.add(wli);
         workout.setExercises(exerciseList);
+        Workout updatedWorkout = saveWorkout(workout);
+        return updatedWorkout;
     }
 
     @Override
-    public void rmFromWorkout(long workoutId, int lineNumber) {
+    public Workout rmFromWorkout(long workoutId, int lineNumber) {
         Workout workout = workoutRepository.findById(workoutId).get();
         List<WorkoutLineItem> exerciseList = workout.getExercises();
         exerciseList.remove(lineNumber);
+        Workout updatedWorkout = saveWorkout(workout);
+        return updatedWorkout;
     }
 
     @Override
-    public void setExerciseReps(Workout workout, int lineNumber, int reps) {
-        List<WorkoutLineItem> exerciseList = workout.getExercises();
-        WorkoutLineItem wli = exerciseList.get(lineNumber);
+    public WorkoutLineItem setExerciseReps(WorkoutLineItem wli, int reps) {
         wli.setReps(reps);
+        WorkoutLineItem updatedWLI = saveWLI(wli);
+        return updatedWLI;
     }
 
     @Override
-    public void setExerciseSets(Workout workout, int lineNumber, int sets) {
-        List<WorkoutLineItem> exerciseList = workout.getExercises();
-        WorkoutLineItem wli = exerciseList.get(lineNumber);
+    public WorkoutLineItem setExerciseSets(WorkoutLineItem wli, int sets) {
         wli.setSets(sets);
+        WorkoutLineItem updatedWLI = saveWLI(wli);
+        return updatedWLI;
     }
 
     @Override
