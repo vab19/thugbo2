@@ -1,6 +1,7 @@
 package is.hi.hbv501g.workoutmaker.WorkoutMaker;
 
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.Workout;
+import is.hi.hbv501g.workoutmaker.WorkoutMaker.Services.AuthenticationService;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Services.WorkoutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,21 +17,25 @@ import javax.validation.Valid;
 public class HomeController {
 
     private WorkoutService workoutService;
-    @Autowired
-    public HomeController(WorkoutService workoutService){this.workoutService = workoutService;}
+    private AuthenticationService authenticationService;
 
-    @RequestMapping("/")
-    public String Home(Model model){
-        model.addAttribute("workouts", workoutService.findAll());
-        return "Velkominn";
+    @Autowired
+    public HomeController(AuthenticationService authenticationService){
+        this.authenticationService = authenticationService;
     }
 
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String Home(Model model){
+        //model.addAttribute("workouts", workoutService.findAll());
+        return "Velkominn";
+    }
+    /* á ekki við hjá okkur, homepage-ið okkar verður eiginlega bara tóm síða með link á log-in page
     @RequestMapping(value = "/add-workout", method = RequestMethod.POST)
     public String addWorkout(@Valid Workout workout, BindingResult result, Model model){
         if(result.hasErrors()) {
             return "add-workout";
         }
-        workoutService.save(workout);
+        Workout savedWorkout = workoutService.saveWorkout(workout);
         model.addAttribute("workouts", workoutService.findAll());
         return "Velkominn";
     }
@@ -47,8 +52,8 @@ public class HomeController {
         model.addAttribute("workout", workoutService.findAll());
         return "Velkominn";
     }
-
-    @RequestMapping("login")
+    */
+    @RequestMapping(value = "login")
     public String LoginPage(){
         return "LoginPage";
     }

@@ -20,6 +20,7 @@ public interface WorkoutService {
     WorkoutLineItem setExerciseSets(WorkoutLineItem wli, int sets);
     List<Workout> findAll();
     List<Workout> findByWorkoutName(String workoutName);
-    Optional<Workout> findById(long id);
+    Optional<Workout> findWorkoutById(long id);
+    Optional<WorkoutLineItem> findWLIById(long id);
     List<Workout> findByWorkoutType(WorkoutType workoutType);
 }

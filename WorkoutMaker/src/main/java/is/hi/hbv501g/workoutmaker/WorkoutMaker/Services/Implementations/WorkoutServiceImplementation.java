@@ -94,9 +94,12 @@ public class WorkoutServiceImplementation implements WorkoutService {
     }
 
     @Override
-    public Optional<Workout> findById(long id) {
+    public Optional<Workout> findWorkoutById(long id) {
         return workoutRepository.findById(id);
     }
+
+    @Override
+    public Optional<WorkoutLineItem> findWLIById(long id) { return workoutLineItemRepository.findById(id); }
 
     @Override
     public List<Workout> findByWorkoutType(WorkoutType workoutType) {
