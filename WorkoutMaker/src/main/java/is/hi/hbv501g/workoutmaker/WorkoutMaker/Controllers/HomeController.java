@@ -30,7 +30,7 @@ public class HomeController {
         return "Velkominn";
     }
     /* á ekki við hjá okkur, homepage-ið okkar verður eiginlega bara tóm síða með link á log-in page
-    @RequestMapping(value = "/add-workout", method = RequestMethod.POST)
+    @RequestMapping(value = "/addworkout", method = RequestMethod.POST)
     public String addWorkout(@Valid Workout workout, BindingResult result, Model model){
         if(result.hasErrors()) {
             return "add-workout";
@@ -40,7 +40,8 @@ public class HomeController {
         return "Velkominn";
     }
 
-    @RequestMapping(value="/add-workout", method = RequestMethod.GET)
+    //til að fá formið
+    @RequestMapping(value="/addworkout", method = RequestMethod.GET)
     public String addWorkoutForm(Model model){
         return "add-workout";
     }
