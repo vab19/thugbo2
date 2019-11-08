@@ -60,7 +60,7 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
-    public List<User> findByUsername(String username) {
+    public User findByUsername(String username) {
         return repository.findByUsername(username);
     }
 }

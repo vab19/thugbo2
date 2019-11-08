@@ -1,17 +1,11 @@
 package is.hi.hbv501g.workoutmaker.WorkoutMaker.Controllers;
 
-import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.Workout;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Services.AuthenticationService;
-import is.hi.hbv501g.workoutmaker.WorkoutMaker.Services.WorkoutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import javax.validation.Valid;
 
 @Controller
 public class HomeController {
@@ -56,6 +50,6 @@ public class HomeController {
     */
     @RequestMapping(value = "login", method = RequestMethod.GET)
     public String LoginPage(){
-        return "LoginPage";
+        return "login";
     }
 }
