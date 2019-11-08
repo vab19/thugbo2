@@ -1,4 +1,4 @@
-package is.hi.hbv501g.workoutmaker.WorkoutMaker;
+package is.hi.hbv501g.workoutmaker.WorkoutMaker.Controllers;
 
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.Workout;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Services.AuthenticationService;
@@ -16,7 +16,7 @@ import javax.validation.Valid;
 @Controller
 public class HomeController {
 
-    private WorkoutService workoutService;
+    //private WorkoutService workoutService;
     private AuthenticationService authenticationService;
 
     @Autowired
@@ -53,7 +53,7 @@ public class HomeController {
         return "Velkominn";
     }
     */
-    @RequestMapping(value = "login")
+    @RequestMapping(value = "login", method = RequestMethod.GET)
     public String LoginPage(){
         return "LoginPage";
     }
