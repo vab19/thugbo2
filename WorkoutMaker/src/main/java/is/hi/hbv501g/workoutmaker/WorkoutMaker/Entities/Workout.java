@@ -18,12 +18,17 @@ public class Workout {
     @CollectionTable(name="workout_types", joinColumns = {@JoinColumn(name = "workout_id")})
     public Set<WorkoutType> workoutTypes;
 
+    @ManyToOne
+    private User user;
+
     @OneToMany(mappedBy = "workout")
     private List<WorkoutLineItem> exercises = new ArrayList<>();
+
     public Workout() {
     }
 
-    public Workout(String workoutName, String description, Date date, HashSet<WorkoutType> workoutTypes) {
+    public Workout(User user, String workoutName, String description, Date date, HashSet<WorkoutType> workoutTypes) {
+        this.user = user;
         this.workoutName = workoutName;
         this.description = description;
         this.date = date;
@@ -31,6 +36,14 @@ public class Workout {
     }
 
     //alt + insert fyrir getter and setter
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     public String getWorkoutName() {
         return workoutName;
     }

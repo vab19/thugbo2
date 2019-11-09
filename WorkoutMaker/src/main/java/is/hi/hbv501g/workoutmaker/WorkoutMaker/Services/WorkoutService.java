@@ -22,5 +22,5 @@ public interface WorkoutService {
     List<Workout> findByWorkoutName(String workoutName);
     Optional<Workout> findWorkoutById(long id);
     Optional<WorkoutLineItem> findWLIById(long id);
-    List<Workout> findByWorkoutType(WorkoutType workoutType);
+    //List<Workout> findByWorkoutType(WorkoutType workoutType);
 }

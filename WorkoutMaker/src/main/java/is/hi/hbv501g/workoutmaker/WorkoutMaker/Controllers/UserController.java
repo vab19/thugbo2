@@ -36,7 +36,7 @@ public class UserController {
             userService.save(user);
         }
         else {
-            model.addAttribute("error", "Username already in use, please select a different username");
+            //model.addAttribute("error", "Username already in use, please select a different username");
             return "signup";
         }
         //model.addAttribute("exercises", exerciseService.findAll());

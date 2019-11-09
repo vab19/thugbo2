@@ -6,9 +6,6 @@
 </head>
 <body>
 <h2>Sign up for an account</h2>
-    <c:if test="${not empty error}">
-      Error: ${error}
-    </c:if>
     <form action="#" th:action="@{/signup}" th:object="${user}"  method="post">
         <input type="text" name="username" id="username" th:field="*{username}"/>
         <input type="text" name="password" id="password" th:value="*{password}"/>

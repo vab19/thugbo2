@@ -4,10 +4,15 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
 public class Exercise {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @OneToOne
+    @MapsId
+    private WorkoutLineItem wli;
 
     public String name;
     public String description;
@@ -20,10 +25,19 @@ public class Exercise {
     public Exercise() {
     }
 
-    public Exercise(String name, String description, HashSet<Category> categories) {
+    public Exercise(String name, WorkoutLineItem wli, String description, HashSet<Category> categories) {
         this.name = name;
+        this.wli = wli;
         this.description = description;
         this.categories = categories;
+    }
+
+    public WorkoutLineItem getWli() {
+        return wli;
+    }
+
+    public void setWli(WorkoutLineItem wli) {
+        this.wli = wli;
     }
 
     public long getId() {

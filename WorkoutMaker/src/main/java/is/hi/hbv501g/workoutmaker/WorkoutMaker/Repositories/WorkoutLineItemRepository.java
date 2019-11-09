@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface WorkoutLineItemRepository extends JpaRepository<WorkoutLineItem, Long> {
-    WorkoutLineItem saveWLI(WorkoutLineItem wli);
-    void deleteWLI(WorkoutLineItem wli);
+    WorkoutLineItem save(WorkoutLineItem wli);
+    void delete(WorkoutLineItem wli);
     void deleteAll();
     Optional<WorkoutLineItem> findById(long id);
 }

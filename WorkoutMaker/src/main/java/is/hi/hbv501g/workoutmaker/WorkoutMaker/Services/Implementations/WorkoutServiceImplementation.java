@@ -42,7 +42,7 @@ public class WorkoutServiceImplementation implements WorkoutService {
     }
 
     @Override
-    public void deleteWLI(WorkoutLineItem wli) {workoutLineItemRepository.deleteWLI(wli);}
+    public void deleteWLI(WorkoutLineItem wli) {workoutLineItemRepository.delete(wli);}
 
     @Override
     public void deleteAllWorkouts() {workoutRepository.deleteAll();}
@@ -101,8 +101,8 @@ public class WorkoutServiceImplementation implements WorkoutService {
     @Override
     public Optional<WorkoutLineItem> findWLIById(long id) { return workoutLineItemRepository.findById(id); }
 
-    @Override
-    public List<Workout> findByWorkoutType(WorkoutType workoutType) {
-        return workoutRepository.findByWorkoutType(workoutType);
-    }
+    //@Override
+    //public List<Workout> findByWorkoutType(WorkoutType workoutType) {
+    //    return workoutRepository.findByWorkoutType(workoutType);
+    //}
 }

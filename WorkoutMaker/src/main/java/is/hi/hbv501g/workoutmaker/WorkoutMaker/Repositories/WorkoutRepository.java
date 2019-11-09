@@ -16,7 +16,7 @@ public interface WorkoutRepository extends JpaRepository<Workout, Long> {
     List<Workout> findAll();
     List<Workout> findByWorkoutName(String workoutName);
     Optional<Workout> findById(long id);
-    List<Workout> findByWorkoutType(WorkoutType workoutType);
+    //List<Workout> findByWorkoutType(WorkoutType workoutType);
     boolean existsById (long id);
     boolean existsByWorkoutName (String workoutName);
 

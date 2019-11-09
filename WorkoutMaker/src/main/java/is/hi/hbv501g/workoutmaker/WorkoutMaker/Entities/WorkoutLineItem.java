@@ -1,10 +1,8 @@
 package is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
+@Entity
 public class WorkoutLineItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,14 +11,17 @@ public class WorkoutLineItem {
     @ManyToOne
     private Workout workout;
 
-    public int sets;
-    public int reps;
-    public Exercise exercise;
+    @OneToOne(mappedBy = "wli", cascade = CascadeType.ALL)
+    private Exercise exercise;
+
+    private int sets;
+    private int reps;
 
     public WorkoutLineItem(){
     }
 
-    public WorkoutLineItem(int sets, int reps, Exercise exercise) {
+    public WorkoutLineItem(Workout workout, int sets, int reps, Exercise exercise) {
+        this.workout = workout;
         this.sets = sets;
         this.reps = reps;
         this.exercise = exercise;

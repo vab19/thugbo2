@@ -48,8 +48,5 @@ public class HomeController {
         return "Velkominn";
     }
     */
-    @RequestMapping(value = "login", method = RequestMethod.GET)
-    public String LoginPage(){
-        return "login";
-    }
+
 }
