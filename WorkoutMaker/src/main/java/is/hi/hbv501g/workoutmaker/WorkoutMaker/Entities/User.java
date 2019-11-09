@@ -11,9 +11,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    public String username;
-    public String password;
-    public String email;
+    private String username;
+    private String password;
+    private String email;
 
     @OneToMany(mappedBy = "user")
     private List<Workout> workouts = new ArrayList<>();
