@@ -29,6 +29,10 @@ public class WorkoutServiceImplementation implements WorkoutService {
 
     @Override
     public Workout saveWorkout(Workout workout) {
+        List<WorkoutLineItem> workoutExercises = workout.getExercises();
+        for (WorkoutLineItem wli : workoutExercises) {
+            workoutLineItemRepository.save(wli);
+        }
         return workoutRepository.save(workout);
     }
 
@@ -99,14 +103,12 @@ public class WorkoutServiceImplementation implements WorkoutService {
         List<Workout> workouts = workoutRepository.findAll();
         String sessionUsername = user.getUsername();
         List<Workout> sessionWorkouts = new ArrayList<>();
-
         for (Workout workout : workouts) {
             User temp = workout.getUser();
-            if (temp.getUsername() == sessionUsername) {
+            if (temp.getUsername().equals(sessionUsername)) {
                 sessionWorkouts.add(workout);
             }
         }
-
         return sessionWorkouts;
     }
 
