@@ -32,4 +32,10 @@ public class ExerciseController {
         model.addAttribute("exercise", exercise);
         return "search"; //á að skila síðunni sem sýnir niðurstöðu leitarinnar
     }
+
+    @RequestMapping(value = "/exercises", method = RequestMethod.GET)
+    public String exerciseGET(Model model){
+        model.addAttribute("exercises", exerciseService.findAll());
+        return "exercises";
+    }
 }
