@@ -1,5 +1,6 @@
 package is.hi.hbv501g.workoutmaker.WorkoutMaker.Services.Implementations;
 
+import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.User;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.Workout;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.WorkoutLineItem;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.WorkoutType;
@@ -91,6 +92,22 @@ public class WorkoutServiceImplementation implements WorkoutService {
     @Override
     public List<Workout> findByWorkoutName(String workoutName) {
         return workoutRepository.findByWorkoutName(workoutName);
+    }
+
+    @Override
+    public List<Workout> findByUser(User user) {
+        List<Workout> workouts = workoutRepository.findAll();
+        String sessionUsername = user.getUsername();
+        List<Workout> sessionWorkouts = new ArrayList<>();
+
+        for (Workout workout : workouts) {
+            User temp = workout.getUser();
+            if (temp.getUsername() == sessionUsername) {
+                sessionWorkouts.add(workout);
+            }
+        }
+
+        return sessionWorkouts;
     }
 
     @Override

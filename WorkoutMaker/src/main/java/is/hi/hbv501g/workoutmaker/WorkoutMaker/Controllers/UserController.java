@@ -40,7 +40,7 @@ public class UserController {
             return "signup";
         }
         //model.addAttribute("exercises", exerciseService.findAll());
-        return "login"; //spurning hverju þetta ætti að returna
+        return "redirect:/login"; //spurning hverju þetta ætti að returna
     }
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
@@ -63,7 +63,7 @@ public class UserController {
         User exists = userService.login(user);
         if(exists != null){
             session.setAttribute("LoggedInUser", user);
-            return "redirect:/";
+            return "redirect:/profile";
         }
         return "redirect:/";
     }
