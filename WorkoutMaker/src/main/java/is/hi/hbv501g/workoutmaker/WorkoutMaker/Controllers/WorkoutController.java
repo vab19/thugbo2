@@ -38,7 +38,8 @@ public class WorkoutController {
     @RequestMapping(value = "/addworkout", method = RequestMethod.POST)
     public String addWorkout(@Valid Workout workout, BindingResult result, Model model) {
         if(result.hasErrors()) { return "add-workout"; }
-        workoutService.saveWorkout(workout); //for each wli save(wli)?
+        //workout.setUser(sessionuser); tjékka fyrst hvort user loggaður
+        workoutService.saveWorkout(workout);
         return "redirect:/profile";
     }
 
