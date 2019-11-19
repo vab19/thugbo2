@@ -1,0 +1,12 @@
+fara í gegnum kóðann, vera með hann opinn í kynninguni
+
+svara spurningunum í verkefnislýsingunni og við ættum að vera
+frekar góðir
+
+á að vera einhver gagnagrunnavirkni (posta), ekki alveg
+ljóst hvort það er þarna inni
+
+einhver virkni sem á að vera skv. módeli en sést ekki
+
+þannig séð consistent design model en lélegt og erfitt að 
+átta sig á kóða

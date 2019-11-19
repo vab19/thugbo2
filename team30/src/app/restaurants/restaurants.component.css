@@ -1,0 +1,11 @@
+.main{
+   display: flex; 
+   height: 100%;
+}
+.maps{
+    height: 600px;
+    background-color: blue;
+}
+.all{
+   height: 100%;
+}
