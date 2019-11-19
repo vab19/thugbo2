@@ -32,12 +32,16 @@ public class UserController {
         if(result.hasErrors()){
             return "signup";
         }
+        if(user.getUsername() == "" || user.getPassword() == "") {
+            model.addAttribute("message", "Please fill in username and password");
+            return "signup";
+        }
         User exists = userService.findByUsername(user.getUsername());
         if(exists == null){
             userService.save(user);
         }
         else {
-            //model.addAttribute("error", "Username already in use, please select a different username");
+            model.addAttribute("message", "Username already in use, please select a different username");
             return "signup";
         }
         //model.addAttribute("exercises", exerciseService.findAll());
