@@ -28,6 +28,7 @@ public class UserController {
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public String signUpPOST(@Valid User user, BindingResult result, Model model){
+
         if(result.hasErrors()){
             return "signup";
         }
@@ -56,16 +57,28 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String loginPOST(@Valid User user, BindingResult result, Model model, HttpSession session){
+
         if(result.hasErrors()){
             return "login";
         }
+        //checkar ef annaðhvort inputið er tómt //virkar ekki right now
+        if(user.getUsername() != "" || user.getPassword() != "") {
+            model.addAttribute("message", "Please fill in username and password");
+            return "login";
+        }
+
         //model.addAttribute("movies",movieService.findAll());
         User exists = userService.login(user);
         if(exists != null){
             session.setAttribute("LoggedInUser", user);
             return "redirect:/profile";
         }
-        return "redirect:/";
+
+        //checkar ef usernamið er á skrá
+        if(exists == null) {
+            model.addAttribute("message","User not found please retype or create a new user");
+        }
+        return "login";
     }
 
     @RequestMapping(value = "/loggedin", method = RequestMethod.GET)
