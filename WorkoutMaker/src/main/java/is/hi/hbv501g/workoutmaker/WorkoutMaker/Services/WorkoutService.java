@@ -1,5 +1,6 @@
 package is.hi.hbv501g.workoutmaker.WorkoutMaker.Services;
 
+import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.User;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.Workout;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.WorkoutLineItem;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.WorkoutType;
@@ -20,6 +21,8 @@ public interface WorkoutService {
     WorkoutLineItem setExerciseSets(WorkoutLineItem wli, int sets);
     List<Workout> findAll();
     List<Workout> findByWorkoutName(String workoutName);
-    Optional<Workout> findById(long id);
-    List<Workout> findByWorkoutType(WorkoutType workoutType);
+    List<Workout> findByUser(User user);
+    Optional<Workout> findWorkoutById(long id);
+    Optional<WorkoutLineItem> findWLIById(long id);
+    //List<Workout> findByWorkoutType(WorkoutType workoutType);
 }

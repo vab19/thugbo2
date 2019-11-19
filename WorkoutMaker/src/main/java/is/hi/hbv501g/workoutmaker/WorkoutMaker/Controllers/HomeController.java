@@ -1,41 +1,41 @@
-package is.hi.hbv501g.workoutmaker.WorkoutMaker;
+package is.hi.hbv501g.workoutmaker.WorkoutMaker.Controllers;
 
-import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.Workout;
-import is.hi.hbv501g.workoutmaker.WorkoutMaker.Services.WorkoutService;
+import is.hi.hbv501g.workoutmaker.WorkoutMaker.Services.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import javax.validation.Valid;
 
 @Controller
 public class HomeController {
 
-    private WorkoutService workoutService;
-    @Autowired
-    public HomeController(WorkoutService workoutService){this.workoutService = workoutService;}
+    //private WorkoutService workoutService;
+    private AuthenticationService authenticationService;
 
-    @RequestMapping("/")
-    public String Home(Model model){
-        model.addAttribute("workouts", workoutService.findAll());
-        return "Velkominn";
+    @Autowired
+    public HomeController(AuthenticationService authenticationService){
+        this.authenticationService = authenticationService;
     }
 
-    @RequestMapping(value = "/add-workout", method = RequestMethod.POST)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String Home(Model model){
+        //model.addAttribute("workouts", workoutService.findAll());
+        return "Velkominn";
+    }
+    /* á ekki við hjá okkur, homepage-ið okkar verður eiginlega bara tóm síða með link á log-in page
+    @RequestMapping(value = "/addworkout", method = RequestMethod.POST)
     public String addWorkout(@Valid Workout workout, BindingResult result, Model model){
         if(result.hasErrors()) {
             return "add-workout";
         }
-        workoutService.save(workout);
+        Workout savedWorkout = workoutService.saveWorkout(workout);
         model.addAttribute("workouts", workoutService.findAll());
         return "Velkominn";
     }
 
-    @RequestMapping(value="/add-workout", method = RequestMethod.GET)
+    //til að fá formið
+    @RequestMapping(value="/addworkout", method = RequestMethod.GET)
     public String addWorkoutForm(Model model){
         return "add-workout";
     }
@@ -47,9 +47,6 @@ public class HomeController {
         model.addAttribute("workout", workoutService.findAll());
         return "Velkominn";
     }
+    */
 
-    @RequestMapping("login")
-    public String LoginPage(){
-        return "LoginPage";
-    }
 }

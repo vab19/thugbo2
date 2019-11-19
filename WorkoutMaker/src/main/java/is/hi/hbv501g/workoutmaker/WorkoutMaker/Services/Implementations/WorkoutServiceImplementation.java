@@ -1,5 +1,6 @@
 package is.hi.hbv501g.workoutmaker.WorkoutMaker.Services.Implementations;
 
+import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.User;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.Workout;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.WorkoutLineItem;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.WorkoutType;
@@ -28,6 +29,10 @@ public class WorkoutServiceImplementation implements WorkoutService {
 
     @Override
     public Workout saveWorkout(Workout workout) {
+        List<WorkoutLineItem> workoutExercises = workout.getExercises();
+        for (WorkoutLineItem wli : workoutExercises) {
+            workoutLineItemRepository.save(wli);
+        }
         return workoutRepository.save(workout);
     }
 
@@ -42,7 +47,7 @@ public class WorkoutServiceImplementation implements WorkoutService {
     }
 
     @Override
-    public void deleteWLI(WorkoutLineItem wli) {workoutLineItemRepository.deleteWLI(wli);}
+    public void deleteWLI(WorkoutLineItem wli) {workoutLineItemRepository.delete(wli);}
 
     @Override
     public void deleteAllWorkouts() {workoutRepository.deleteAll();}
@@ -94,12 +99,29 @@ public class WorkoutServiceImplementation implements WorkoutService {
     }
 
     @Override
-    public Optional<Workout> findById(long id) {
+    public List<Workout> findByUser(User user) {
+        List<Workout> workouts = workoutRepository.findAll();
+        String sessionUsername = user.getUsername();
+        List<Workout> sessionWorkouts = new ArrayList<>();
+        for (Workout workout : workouts) {
+            User temp = workout.getUser();
+            if (temp.getUsername().equals(sessionUsername)) {
+                sessionWorkouts.add(workout);
+            }
+        }
+        return sessionWorkouts;
+    }
+
+    @Override
+    public Optional<Workout> findWorkoutById(long id) {
         return workoutRepository.findById(id);
     }
 
     @Override
-    public List<Workout> findByWorkoutType(WorkoutType workoutType) {
-        return workoutRepository.findByWorkoutType(workoutType);
-    }
+    public Optional<WorkoutLineItem> findWLIById(long id) { return workoutLineItemRepository.findById(id); }
+
+    //@Override
+    //public List<Workout> findByWorkoutType(WorkoutType workoutType) {
+    //    return workoutRepository.findByWorkoutType(workoutType);
+    //}
 }

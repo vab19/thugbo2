@@ -14,5 +14,6 @@ public interface UserService {
     boolean existsByUsername(String username);
     List<User> findAll();
     Optional<User> findById(long id);
-    List<User> findByUsername(String username);
+    User findByUsername(String username);
+    User login(User user);
 }
