@@ -67,7 +67,7 @@ public class UserController {
         }
         //checkar ef annaðhvort inputið er tómt //virkar ekki ef bæði
         if(user.getUsername() == "" || user.getPassword() == "") {
-            model.addAttribute("message", "Please fill in username and password");
+            model.addAttribute("message", "Please fill in username and password ");
             return "login";
         }
 
