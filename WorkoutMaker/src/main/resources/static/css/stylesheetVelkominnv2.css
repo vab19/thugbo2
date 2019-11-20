@@ -26,9 +26,9 @@ body{
     padding-top: 25px;
 }
 
-nav{
+.headernav{
     position: relative;
-    width: calc(100% - 60px);
+    width: calc(100% - 100px);
     margin: 0 auto;
     padding: 10px 0;
     background: #333;
@@ -90,3 +90,4 @@ nav{
     background: tomato;
     color: #fff;
 }
+
