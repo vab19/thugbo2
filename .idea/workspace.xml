@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fd37b0df-ee9b-4553-b538-8ab058c0cce9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WorkoutMaker/src/main/java/is/hi/hbv501g/workoutmaker/WorkoutMaker/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/WorkoutMaker/src/main/java/is/hi/hbv501g/workoutmaker/WorkoutMaker/Controllers/UserController.java" afterDir="false" />
-    </list>
+    <list default="true" id="fd37b0df-ee9b-4553-b538-8ab058c0cce9" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +51,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../hbv2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/WorkoutMaker" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -92,6 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1574187128415</updated>
       <workItem from="1574187129675" duration="2341000" />
+      <workItem from="1574201041174" duration="26000" />
     </task>
     <servers />
   </component>
@@ -103,7 +100,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
