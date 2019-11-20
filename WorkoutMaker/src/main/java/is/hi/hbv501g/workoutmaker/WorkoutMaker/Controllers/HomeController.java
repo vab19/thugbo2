@@ -21,7 +21,7 @@ public class HomeController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String Home(Model model){
         //model.addAttribute("workouts", workoutService.findAll());
-        return "Velkominn";
+        return "Velkominnv2";
     }
     /* á ekki við hjá okkur, homepage-ið okkar verður eiginlega bara tóm síða með link á log-in page
     @RequestMapping(value = "/addworkout", method = RequestMethod.POST)
