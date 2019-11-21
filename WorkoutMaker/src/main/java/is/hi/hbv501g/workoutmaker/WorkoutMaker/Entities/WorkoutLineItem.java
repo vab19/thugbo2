@@ -3,7 +3,6 @@ package is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities;
 import javax.persistence.*;
 
 @Entity
-//@Table(name = "WORKOUTLINEITEM")
 public class WorkoutLineItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,8 +11,6 @@ public class WorkoutLineItem {
     @ManyToOne
     private Workout workout;
 
-//    @JoinColumn
-  //  @OneToOne(cascade = CascadeType.ALL)
     @ManyToOne
     private Exercise exercise;
 

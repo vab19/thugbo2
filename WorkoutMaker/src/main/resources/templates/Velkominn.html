@@ -2,14 +2,27 @@
 <html xmlns:th="https://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Homepage</title>
+    <meta name="viewport" content="width=device-width, inital-scale=1, shrink-to-fit=no"/>
+    <!--<link rel="stylesheet" type="text/css" th:href="@{/css/stylesheetVelkominnv2.css}"/>
+    -->
 </head>
 <body>
+
+
+
 <main>
     <h1>Work in progress</h1>
-    <p><a href="/login">Log in</a></p>
-    <p><a href="/signup">Sign up</a></p>
-    <p><a href="/exercises">View exercises</a></p>
+    <div id="links">
+        <div id="Login">
+            <p><a href="/login">Log in</a></p>
+        </div>
+        <div id="SignUp">
+            <p><a href="/signup">Sign up</a></p>
+        </div>
+        <div id="Exercises">
+            <p><a href="/exercises">View exercises</a></p>
+        </div>
+    </div>
 </main>
 
 <!-- þetta á ekki við okkar, munum ekki birta lista af exercises á homepage
@@ -42,3 +55,7 @@
 
 </body>
 </html>
+
+
+
+

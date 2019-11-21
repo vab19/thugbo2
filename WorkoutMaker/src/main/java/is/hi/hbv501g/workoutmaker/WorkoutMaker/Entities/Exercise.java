@@ -5,13 +5,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-//@Table(name = "EXERCISE")
 public class Exercise {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-//    @OneToMany(mappedBy = "exercise")
 
     public String name;
     public String description;

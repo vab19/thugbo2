@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign up</title>
+    <!--<link rel="stylesheet" type="text/css" th:href="@{/css/stylesheetVelkominnv2.css}"/>
+    -->
 </head>
 <body>
 <h2>Sign up for an account</h2>
+<p th:text="${message}">error messages if any</p>
     <form action="#" th:action="@{/signup}" th:object="${user}"  method="post">
         <input type="text" name="username" id="username" th:field="*{username}"/>
         <input type="password" name="password" id="password" th:value="*{password}"/>
         <input type="submit" value="Sign up"/>
     </form>
+    <p><a href="/">Back</a></p>
 </body>
 </html>
