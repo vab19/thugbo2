@@ -1,9 +1,12 @@
 package is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.*;
 
 @Entity
+//@Table(name = "WORKOUT")
 public class Workout {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

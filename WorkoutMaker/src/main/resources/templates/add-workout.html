@@ -16,6 +16,7 @@
     <label for="description">Description</label>
     <input type="text" th:field="*{description}" id="description" placeholder="Description">
     <span th:if="${#fields.hasErrors('description')}" th:errors="*{decription}"></span>
+
     <input type="submit" value="Add Workout">
 </form>
 

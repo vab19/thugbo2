@@ -35,15 +35,16 @@ public class WorkoutController {
         return "redirect:/";
     }
 
-    @RequestMapping(value = "/addworkout", method = RequestMethod.POST)
+    @RequestMapping(value = "/add-workout", method = RequestMethod.POST)
     public String addWorkout(@Valid Workout workout, BindingResult result, Model model) {
         if(result.hasErrors()) { return "add-workout"; }
         //workout.setUser(sessionuser); tjékka fyrst hvort user loggaður
+
         workoutService.saveWorkout(workout);
         return "redirect:/profile";
     }
 
-    @RequestMapping(value = "/addworkout", method = RequestMethod.GET)
+    @RequestMapping(value = "/add-workout", method = RequestMethod.GET)
     public String addWorkoutForm(Workout workout){ return "add-workout"; }
 
 }
