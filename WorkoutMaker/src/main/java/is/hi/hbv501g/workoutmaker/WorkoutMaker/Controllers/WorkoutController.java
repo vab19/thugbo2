@@ -28,8 +28,10 @@ public class WorkoutController {
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public String workoutGET(HttpSession session, Model model){
         User sessionUser = (User) session.getAttribute("LoggedInUser");
+
         if(sessionUser  != null){
             model.addAttribute("workouts", workoutService.findByUser(sessionUser));
+
             return "profile";
         }
         return "redirect:/";
@@ -38,7 +40,6 @@ public class WorkoutController {
     @RequestMapping(value = "/add-workout", method = RequestMethod.POST)
     public String addWorkout(@Valid Workout workout, HttpSession session, BindingResult result, Model model) {
         if(result.hasErrors()) { return "add-workout"; }
-
         User sessionUser = (User) session.getAttribute("LoggedInUser");
         //ef user loggaður inn þá save-a workoutið
         if(sessionUser  != null){
@@ -51,6 +52,6 @@ public class WorkoutController {
     }
 
     @RequestMapping(value = "/add-workout", method = RequestMethod.GET)
-    public String addWorkoutForm(Workout workout){ return "add-workout"; }
+    public String addWorkoutForm(Workout workout, Model model){ return "add-workout"; }
 
 }
