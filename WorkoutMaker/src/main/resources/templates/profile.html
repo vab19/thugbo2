@@ -24,6 +24,7 @@
                 <td th:text="${workout.workoutName}"></td>
                 <td th:text="${workout.workoutTypes}"></td>
                 <td th:text="${workout.description}"></td>
+                <td><button th:action="@{/delete/{id}(id=${workout.id})}" method="post">delete</button></td>
             </tr>
             </tbody>
         </table>

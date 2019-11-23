@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -29,6 +30,12 @@ public class WorkoutController {
     public WorkoutController(ExerciseService exerciseService, WorkoutService workoutService){
         this.exerciseService = exerciseService;
         this.workoutService = workoutService;
+    }
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    public String workoutDelete(@PathVariable long id, HttpSession session, Model model) {
+        workoutService.deleteWorkout(workoutService.findWorkoutById(id).get());
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
