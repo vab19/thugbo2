@@ -36,12 +36,18 @@ public class WorkoutController {
     }
 
     @RequestMapping(value = "/add-workout", method = RequestMethod.POST)
-    public String addWorkout(@Valid Workout workout, BindingResult result, Model model) {
+    public String addWorkout(@Valid Workout workout, HttpSession session, BindingResult result, Model model) {
         if(result.hasErrors()) { return "add-workout"; }
-        //workout.setUser(sessionuser); tjékka fyrst hvort user loggaður
 
-        workoutService.saveWorkout(workout);
-        return "redirect:/profile";
+        User sessionUser = (User) session.getAttribute("LoggedInUser");
+        //ef user loggaður inn þá save-a workoutið
+        if(sessionUser  != null){
+            workout.setUser(sessionUser);
+            workoutService.saveWorkout(workout);
+            return "redirect:/profile";
+        }
+
+        return "redirect:/";
     }
 
     @RequestMapping(value = "/add-workout", method = RequestMethod.GET)

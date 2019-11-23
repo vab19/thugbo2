@@ -16,7 +16,6 @@
             <tr>
                 <th>Name</th>
                 <th>Type</th>
-                <th>Date</th>
                 <th>Description</th>
             </tr>
             </thead>
@@ -24,7 +23,6 @@
             <tr th:each="workout : ${workouts}">
                 <td th:text="${workout.workoutName}"></td>
                 <td th:text="${workout.workoutTypes}"></td>
-                <td th:text="${workout.date}"></td>
                 <td th:text="${workout.description}"></td>
             </tr>
             </tbody>
