@@ -1,5 +1,6 @@
 package is.hi.hbv501g.workoutmaker.WorkoutMaker.Controllers;
 
+import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.Exercise;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.User;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.Workout;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.WorkoutLineItem;
@@ -62,6 +63,8 @@ public class WorkoutController {
         //        workoutService.saveAndFlushWLI(wli1);
           //  }
             for (WorkoutLineItem l: wlis) {
+                Exercise ex = exerciseService.findById(l.getExId()).get();
+                l.setExercise(ex);
                 l.setWorkout(workout);
             }
 
