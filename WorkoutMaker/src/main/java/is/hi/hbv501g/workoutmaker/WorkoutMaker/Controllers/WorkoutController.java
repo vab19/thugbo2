@@ -88,6 +88,4 @@ public class WorkoutController {
         model.addAttribute("workout", workout);
         return "add-workout"; }
 
-
-
 }
