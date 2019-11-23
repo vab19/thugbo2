@@ -12,6 +12,7 @@ public class Workout {
     private String workoutName;
     private String description;
 
+
     @ElementCollection(targetClass = WorkoutType.class)
     @Column(name="workoutType", nullable = false)
     @CollectionTable(name="workout_types", joinColumns = {@JoinColumn(name = "workout_id")})

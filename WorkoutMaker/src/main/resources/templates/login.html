@@ -14,7 +14,9 @@
 </span>
 
     <form action="#" th:action="@{/login}" th:object="${user}"  method="post">
+        <label for="username">Username:</label>
         <input type="text" name="username" id="username" th:field="*{username}"/>
+        <label for="password">Password:</label>
         <input type="password" name="password" id="password" th:value="*{password}"/>
         <input type="submit" value="Login"/>
     </form>
