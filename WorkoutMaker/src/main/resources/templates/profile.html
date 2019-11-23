@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User profile</title>
+    <!--<link rel="stylesheet" type="text/css" th:href="@{/css/stylesheetVelkominnv2.css}"/>
+    -->
+</head>
+<body>
+<div th:switch="${workouts}">
+    <h2 th:case="null">No workouts yet!</h2>
+    <div th:case="*">
+        <h2>Workouts</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="workout : ${workouts}">
+                <td th:text="${workout.workoutName}"></td>
+                <td th:text="${workout.workoutTypes}"></td>
+                <td th:text="${workout.description}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<p><a href="/add-workout">Add a new workout</a></p>
+</body>
+</html>

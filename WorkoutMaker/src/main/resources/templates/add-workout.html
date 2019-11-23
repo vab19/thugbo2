@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a new workout</title>
+    <!--<link rel="stylesheet" type="text/css" th:href="@{/css/stylesheetVelkominnv2.css}"/>
+    -->
+</head>
+<body>
+<!-- Vantar workout type o.fl. -->
+<form action="#" th:action="@{/add-workout}" th:object="${workout}" method="post">
+    <label for="workoutName">Name</label>
+    <input type="text" th:field="*{workoutName}" id="workoutName" placeholder="Name">
+    <span th:if="${#fields.hasErrors('workoutName')}" th:errors="*{workoutName}"></span>
+
+    <label for="workoutType">Type</label>
+    <select id="workoutType" th:field="*{workoutTypes}">
+        <option th:value="'cardio'" th:text="Cardio"></option>
+        <option th:value="'superset'" th:text="Superset"></option>
+        <option th:value="'hiit'" th:text="HIIT"></option>
+        <option th:value="'crossfit'" th:text="Crossfit"></option>
+        <option th:value="'hypertrophy'" th:text="Hypertrophy"></option>
+    </select>
+    <label for="description">Description</label>
+    <input type="text" th:field="*{description}" id="description" placeholder="Description">
+    <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Exercises</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="exercise, stat : *{exercises}">
+                <td><input th:field="*{exercises[__${stat.index}__].sets}"></td>
+                <td><input th:field="*{exercises[__${stat.index}__].reps}"></td>
+
+            </tr>
+        </tbody>
+    </table>
+
+    <input type="submit" value="Add Workout">
+</form>
+
+</body>
+</html>
