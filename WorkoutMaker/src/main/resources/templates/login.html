@@ -11,6 +11,7 @@
 <span>
     <p th:text="${message}">text</p>
     <a href="/signup" th:text="${signUpLink}">here</a>
+
 </span>
 
     <form action="#" th:action="@{/login}" th:object="${user}"  method="post">
@@ -19,6 +20,8 @@
         <label for="password">Password:</label>
         <input type="password" name="password" id="password" th:value="*{password}"/>
         <input type="submit" value="Login"/>
+        <br>
+        <button type="button"><a href="/signup">Create an account <p></a></p></button>
     </form>
     <p><a href="/">Back</a></p>
 </body>
