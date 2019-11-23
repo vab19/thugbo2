@@ -8,10 +8,10 @@ public class WorkoutLineItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Workout workout;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Exercise exercise;
 
     private int sets;

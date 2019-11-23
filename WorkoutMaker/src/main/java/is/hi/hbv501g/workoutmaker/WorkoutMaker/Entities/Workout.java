@@ -1,7 +1,5 @@
 package is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities;
 
-
-import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.util.*;
 
@@ -14,18 +12,16 @@ public class Workout {
     private String workoutName;
     private String description;
 
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
-    private Date date;
 
     @ElementCollection(targetClass = WorkoutType.class)
     @Column(name="workoutType", nullable = false)
     @CollectionTable(name="workout_types", joinColumns = {@JoinColumn(name = "workout_id")})
     public Set<WorkoutType> workoutTypes;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private User user;
 
-    @OneToMany(mappedBy = "workout")
+    @OneToMany(mappedBy = "workout", cascade = CascadeType.ALL)
     private List<WorkoutLineItem> exercises = new ArrayList<>();
 
     public Workout() {
@@ -35,7 +31,6 @@ public class Workout {
         this.user = user;
         this.workoutName = workoutName;
         this.description = description;
-        this.date = date;
         this.workoutTypes = workoutTypes;
     }
 
@@ -62,14 +57,6 @@ public class Workout {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
     }
 
     public long getId() {
