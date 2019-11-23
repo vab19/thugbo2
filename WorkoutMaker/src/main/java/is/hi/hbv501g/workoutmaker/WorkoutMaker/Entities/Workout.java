@@ -1,6 +1,7 @@
 package is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.util.*;
 
@@ -12,6 +13,8 @@ public class Workout {
 
     private String workoutName;
     private String description;
+
+    @DateTimeFormat(pattern = "yyyy-mm-dd")
     private Date date;
 
     @ElementCollection(targetClass = WorkoutType.class)
