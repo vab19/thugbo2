@@ -13,10 +13,7 @@ public class Workout {
     private String description;
 
 
-    @ElementCollection(targetClass = WorkoutType.class)
-    @Column(name="workoutType", nullable = false)
-    @CollectionTable(name="workout_types", joinColumns = {@JoinColumn(name = "workout_id")})
-    public Set<WorkoutType> workoutTypes;
+    private String workoutTypes;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private User user;
@@ -27,7 +24,7 @@ public class Workout {
     public Workout() {
     }
 
-    public Workout(User user, String workoutName, String description, Date date, HashSet<WorkoutType> workoutTypes) {
+    public Workout(User user, String workoutName, String description, Date date, String workoutTypes) {
         this.user = user;
         this.workoutName = workoutName;
         this.description = description;
@@ -41,6 +38,14 @@ public class Workout {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getWorkoutTypes() {
+        return workoutTypes;
+    }
+
+    public void setWorkoutTypes(String workoutTypes) {
+        this.workoutTypes = workoutTypes;
     }
 
     public String getWorkoutName() {
