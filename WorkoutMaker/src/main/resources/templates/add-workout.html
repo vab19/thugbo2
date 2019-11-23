@@ -15,11 +15,11 @@
 
     <label for="workoutType">Type</label>
     <select id="workoutType">
-        <option th:value="'cardio'" th:text="Cardio"></option>
-        <option th:value="'superset'" th:text="Superset"></option>
-        <option th:value="'hiit'" th:text="HIIT"></option>
-        <option th:value="'crossfit'" th:text="Crossfit"></option>
-        <option th:value="'hypertrophy'" th:text="Hypertrophy"></option>
+        <option th:value="1" th:text="Cardio"></option>
+        <option th:value="2" th:text="Superset"></option>
+        <option th:value="3" th:text="HIIT"></option>
+        <option th:value="3" th:text="Crossfit"></option>
+        <option th:value="4" th:text="Hypertrophy"></option>
     </select>
     <label for="description">Description</label>
     <input type="text" th:field="*{description}" id="description" placeholder="Description">

@@ -27,7 +27,7 @@ public class Workout {
     public Workout() {
     }
 
-    public Workout(User user, String workoutName, String description, Date date, HashSet<WorkoutType> workoutTypes) {
+    public Workout(User user, String workoutName, String description, HashSet<WorkoutType> workoutTypes) {
         this.user = user;
         this.workoutName = workoutName;
         this.description = description;
@@ -65,6 +65,14 @@ public class Workout {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public Set<WorkoutType> getWorkoutTypes() {
+        return workoutTypes;
+    }
+
+    public void setWorkoutTypes(Set<WorkoutType> workoutTypes) {
+        this.workoutTypes = workoutTypes;
     }
 
     public void setExercises(List<WorkoutLineItem> exercises) {
