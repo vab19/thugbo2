@@ -14,7 +14,7 @@
     <span th:if="${#fields.hasErrors('workoutName')}" th:errors="*{workoutName}"></span>
 
     <label for="workoutType">Type</label>
-    <select id="workoutType">
+    <select id="workoutType" th:field="*{workoutTypes}">
         <option th:value="'cardio'" th:text="Cardio"></option>
         <option th:value="'superset'" th:text="Superset"></option>
         <option th:value="'hiit'" th:text="HIIT"></option>
