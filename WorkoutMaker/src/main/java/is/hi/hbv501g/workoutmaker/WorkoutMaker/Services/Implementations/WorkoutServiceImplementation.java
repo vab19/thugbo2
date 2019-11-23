@@ -29,16 +29,22 @@ public class WorkoutServiceImplementation implements WorkoutService {
 
     @Override
     public Workout saveWorkout(Workout workout) {
-        List<WorkoutLineItem> workoutExercises = workout.getExercises();
-        for (WorkoutLineItem wli : workoutExercises) {
-            workoutLineItemRepository.save(wli);
-        }
         return workoutRepository.save(workout);
+    }
+
+    @Override
+    public Workout saveAndFlushWorkout(Workout workout) {
+        return workoutRepository.saveAndFlush(workout);
     }
 
     @Override
     public WorkoutLineItem saveWLI(WorkoutLineItem wli) {
         return workoutLineItemRepository.save(wli);
+    }
+
+    @Override
+    public WorkoutLineItem saveAndFlushWLI(WorkoutLineItem wli) {
+        return workoutLineItemRepository.saveAndFlush(wli);
     }
 
     @Override

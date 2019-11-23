@@ -14,7 +14,23 @@
     <span th:if="${#fields.hasErrors('workoutName')}" th:errors="*{workoutName}"></span>
     <label for="description">Description</label>
     <input type="text" th:field="*{description}" id="description" placeholder="Description">
-    <span th:if="${#fields.hasErrors('description')}" th:errors="*{decription}"></span>
+    <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Exercises</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="exercise, stat : *{exercises}">
+                <td><input th:field="*{exercises[__${stat.index}__].sets}"></td>
+                <td><input th:field="*{exercises[__${stat.index}__].reps}"></td>
+
+            </tr>
+        </tbody>
+    </table>
 
     <input type="submit" value="Add Workout">
 </form>

@@ -12,6 +12,7 @@ import java.util.Optional;
 
 public interface WorkoutRepository extends JpaRepository<Workout, Long> {
     Workout save(Workout workout);
+    Workout saveAndFlush(Workout workout);
     void delete(Workout workout);
     void deleteAll();
     List<Workout> findAll();

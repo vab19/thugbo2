@@ -10,7 +10,9 @@ import java.util.Optional;
 
 public interface WorkoutService {
     Workout saveWorkout(Workout workout);
+    Workout saveAndFlushWorkout(Workout workout);
     WorkoutLineItem saveWLI(WorkoutLineItem wli);
+    WorkoutLineItem saveAndFlushWLI(WorkoutLineItem wli);
     void deleteWorkout(Workout workout);
     void deleteWLI(WorkoutLineItem wli);
     void deleteAllWorkouts();

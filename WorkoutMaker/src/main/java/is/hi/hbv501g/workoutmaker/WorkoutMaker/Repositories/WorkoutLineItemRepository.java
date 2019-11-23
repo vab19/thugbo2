@@ -7,6 +7,7 @@ import java.util.Optional;
 
 public interface WorkoutLineItemRepository extends JpaRepository<WorkoutLineItem, Long> {
     WorkoutLineItem save(WorkoutLineItem wli);
+    WorkoutLineItem saveAndFlush(WorkoutLineItem wli);
     void delete(WorkoutLineItem wli);
     void deleteAll();
     Optional<WorkoutLineItem> findById(long id);
