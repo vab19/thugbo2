@@ -7,6 +7,13 @@
     -->
 </head>
 <body>
+<div>
+    <h1 th:text="${workout.workoutName}"></h1>
+    <div>
+        <h3>Description:</h3>
+        <p th:text="${workout.description}"></p>
+    </div>
+</div>
 <div th:switch="${workout.exercises}">
     <h2 th:case="null">No exercises found in workout</h2>
     <div th:case="*">
@@ -26,6 +33,11 @@
                 <td th:text="${wli.getExercise().categories}"></td>
                 <td th:text="${wli.sets}"></td>
                 <td th:text="${wli.reps}"></td>
+                <td>
+                    <form action="#" th:action="@{/view-workout/delete-exercise/{id}(id=${wli.id})}"  method="post">
+                        <input type="submit" value="delete exercise">
+                    </form>
+                </td>
             </tr>
             </tbody>
         </table>
