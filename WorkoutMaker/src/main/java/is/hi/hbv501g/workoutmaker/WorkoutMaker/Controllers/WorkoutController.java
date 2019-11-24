@@ -36,6 +36,13 @@ public class WorkoutController {
         this.userService = userService;
     }
 
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    public String workoutDelete(@PathVariable long id, HttpSession session, Model model) {
+        System.out.println("button clicked");
+        workoutService.deleteWorkout(workoutService.findWorkoutById(id).get());
+        return "redirect:/profile";
+    }
+
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public String workoutGET(HttpSession session, Model model){
         User sessionUser = (User) session.getAttribute("LoggedInUser");
