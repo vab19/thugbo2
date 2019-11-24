@@ -15,7 +15,7 @@ public class Workout {
 
     private String workoutTypes;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne//(cascade = CascadeType.ALL)
     private User user;
 
     @OneToMany(mappedBy = "workout", cascade = CascadeType.ALL)

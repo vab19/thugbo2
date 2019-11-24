@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -33,6 +34,13 @@ public class WorkoutController {
         this.exerciseService = exerciseService;
         this.workoutService = workoutService;
         this.userService = userService;
+    }
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    public String workoutDelete(@PathVariable long id, HttpSession session, Model model) {
+        System.out.println("button clicked");
+        workoutService.deleteWorkout(workoutService.findWorkoutById(id).get());
+        return "redirect:/profile";
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
@@ -88,6 +96,12 @@ public class WorkoutController {
         model.addAttribute("workout", workout);
         return "add-workout"; }
 
+    @RequestMapping(value = "/view-workout/{workoutId}", method = RequestMethod.GET)
+    public String viewWorkoutGET(@PathVariable("workoutId") int wId, Model model) {
+        Workout workout = workoutService.findWorkoutById(wId).get();
+        model.addAttribute("workout", workout);
+        return "view-workout";
+    }
 
 
 }
