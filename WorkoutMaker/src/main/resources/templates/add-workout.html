@@ -29,18 +29,22 @@
     <table>
         <thead>
             <tr>
-                <th>Exercises</th>
+                <th>Workout</th>
             </tr>
         </thead>
         <tbody>
+            <tr>
+                <th scope="col">Exercise Id</th>
+                <th scope="col">Sets</th>
+                <th scope="col">Reps</th>
+            </tr>
             <tr th:each="exercise, stat : *{exercises}">
+                <td><input th:field="*{exercises[__${stat.index}__].exId}"></td>
                 <td><input th:field="*{exercises[__${stat.index}__].sets}"></td>
                 <td><input th:field="*{exercises[__${stat.index}__].reps}"></td>
-
             </tr>
         </tbody>
     </table>
-
     <input type="submit" value="Add Workout">
 </form>
 

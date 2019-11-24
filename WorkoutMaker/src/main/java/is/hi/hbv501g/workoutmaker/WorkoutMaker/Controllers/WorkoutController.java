@@ -1,5 +1,6 @@
 package is.hi.hbv501g.workoutmaker.WorkoutMaker.Controllers;
 
+import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.Exercise;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.User;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.Workout;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.WorkoutLineItem;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -32,6 +34,13 @@ public class WorkoutController {
         this.exerciseService = exerciseService;
         this.workoutService = workoutService;
         this.userService = userService;
+    }
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
+    public String workoutDelete(@PathVariable long id, HttpSession session, Model model) {
+        System.out.println("button clicked");
+        workoutService.deleteWorkout(workoutService.findWorkoutById(id).get());
+        return "redirect:/profile";
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
@@ -62,29 +71,49 @@ public class WorkoutController {
         //        workoutService.saveAndFlushWLI(wli1);
           //  }
             for (WorkoutLineItem l: wlis) {
-                l.setWorkout(workout);
+                if (l.getExId() != 0) {
+                    Exercise ex = exerciseService.findById(l.getExId()).get();
+                    l.setExercise(ex);
+                    l.setWorkout(workout);
+                }
             }
 
             workout.setUser(sessionUser);
             workoutService.saveWorkout(workout);
             return "redirect:/profile";
         }
-
         return "redirect:/";
     }
 
     @RequestMapping(value = "/add-workout", method = RequestMethod.GET)
     public String addWorkoutForm(Workout workout, Model model){
         List<WorkoutLineItem> exercises = workout.getExercises();
-        for (int i = 1; i <= 3; i++) {
+        
+        for (int i = 0; i < 3; i++) {
             WorkoutLineItem wli = new WorkoutLineItem();
             wli.setWorkout(workout);
             exercises.add(wli);
         }
+
         workout.setExercises(exercises);
         model.addAttribute("workout", workout);
         return "add-workout"; }
 
+    @RequestMapping(value = "/view-workout/{workoutId}", method = RequestMethod.GET)
+    public String viewWorkoutGET(@PathVariable("workoutId") int wId, Model model) {
+        Workout workout = workoutService.findWorkoutById(wId).get();
+        model.addAttribute("workout", workout);
+        return "view-workout";
+    }
+
+    @RequestMapping(value = "/view-workout/delete-exercise/{id}", method = RequestMethod.POST)
+    public String workoutLineItemDelete(@PathVariable long id , HttpSession session, Model model) {
+        System.out.println("button clicked");
+        //nær í id á exercise sem á að deletea og síðan finnur hann workoutið sem wli á og fer á sá síðu aftur
+        long workoutId = workoutService.findWLIById(id).get().getWorkout().getId();
+        workoutService.deleteWLI(workoutService.findWLIById(id).get());
+        return "redirect:/view-workout/" + workoutId;
+    }
 
 
 }

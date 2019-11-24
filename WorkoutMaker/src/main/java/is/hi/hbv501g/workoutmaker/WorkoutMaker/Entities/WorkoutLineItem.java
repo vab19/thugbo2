@@ -8,23 +8,25 @@ public class WorkoutLineItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne//(cascade = CascadeType.ALL)
     private Workout workout;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne//(cascade = CascadeType.ALL)
     private Exercise exercise;
 
+    private int exId;
     private int sets;
     private int reps;
 
     public WorkoutLineItem(){
     }
 
-    public WorkoutLineItem(Workout workout, int sets, int reps, Exercise exercise) {
+    public WorkoutLineItem(Workout workout, int sets, int reps, Exercise exercise, int exId) {
         this.workout = workout;
         this.sets = sets;
         this.reps = reps;
         this.exercise = exercise;
+        this.exId = exId;
     }
 
     public long getId() {
@@ -65,5 +67,13 @@ public class WorkoutLineItem {
 
     public void setExercise(Exercise exercise) {
         this.exercise = exercise;
+    }
+
+    public int getExId() {
+        return exId;
+    }
+
+    public void setExId(int exId) {
+        this.exId = exId;
     }
 }
