@@ -24,7 +24,8 @@ public class Workout {
     public Workout() {
     }
 
-    public Workout(User user, String workoutName, String description, Date date, String workoutTypes) {
+
+    public Workout(User user, String workoutName, String description, String workoutTypes) {
         this.user = user;
         this.workoutName = workoutName;
         this.description = description;
@@ -71,6 +72,7 @@ public class Workout {
     public void setId(long id) {
         this.id = id;
     }
+
 
     public void setExercises(List<WorkoutLineItem> exercises) {
         this.exercises = exercises;

@@ -1,9 +1,11 @@
 package is.hi.hbv501g.workoutmaker.WorkoutMaker.Controllers;
 
+import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.Exercise;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.User;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.Workout;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Entities.WorkoutLineItem;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Services.ExerciseService;
+import is.hi.hbv501g.workoutmaker.WorkoutMaker.Services.UserService;
 import is.hi.hbv501g.workoutmaker.WorkoutMaker.Services.WorkoutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,11 +27,13 @@ import java.util.ListIterator;
 public class WorkoutController {
     private ExerciseService exerciseService;
     private WorkoutService workoutService;
+    private UserService userService;
 
     @Autowired
-    public WorkoutController(ExerciseService exerciseService, WorkoutService workoutService){
+    public WorkoutController(ExerciseService exerciseService, WorkoutService workoutService, UserService userService){
         this.exerciseService = exerciseService;
         this.workoutService = workoutService;
+        this.userService = userService;
     }
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
@@ -53,7 +57,8 @@ public class WorkoutController {
     @RequestMapping(value = "/add-workout", method = RequestMethod.POST)
     public String addWorkout(@Valid Workout workout, HttpSession session, BindingResult result, Model model) {
         if(result.hasErrors()) { return "add-workout"; }
-        User sessionUser = (User) session.getAttribute("LoggedInUser");
+        String sessionUsername = ((User) session.getAttribute("LoggedInUser")).getUsername();
+        User sessionUser = userService.findByUsername(sessionUsername);
         //ef user loggaður inn þá save-a workoutið
         if(sessionUser  != null){
             ArrayList<WorkoutLineItem> wlis = new ArrayList<>(workout.getExercises());
@@ -65,6 +70,8 @@ public class WorkoutController {
         //        workoutService.saveAndFlushWLI(wli1);
           //  }
             for (WorkoutLineItem l: wlis) {
+                Exercise ex = exerciseService.findById(l.getExId()).get();
+                l.setExercise(ex);
                 l.setWorkout(workout);
             }
 
@@ -87,7 +94,5 @@ public class WorkoutController {
         workout.setExercises(exercises);
         model.addAttribute("workout", workout);
         return "add-workout"; }
-
-
 
 }
