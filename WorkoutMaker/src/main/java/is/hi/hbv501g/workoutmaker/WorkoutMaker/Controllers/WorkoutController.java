@@ -71,27 +71,30 @@ public class WorkoutController {
         //        workoutService.saveAndFlushWLI(wli1);
           //  }
             for (WorkoutLineItem l: wlis) {
-                Exercise ex = exerciseService.findById(l.getExId()).get();
-                l.setExercise(ex);
-                l.setWorkout(workout);
+                if (l.getExId() != 0) {
+                    Exercise ex = exerciseService.findById(l.getExId()).get();
+                    l.setExercise(ex);
+                    l.setWorkout(workout);
+                }
             }
 
             workout.setUser(sessionUser);
             workoutService.saveWorkout(workout);
             return "redirect:/profile";
         }
-
         return "redirect:/";
     }
 
     @RequestMapping(value = "/add-workout", method = RequestMethod.GET)
     public String addWorkoutForm(Workout workout, Model model){
         List<WorkoutLineItem> exercises = workout.getExercises();
-        for (int i = 1; i <= 3; i++) {
+        
+        for (int i = 0; i < 3; i++) {
             WorkoutLineItem wli = new WorkoutLineItem();
             wli.setWorkout(workout);
             exercises.add(wli);
         }
+
         workout.setExercises(exercises);
         model.addAttribute("workout", workout);
         return "add-workout"; }
