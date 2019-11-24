@@ -38,8 +38,9 @@ public class WorkoutController {
 
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.POST)
     public String workoutDelete(@PathVariable long id, HttpSession session, Model model) {
+        System.out.println("button clicked");
         workoutService.deleteWorkout(workoutService.findWorkoutById(id).get());
-        return "redirect:/";
+        return "redirect:/profile";
     }
 
     @RequestMapping(value = "/profile", method = RequestMethod.GET)

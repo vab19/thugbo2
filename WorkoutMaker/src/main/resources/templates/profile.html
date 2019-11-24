@@ -24,7 +24,11 @@
                 <td th:text="${workout.workoutName}"></td>
                 <td th:text="${workout.workoutTypes}"></td>
                 <td th:text="${workout.description}"></td>
-                <td><button th:action="@{/delete/{id}(id=${workout.id})}" method="post">delete</button></td>
+                <td>
+                    <form action="#" th:action="@{/delete/{id}(id=${workout.id})}" th:object="${workout}" method="post">
+                        <input type="submit" value="delete">
+                    </form>
+                </td>
             </tr>
             </tbody>
         </table>
@@ -33,3 +37,4 @@
 <p><a href="/add-workout">Add a new workout</a></p>
 </body>
 </html>
+<!--<button action="#" th:action="@{/delete/{id}(id=${workout.id})}" th:object="${workout}" method="post">delete</button>-->
