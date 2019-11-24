@@ -106,5 +106,14 @@ public class WorkoutController {
         return "view-workout";
     }
 
+    @RequestMapping(value = "/view-workout/delete-exercise/{id}", method = RequestMethod.POST)
+    public String workoutLineItemDelete(@PathVariable long id , HttpSession session, Model model) {
+        System.out.println("button clicked");
+        //nær í id á exercise sem á að deletea og síðan finnur hann workoutið sem wli á og fer á sá síðu aftur
+        long workoutId = workoutService.findWLIById(id).get().getWorkout().getId();
+        workoutService.deleteWLI(workoutService.findWLIById(id).get());
+        return "redirect:/view-workout/" + workoutId;
+    }
+
 
 }
